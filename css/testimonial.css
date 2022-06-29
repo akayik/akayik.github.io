@@ -1,0 +1,158 @@
+.testimonialSection{
+    background: #e5e7eb;
+    width: 100vw;
+}
+
+.testimonialHolder{
+    margin: 0 auto;
+}
+
+.sectionHeader{
+    padding: 2rem;
+    text-align: center;
+}
+
+.sectionSubheading{
+    font-weight: 600;
+    color: #111827;
+    opacity: 0.75;
+}
+
+.sectionMainheading{
+    font-weight: bold;
+    font-size: 1.875rem;
+    color: #1e4489;
+}
+
+.testimonialContainer{
+    padding: 0 2rem 3rem 2rem;
+    text-align: center;
+    margin: 0 auto !important;
+}
+
+.testimonial{
+    height: 16rem !important;
+    margin: auto 0 !important;
+}
+
+.testimonialPerson{
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.testimonialCompany{
+    opacity: 0.7;
+}
+
+.slick-dots{
+    width: 80% !important;
+    position: absolute;
+    bottom: 0 !important;
+    padding-bottom: 2rem !important;
+}
+
+.slick-dotted{
+    margin: 0 !important;
+}
+
+.slick-slider{
+    margin: 0 !important;
+}
+
+.slick-dots li button:before {
+    color: #111827 !important;
+    font-size: .6rem !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color:#1e4489 !important;
+    font-size: .8rem !important;
+    opacity: 1 !important;
+}
+
+@media (min-width: 375px) {
+    .testimonial{
+        height: 14rem !important;
+    }
+
+    .slick-dots{
+        width: 83% !important;
+    }
+}
+
+@media (min-width: 425px) {
+    .testimonial{
+        height: 13rem !important;
+    }
+
+    .slick-dots{
+        width: 85% !important;
+    }
+}
+
+@media (min-width: 640px) {
+    .testimonialHolder{
+        padding: 0 7rem;
+    }
+
+    .testimonial{
+        height: 14rem !important;
+    }
+
+    .slick-dots{
+        width: 88% !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .testimonialHolder{
+        padding: 0 3.5rem;
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    .sectionHeader{
+        grid-column: 1/7;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: left;
+        padding-top: 3rem;
+    }
+
+    .testimonialContainer{
+        grid-column: 7/12;
+        text-align: left;
+        padding: 3rem 0 0 0;
+    }
+
+    .testimonial{
+        height: 16rem !important;
+    }
+
+    .slick-dots{
+        width: 120px !important;
+        left: -10px;
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .testimonialHolder{
+        padding: 0 15rem 3.5rem 15rem;
+    }
+
+    .testimonialContainer{
+        grid-column: 7/12;
+        padding-top: 3.5rem;
+    }
+
+    .sectionHeader{
+        padding-top: 3.5rem;
+    }
+}
+
+@media (min-width: 1536px) {
+    .testimonialHolder{
+        max-width: 1536px;
+    }
+}

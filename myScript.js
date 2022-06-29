@@ -152,3 +152,13 @@ function hideLoader() {
     y.classList.add("overflow-y-scroll");
 }
 
+function testimonialWidthResize() {
+    console.log("khulo");
+    var x = document.getElementById("testimonialContainer");
+    var y = document.querySelector(".sectionHeader");
+    const headerWidth = y.getBoundingClientRect().width;
+    var widthValue = headerWidth + "px";
+    console.log(widthValue);
+    x.style.width = widthValue;
+}
+

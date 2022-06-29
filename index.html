@@ -8,8 +8,12 @@
     <link href="/css/build.css" rel="stylesheet" />
     <script defer src="myScript.js"></script>
     <script defer src="script/testimonial.js"></script>
+    <link rel="stylesheet" href="/css/testimonial.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
+
 </head>
-<body class="font-sans overflow-hidden overflow-x-hidden" id="body" onload="hideLoader(); slideHeader();" onscroll="smallHeader(); slideHeader();">
+<body class="font-sans overflow-hidden overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); testimonialWidthResize();" onscroll="smallHeader(); slideHeader();" onresize="testimonialWidthResize();">
 
     <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
         <div class="flex h-screen items-center justify-center w-screen gap-0">
@@ -181,51 +185,58 @@
             </div>
         </div>
 
-        
-        <div class="bg-gray-200 text-center lg:text-left">
-            <div class="px-8 pt-8 pb-8 sm:px-28 lg:px-20 lg:pt-20 lg:pb-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
-                <div class="w-[12%] hidden xl:inline-block text-gray-200">
-                    .
+        <div class="testimonialSection">
+            <div class="testimonialHolder">
+                <div class="sectionHeader">
+                    <h3 class="sectionSubheading">Testimonials</h3>
+                    <p class="sectionMainheading">What people say</p>
                 </div>
-                <div class="lg:w-5/12 xl:w-4/12 lg:inline-block lg:align-top">
-                    <h3 class="text-lg font-semibold text-gray-900 opacity-75 xl:text-xl xl:mb-4">Testimonials</h3>
-                    <p class="text-3xl font-bold text-akayik-900 xl:text-4xl">What people say</p>
-                </div>
-                <div class="lg:w-6/12 xl:w-5/12 lg:inline-block mt-14 mb-8 lg:mt-0">
-                    <div id="track_container">
-                        <div class="h-60 m2:h-56 m3:h-48 md:h-40 lg:h-32 xl:h-40 testimonial-slider" id="track">
-
-                            <div class="w-ful" id="firstSlide">
-                                <span class="mt-4 lg:mt-0 text-base text-gray-700 lg:text-sm xl:text-lg block">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</span>
-                                <span class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg block font-bold">Apurba Neupane</span>
-                                <span class="text-base text-gray-700 lg:text-sm xl:text-lg block opacity-70">CEO, Nothing</span>
-                            </div>
-
-                            <div class="w-full">
-                                <span class="mt-4 lg:mt-0 text-base text-gray-700 lg:text-sm xl:text-lg block">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</span>
-                                <span class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg block font-bold">Neupane Apurba</span>
-                                <span class="text-base text-gray-700 lg:text-sm xl:text-lg block opacity-70">CEO, Nothing</span>
-                            </div>
-
-                            <div class="w-full">
-                                <span class="mt-4 lg:mt-0 text-base text-gray-700 lg:text-sm xl:text-lg block">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</span>
-                                <span class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg block font-bold">Aagya Neupane</span>
-                                <span class="text-base text-gray-700 lg:text-sm xl:text-lg block opacity-70">CEO, Nothing</span>
-                            </div>
-
-                            <div class="w-full">
-                                <span class="mt-4 lg:mt-0 text-base text-gray-700 lg:text-sm xl:text-lg block">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</span>
-                                <span class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg block font-bold">Neupane Aagya</span>
-                                <span class="text-base text-gray-700 lg:text-sm xl:text-lg block opacity-70">CEO, Nothing</span>
-                            </div>
-
-                        </div>
+                <div class="testimonialContainer  testimonialSlider" id="testimonialContainer">
+                    <div class="testimonial">
+                        <p class="testimonialcontent">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</p>
+                        <p class="testimonialPerson">Apurba Neupane</p>
+                        <p class="testimonialCompany">CEO, Nothing</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonialcontent">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</p>
+                        <p class="testimonialPerson">Neupane Apurba</p>
+                        <p class="testimonialCompany">CEO, Nothing</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonialcontent">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</p>
+                        <p class="testimonialPerson">Aagya Neupane</p>
+                        <p class="testimonialCompany">CEO, Nothing</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonialcontent">A tatti designer through and through. Couldn’t design a good application if his life depended on it. Worst addition to my team so far. Also a major pain in the ass to work with. Don’t recommend.</p>
+                        <p class="testimonialPerson">Neupane Aagya</p>
+                        <p class="testimonialCompany">CEO, Nothing</p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.testimonialSlider').slick({
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            autoplay: false,
+            autoplaySpeed: 6000,
+            infinite: true,
+            prevArrow: '',
+            nextArrow: '',
+          });
+        });
+    </script>
 
 </body>
 </html>
