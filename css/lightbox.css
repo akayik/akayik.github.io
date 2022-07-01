@@ -1,0 +1,37 @@
+.slideshowContainer{
+    width: 8rem; 
+    margin: auto;
+}
+
+.lightboxBG{
+    background: #171717;
+    width: 100vw;
+    height: 100vh;
+}
+
+.lightboxImage{
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    margin: 0;
+}
+
+*{
+    outline: 2px solid red !important;
+}
+
+.slick-next {
+    position: absolute;
+    right: 0 !important;
+    z-index: 155 !important;
+}
+
+.slick-prev {
+    position: absolute;
+    left: 0 !important;
+    z-index: 155 !important;
+}
