@@ -7,6 +7,7 @@
     <!-- <link href="/css/tailwind.css" rel="stylesheet" /> -->
     <link href="/css/build.css" rel="stylesheet" />
     <script defer src="script/myScript.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
 <body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader();" onscroll="smallHeader(); slideHeader();">
 
@@ -115,10 +116,18 @@
                 <h1 class="text-3xl pb-10 text-akayik-900 font-bold xl:text-4xl lg:col-span-6 text-left order-1 lg:order-1 lg:pb-0">A constant work in progress</h1>
                 <div class="block lg:order-2 col-span-6"></div>
                 <div class="mt-2 h-72 md:h-96 grid grid-cols-4 grid-rows-3 gap-3 md:grid-cols-8 lg:col-span-6 lg:order-4 lg:col-start-7">
-                    <img class="col-span-3 row-span-2 md:col-span-5 h-full w-full object-cover object-center" src="img/me.png">
-                    <img class="col-span-1 row-span-2 md:col-span-3 h-full w-full object-cover object-center" src="img/mug.jpg">
-                    <img class="col-span-2 row-span-1 md:col-span-4 h-full w-full object-cover object-center" src="img/sasheela.jpg">
-                    <img class="col-span-2 row-span-1 md:col-span-4 h-full w-full object-cover object-center" src="img/gahana.jpg">
+                    <a class="glightbox col-span-3 row-span-2 md:col-span-5" href="img/me.png" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                        <img class = "h-full w-full object-cover object-center" src="img/me.png" alt="image" />
+                    </a>
+                    <a class="glightbox col-span-1 row-span-2 md:col-span-3" href="img/mug.jpg" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                        <img class = "h-full w-full object-cover object-center" src="img/mug.jpg" alt="image" />
+                    </a>
+                    <a class="glightbox col-span-2 row-span-1 md:col-span-4" href="img/sasheela.jpg" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                        <img class = "h-full w-full object-cover object-center" src="img/sasheela.jpg" alt="image" />
+                    </a>
+                    <a class="glightbox col-span-2 row-span-1 md:col-span-4" href="img/gahana.jpg" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                        <img class = "h-full w-full object-cover object-center" src="img/gahana.jpg" alt="image" />
+                    </a>
                 </div>
                 <div class="lg:col-span-6 lg:pr-10 lg:order-3">
                     <p class="mt-6 lg:mt-0 text-gray-700 text-base xl:text-lg text-left"></p>
@@ -160,6 +169,15 @@
         </div>
     
     </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script type="text/javascript">
+        const lightbox = GLightbox({
+            touchNavigation: true,
+            loop: true,
+        });
+    </script>
 
 </body>
 </html>

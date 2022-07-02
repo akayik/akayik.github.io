@@ -37,8 +37,6 @@ function caseHeaderBg(){
     var blueLogo = "img/logo-blue.svg";
     var blueBurger = "img/burger-blue.svg";
 
-    console.log(sTop);
-
     if (iBottom > 0){
         //bg-transparent and icons white
         header.classList.remove("bg-akayik-900", "bg-white");
@@ -153,7 +151,6 @@ function hideLoader() {
 }
 
 function testimonialWidthResize() {
-    console.log("khulo");
     var x = document.getElementById("testimonialContainer");
     var y = document.querySelector(".sectionHeader");
     const headerWidth = y.getBoundingClientRect().width;
@@ -161,4 +158,6 @@ function testimonialWidthResize() {
     console.log(widthValue);
     x.style.width = widthValue;
 }
+
+
 
