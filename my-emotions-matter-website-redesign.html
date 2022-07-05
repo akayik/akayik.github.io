@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case</title>
+    <title>My Emotions Matter : Website Re-design</title>
     <link href="/css/tailwind.css" rel="stylesheet" />
     <link href="/css/build.css" rel="stylesheet" />
     <script defer src="script/myScript.js"></script>
@@ -27,6 +27,7 @@
         </div>
     </div>
 
+    <!-- Full Navigation Menu Starts. It is translated out of the screen. It is brought inside when the hamburger icon is pressed. -->
     <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
       
         <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
@@ -36,15 +37,17 @@
 
         <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
 
+            <!-- Website Navigaiton Links -->
             <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
                 <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
                 <menu>
-                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li>
+                    <a href="index.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
                     <a href="about.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
-                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li>
+                    <a href="about.html#contactInformation"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
                 </menu>
             </div>
 
+            <!-- Contact Links -->
             <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
                 <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
                 <menu>
@@ -54,10 +57,11 @@
                 </menu>
             </div>
 
+            <!-- Case Study Links -->
             <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
-                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Work</h1>
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
                 <menu>
-                    <a class="block">
+                    <a class="block" href="channel-simplify-SaaS.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         Channel Simplify
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -65,7 +69,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="OGB-connect-product-design.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         OGB: Connect
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -73,7 +77,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="super-krishak-system-design.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         Super Krishak
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -81,7 +85,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="my-emotions-matter-website-redesign.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         My Emotions Matter
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -89,7 +93,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="off-grid-bazaar-project-management.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         Off Grid Bazaar
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -111,7 +115,7 @@
             </div>
         </div>
         <div class="relative float-left -z-1">
-            <img class="h-96 w-screen object-cover object-left block" src="img/MEM_Hero.jpg" alt="hero image" id="heroImage">
+            <img class="h-96 w-screen object-cover object-left block" src="img/MyEmotionsMatter/An image of what a My emotions matter workshop looks like.webp" alt="An image of a group of people sitting on a desk and writing" id="heroImage">
             <div class="bg-gradient-to-t from-akayik-900 h-32 w-screen absolute bottom-0">
                 <p class="opacity-0">.</p>
             </div>
@@ -133,11 +137,11 @@
         <div class="lg:col-span-5">
             <h3 class="text-lg font-semibold text-gray-900 opacity-75 xl:text-xl xl:mb-4">Problem</h3>
             <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">They were struggling with their communication</h1>
-            <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">My Emotions Matter had a very serious problem to solve. They knew that they were doing an important job. The people they were talking to also knew that they were doing an important job. However, the details of how they were doing it and what they were exactly doing had been difficult for them to communicate. Also, since they were seeking to have more B2B transactions than B2C transactions, they wanted to present themselves accordingly. They wanted to create a website that would help them build trust and credibility while looking professional as well.</p>
+            <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">The company was struggling to communicate about their work. They knew that they were doing an important job. The people they were talking to also knew that they were doing an important job. However, the details of how they were doing it and what they were exactly doing had been difficult for them to communicate. Also, since they were seeking to have more B2B transactions than B2C transactions, they wanted to present themselves accordingly. They wanted to create a website that would help them build trust and credibility while looking professional.</p>
         </div>
         <div class="lg:col-span-6 lg:col-start-7">
-            <a class="glightbox mt-6" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
-                <img src="https://picsum.photos/1200/800" alt="image" />
+            <a class="glightbox mt-6" href="img/MyEmotionsMatter/Screenshots from the old My emotions matter website.webp" data-glightbox="type: image; description: Some screengrabs from the old website of My Emotions Matter" data-gallery="g1" >
+                <img class="mt-8 lg:mt-0" src="img/MyEmotionsMatter/Screenshots from the old My emotions matter website.webp" alt="image" />
             </a>
             <p class="mt-2 text-sm italic text-gray-400 text-center xl:text-base">Some screengrabs from the old website of My Emotions Matter</p>
         </div>
@@ -147,9 +151,9 @@
         <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
             <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20">
                 <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
-                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">I was the only designer on the team and I looked after the UI design as well as creating the other UI elements like icons and graphs. I was the only designer on the team and I looked after the UI design as well as creating the other UI elements like icons and graphs. </p>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">I was the only designer on the team. looked after the UI of the website and created the other UI elements like icons and graphs. </p>
             </div>
-            <img class="hidden lg:inline-block lg:col-span-2 lg:h-52 lg:w-full lg:object-cover xl:h-64 2xl:pr-20 2xl:" src="img/MEM_Hero.jpg" alt="">            
+            <img class="hidden lg:inline-block lg:col-span-2 lg:h-52 lg:w-full lg:object-cover xl:h-64 2xl:pr-20 2xl:" src="img/MyEmotionsMatter/Rough sketches of icons that would be used later on in the design.webp" alt="">            
         </div>
     </div>
 
@@ -160,7 +164,7 @@
             <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Approach</h3>
             <div>
                 <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">How we solved the problem</h1>
-                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">Right after the initial meeting, it was clear that finding the right tone was crucial for the success of the business. And the packaging had to cater to both businesses and individuals. So that is where we focused on.</p>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">After the initial meeting, it was clear that finding the right tone to communicate was crucial for the business's success. And the packaging had to cater to both businesses and individuals. So that is where we focused on.</p>
             </div>
 
         </div>
@@ -173,7 +177,7 @@
                     <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
                 </div>
                 <div class="hidden lg:block" id="content1">
-                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >The story of MEM had to be clear and concise to make a reasonable impact on the website's viewers. And that is what the MEM team and I focused on. Taking all the documentation and marketing efforts made by the company, we created a clear narrative for the organization. Re-iteration of the marketing content and restructuring them helped in creating a clear differentiation between the offerings of the organization and assisted in our presentation. </p>
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >The story of MEM had to be clear and concise to reasonably impact the website's viewers. And that is what the MEM team and I focused on. Taking reference to all the documentation and marketing efforts made by the company so far, we created a clear narrative for the organization. Re-iteration of the marketing content and restructuring them helped in creating a clear differentiation between the offerings of the organization and assisted in our presentation.</p>
                 </div>
             </div>
 
@@ -183,19 +187,19 @@
                     <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
                 </div>
                 <div class="hidden lg:block lg:border-0" id="content2">
-                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The presentation of the content was the make or break. It was essential for us to nail it or risk potential clients. So thorough research was conducted, a mood board was created and style frames were explored before we settled on the final look and feel.</p>
-                    <div class="mt-8 flex overflow-x-auto lg:overflow-hidden">
-                        <a class="glightbox h-32 m3:h-48 md:h-40 pr-3" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g2" >
-                            <img src="https://picsum.photos/1200/800" alt="image" />
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The packaging of the content was the make or break. It was essential for us to nail it or risk potential clients. So thorough research was conducted, a mood board was created and style frames were explored before we settled on the final look and feel.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/MyEmotionsMatter/Existing designs were researched and a moodboard was created.webp" data-glightbox="type: image; description: A section of the moodboard that was created during the early stage of design" data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/MyEmotionsMatter/Existing designs were researched and a moodboard was created.webp" alt="image" />
                         </a>
-                        <a class="glightbox h-32 m3:h-48 md:h-40 pr-3" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g2" >
-                            <img src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/MyEmotionsMatter/Different navigation mechanisms.webp" data-glightbox="type: image; description: Different navigation mechanisms that were explored during the design of the landing page" data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/MyEmotionsMatter/Different navigation mechanisms.webp" alt="image" />
                         </a>
-                        <a class="glightbox h-32 m3:h-48 md:h-40 pr-3" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g2" >
-                            <img src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/MyEmotionsMatter/Different Hero content.webp" data-glightbox="type: image; description: Different hero sections that were explored during the design of the landing page" data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/MyEmotionsMatter/Different Hero content.webp" alt="image" />
                         </a>
                     </div>
-                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-center xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Research and exploration that happened in the early stages of design</p>
                 </div>
             </div>
 
@@ -211,51 +215,61 @@
         </div>
         <div class="lg:col-span-12">
             <div class="flex flex-wrap sm:flex-nowrap overflow-x-auto lg:overflow-hidden">
-                <a class="glightbox py-2 basis-full sm:w-80 sm:pr-3 lg:w-1/3" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g3" >
-                    <img src="https://picsum.photos/1200/800" alt="image" />
+                <a class="glightbox py-2 basis-full sm:w-80 sm:pr-3 lg:w-1/3" href="img/MyEmotionsMatter/Landing Page Mockup.webp" data-glightbox="type: image; description: A mockup of the final landing page design" data-gallery="g3" >
+                    <img src="img/MyEmotionsMatter/Landing Page Mockup.webp" alt="image" />
                 </a>
-                <a class="glightbox py-2 basis-full sm:w-80 sm:pr-3 lg:w-1/3" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g3" >
-                    <img src="https://picsum.photos/1200/800" alt="image" />
+                <a class="glightbox py-2 basis-full sm:w-80 sm:pr-3 lg:w-1/3" href="img/MyEmotionsMatter/Resources section of the website.webp" data-glightbox="type: image; description: Mobile view of the final design for the resources section" data-gallery="g3" >
+                    <img src="img/MyEmotionsMatter/Resources section of the website.webp" alt="image" />
                 </a>
-                <a class="glightbox py-2 basis-full sm:w-80 sm:pr-3 lg:w-1/3" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g3" >
-                    <img src="https://picsum.photos/1200/800" alt="image" />
-                </a>3            </div>
-            <p class="mt-2 text-sm italic text-gray-400 text-center xl:text-base">Some screengrabs from the old website of My Emotions Matter</p>
+                <a class="glightbox py-2 basis-full sm:w-80 sm:pr-3 lg:w-1/3" href="img/MyEmotionsMatter/About us section of the website.webp" data-glightbox="type: image; description: Laptop view of the final design for the about us section of the website" data-gallery="g3" >
+                    <img src="img/MyEmotionsMatter/About us section of the website.webp" alt="image" />
+                </a>
+            </div>
+            <p class="mt-2 text-sm italic text-gray-400 text-center xl:text-base">Some mockups of the final designs</p>
         </div>
     </div>
 
     <div class="bg-gray-200">
         <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
-            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20">
-                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
-                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">I was the only designer on the team and I looked after the UI design as well as creating the other UI elements like icons and graphs. I was the only designer on the team and I looked after the UI design as well as creating the other UI elements like icons and graphs. </p>
-            </div>
-            <img class="hidden lg:inline-block lg:col-span-2 lg:h-52 lg:w-full lg:object-cover xl:h-64 2xl:pr-20 2xl:" src="img/MEM_Hero.jpg" alt="">            
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-6">
+                <h1 class="mt-4 text-3xl font-bold text-akayik-900 xl:text-4xl">Reflections</h1>
+                <p class="mt-8 text-base text-gray-700 lg:text-sm xl:text-lg">Working on this website came with its fair share of lessons. </p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4 list-disc pl-5">
+                    <li>I realized that having a clear problem definition makes a ton of difference as all the people involved can have a clear goal in their minds.</li>
+                    <li>Having multiple target audiences is complicated and finding a visual overlap that is suitable for all of them is challenging.</li>
+                </ul>
+            </div>          
         </div>
     </div>
 
 
     <div class="bg-akayik-900">
         <div class="flex items-center justify-between px-8 pb-6 pt-8 sm:px-28 lg:px-14 lg:pt-12 lg:pb-10 2xl:max-w-screen-2xl 2xl:mx-auto">
-            <div class="flex items-center pr-2">
+            <a href="super-krishak-system-design.html"><div class="flex items-center pr-2">
                 <img class="rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
                 <div class="lg:pl-4">
                     <p class="text-sm font-base text-white text-left opacity-50 lg:text-base xl:text-lg">Previous</p>
-                    <p class="text-sm font-medium text-white text-left lg:text-lg xl:text-xl">Saas product for the hospitality industry</p>
+                    <p class="text-sm font-medium text-white text-left lg:text-lg xl:text-xl">Gamified learning for rural farmers in Nepal</p>
                 </div>
-            </div>
-            <div class="flex items-center pl-2">
-                <div class="lg:pr-4">
-                    <p class="text-sm font-base text-white text-right opacity-50 lg:text-base xl:text-lg">Next</p>
-                    <p class="text-sm font-medium text-white text-right lg:text-lg xl:text-xl">Gamified learning for rural farmers in Nepal</p>
                 </div>
+            </a>
+            <a href="off-grid-bazaar-project-management.html">
+                <div class="flex items-center pl-2">
+                    <div class="lg:pr-4">
+                        <p class="text-sm font-base text-white text-right opacity-50 lg:text-base xl:text-lg">Next</p>
+                        <p class="text-sm font-medium text-white text-right lg:text-lg xl:text-xl">Project management for a government initiative</p>
+                    </div>
                 <img class="-rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
-            </div>
+                </div>
+            </a>
         </div>
     </div>
 
     <div class="bg-akayik-900">
-        <p class="text-white text-center text-xs opacity-50 pb-4 pt-8 xl:text-sm">Copyright</p>
+        <div class="pt-8 lg:pt-20">
+            <img src="img/logo-white.svg" class="h-10 mx-auto" alt="">
+            <p class="text-white text-center text-xs opacity-50 pb-8 lg:pb-12 xl:text-sm mt-2">© 2022 Apurba Neupane</p>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>

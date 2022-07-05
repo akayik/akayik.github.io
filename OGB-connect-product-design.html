@@ -1,0 +1,351 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off Grid Bazaar : Remote Project Management</title>
+    <link href="/css/tailwind.css" rel="stylesheet" />
+    <link href="/css/build.css" rel="stylesheet" />
+    <script defer src="script/myScript.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+</head>
+<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); " onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
+
+    <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
+        <div class="flex h-screen items-center justify-center w-screen gap-0">
+            <div class="w-40 md:w-48">
+                <div>
+                    <img class="w-full h-10 object-center lg:h-20 -mt-20" src="img/logo-white.svg" alt="">
+                </div>
+                <div class="w-full relative mt-6 lg:mt-12">
+                    <div class="z-90 animate-bar md:animate-barLarge">
+                        <div class="content-['''] bg-white w-8 h-1.5"></div>
+                    </div>
+                    <div class="content-['''] bg-white/20 w-full h-0.5 absolute top-0 left-0 mt-0.5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Navigation Menu Starts. It is translated out of the screen. It is brought inside when the hamburger icon is pressed. -->
+    <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
+      
+        <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="index.html" class=" col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt=""></a>
+            <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="closeNav();" src="img/cross-white.svg" alt="">
+        </div>
+
+        <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
+
+            <!-- Website Navigaiton Links -->
+            <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
+                <menu>
+                    <a href="index.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
+                    <a href="about.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
+                    <a href="about.html#contactInformation"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
+                </menu>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
+                <menu>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Email</li>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Behance</li>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Instagram</li>
+                </menu>
+            </div>
+
+            <!-- Case Study Links -->
+            <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
+                <menu>
+                    <a class="block" href="channel-simplify-SaaS.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Channel Simplify
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="OGB-connect-product-design.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        OGB: Connect
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="super-krishak-system-design.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Super Krishak
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="my-emotions-matter-website-redesign.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        My Emotions Matter
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="off-grid-bazaar-project-management.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Off Grid Bazaar
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Remote Project Mangement</span>
+                        </li>
+                    </a>
+                </menu>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="font-sans">        
+        <div class="w-screen z-30 px-8 py-8 fixed -top-24 sm:px-28 lg:px-14 xl:px-20  drop-shadow-lg 2xl:mx-auto transition-all duration-500" id="header">
+            <div class="grid grid-cols-2 2xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+                <a href="index.html" class="col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt="" id="logoContainer"></a>
+                <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="openNav();" src="img/burger-white.svg" alt="" id="burgerContainer">
+            </div>
+        </div>
+        <div class="relative float-left -z-1">
+            <img class="h-96 w-screen object-cover object-left block" src="img/MEM_Hero.jpg" alt="hero image" id="heroImage">
+            <div class="bg-gradient-to-t from-akayik-900 h-32 w-screen absolute bottom-0">
+                <p class="opacity-0">.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900 pt-4" id="blueDiv">
+        <div class="px-8 py-8 text-white sm:px-28 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            &nbsp;
+            <h3 class="text-lg font-semibold opacity-80 xl:text-xl">Product Design</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-12 xl:mt-4">
+                <h1 class="text-3xl font-bold col-span-1 lg:col-span-5 xl:text-4xl">I helpred re-design a lead management pipeline</h1>
+                <p class="mt-4 text-base col-span-1 lg:col-span-6 lg:mt-0 lg:col-start-7 lg:text-sm xl:text-lg">Gham Power, a multiple award-winning solar company, had been working with microfinance organizations to make their IoT-based yield improvement solutions more accessible to rural farmers. They had even designed a lead collector application for that very purpose. I was brought in to increase lead generation and improve the pre-existing app.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white px-8 py-8 grid grid-cols-1 sm:px-28 lg:grid-cols-12 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        <div class="lg:col-span-5">
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 xl:text-xl xl:mb-4">Problem</h3>
+            <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">The current method was complex and users were finding it to be difficult</h1>
+            <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">The original application was serving two purposes: lead collection and gathering data on farmers. This meant that for a lead to be registered, the entire farming details of that farmer would have to be registered as well. There were 27 mandatory fields and 20+ additional fields that were optional. The form took more than 6 minutes and 40 seconds to fill out completely.</p>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+            <a class="glightbox mt-6" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                <img class="mt-8 lg:mt-0" src="https://picsum.photos/1200/800" alt="image" />
+            </a>
+            <p class="mt-2 text-sm italic text-gray-400 text-center xl:text-base">Some screengrabs from the old website of My Emotions Matter</p>
+        </div>
+    </div>
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">Working as the primary design lead, I had a few roles to fulfill. While working on this project, I was responsible for</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li>Conducting user interviews and user testing</li>
+                    <li>Designing a questionnaire that would help us quantify the user’s behavior, requirements, and needs</li>
+                    <li>Create an application that met the spec</li>
+                    <li>Look after the design handover to the development team, as well as plan and conduct alpha testing</li>
+                </ul>
+            </div>
+            <img class="hidden lg:inline-block lg:col-span-2 h-[20rem] xl:h-[25rem] lg:w-full lg:object-cover 2xl:pr-20 2xl:" src="img/MEM_Hero.jpg" alt="">            
+        </div>
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Approach</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">How we solved the problem</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">The existing lead generation method had been used for more than a year already and it involved people from different organizations. And the involvement of multiple parties meant that a drastic re-design would have to be backed with a strong rationale.</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading1" onclick="accordion(this.id);" >
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >User interviews and user testing</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block" id="content1">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >Interacting with the users was important at every step of the way. Since the users were microfinance employees working in rural areas of Nepal, I had a lot to learn about them. I conducted user inter interviews, both virtually and on-site, to understand them better. I had to understand their daily life, their work life, their relationship with the current application, and their problems and their aspirations if I were to create a system that helped them work more efficiently. I also conducted multiple rounds of user testing and feedback gathering as soon as the prototypes were ready. This helped gather constant validation that the re-design was a step in the right direction.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-8">Some screengrabs from the old website of My Emotions Matter</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading2" onclick="accordion(this.id);" >
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >Data based decision making</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block" id="content2">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >Every user interaction was based on pre-planned questionnaires designed to separate the data into quantifiable metrics. This helped in removing a significant amount of subjectivity and helped in making objective and data-based decisions. </p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading3" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">MVP before scaling</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content3">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">Since the re-design was a radical step, we decided to not go all-in at once. We first created an MVP, tested it for three months, gathered all the feedback, and then re-iterated it before making the platform available to all our microfinance partners.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Solution</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Highlights of the outcome</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">There was a lot of uncertainty with regards to the re-design before it was launched. Would the user group actually accept the re-design? Would the re-design actually drive up the lead generation? These questions were valid and prominent before the product was launched. Despite the self-doubt and the preliminary resistance, the outcomes were worth everything. </p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading4" onclick="accordion(this.id);" >
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >User acceptance</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block" id="content4">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0 mb-8" >Before the redesign, an average of 13 leads were generated by one branch of the microfinance organization in a month. However, after the redesign, an average of 50 leads were generated by one branch of the same microfinance organization in a month.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading5" onclick="accordion(this.id);" >
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >A minimal redesign</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block" id="content5">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >The data gathering purpose of the application was completely dropped and the app was redesigned to only collect leads. This led to a minimal application with just 2 mandatory fields and two additional fields to fill out optionally. This reduced the lead collection time from more than 6 minutes to 20 seconds. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading6" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Brand new lead management pipeline</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content6">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">When we started working on the lead collection system, we soon realized that our lead management system was also lacking. We also worked on a detailed lead classification system and a suitable lead management platform to tie it all up. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Reflections</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">Working as the primary design lead, I had a few roles to fulfill. While working on this project, I was responsible for</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li class="pb-2">Interacting with my fellow citizens from a rural setting was a truly humbling experience. I also had a newfound respect for the farming population and more gratitude for the food I got to eat.</li>
+                    <li class="pb-2">It is important to conduct user interviews as soon as possible. There is a good chance that our assumptions are off by a significant amount and recalibrating assumptions early on saves a lot of time and effort.</li>
+                    <li class="pb-2">Creating questionnaires that can convert subjective information into quantifiable data helps in bringing everyone on the same page and reduces the chances of personal bias.</li>
+                </ul>
+            </div>           
+        </div>
+    </div>
+
+
+    <div class="bg-akayik-900">
+        <div class="flex items-center justify-between px-8 pb-6 pt-8 sm:px-28 lg:px-14 lg:pt-12 lg:pb-10 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="my-emotions-matter-website-redesign.html"><div class="flex items-center pr-2">
+                <img class="rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                <div class="lg:pl-4">
+                    <p class="text-sm font-base text-white text-left opacity-50 lg:text-base xl:text-lg">Previous</p>
+                    <p class="text-sm font-medium text-white text-left lg:text-lg xl:text-xl">Website redesign for effective communication</p>
+                </div>
+                </div>
+            </a>
+            <a href="channel-simplify-SaaS.html">
+                <div class="flex items-center pl-2">
+                    <div class="lg:pr-4">
+                        <p class="text-sm font-base text-white text-right opacity-50 lg:text-base xl:text-lg">Next</p>
+                        <p class="text-sm font-medium text-white text-right lg:text-lg xl:text-xl">Saas product for the hospitality industry</p>
+                    </div>
+                <img class="-rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900">
+        <p class="text-white text-center text-xs opacity-50 pb-4 pt-8 xl:text-sm">Copyright</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script type="text/javascript">
+        const lightbox = GLightbox({
+            touchNavigation: true,
+            loop: true
+        });
+    </script>
+
+</body>
+</html>

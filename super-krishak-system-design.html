@@ -1,0 +1,335 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case</title>
+    <link href="/css/tailwind.css" rel="stylesheet" />
+    <link href="/css/build.css" rel="stylesheet" />
+    <script defer src="script/myScript.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+</head>
+<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); " onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
+
+    <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
+        <div class="flex h-screen items-center justify-center w-screen gap-0">
+            <div class="w-40 md:w-48">
+                <div>
+                    <img class="w-full h-10 object-center lg:h-20 -mt-20" src="img/logo-white.svg" alt="">
+                </div>
+                <div class="w-full relative mt-6 lg:mt-12">
+                    <div class="z-90 animate-bar md:animate-barLarge">
+                        <div class="content-['''] bg-white w-8 h-1.5"></div>
+                    </div>
+                    <div class="content-['''] bg-white/20 w-full h-0.5 absolute top-0 left-0 mt-0.5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Navigation Menu Starts. It is translated out of the screen. It is brought inside when the hamburger icon is pressed. -->
+    <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
+      
+        <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="index.html" class=" col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt=""></a>
+            <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="closeNav();" src="img/cross-white.svg" alt="">
+        </div>
+
+        <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
+
+            <!-- Website Navigaiton Links -->
+            <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
+                <menu>
+                    <a href="index.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
+                    <a href="about.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
+                    <a href="about.html#contactInformation"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
+                </menu>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
+                <menu>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Email</li>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Behance</li>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Instagram</li>
+                </menu>
+            </div>
+
+            <!-- Case Study Links -->
+            <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
+                <menu>
+                    <a class="block" href="channel-simplify-SaaS.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Channel Simplify
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="OGB-connect-product-design.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        OGB: Connect
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="super-krishak-system-design.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Super Krishak
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="my-emotions-matter-website-redesign.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        My Emotions Matter
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="off-grid-bazaar-project-management.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Off Grid Bazaar
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Remote Project Mangement</span>
+                        </li>
+                    </a>
+                </menu>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="font-sans">        
+        <div class="w-screen z-30 px-8 py-8 fixed -top-24 sm:px-28 lg:px-14 xl:px-20  drop-shadow-lg 2xl:mx-auto transition-all duration-500" id="header">
+            <div class="grid grid-cols-2 2xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+                <a href="index.html" class="col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt="" id="logoContainer"></a>
+                <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="openNav();" src="img/burger-white.svg" alt="" id="burgerContainer">
+            </div>
+        </div>
+        <div class="relative float-left -z-1">
+            <img class="h-96 w-screen object-cover object-left block" src="img/MEM_Hero.jpg" alt="hero image" id="heroImage">
+            <div class="bg-gradient-to-t from-akayik-900 h-32 w-screen absolute bottom-0">
+                <p class="opacity-0">.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900 pt-4" id="blueDiv">
+        <div class="px-8 py-8 text-white sm:px-28 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            &nbsp;
+            <h3 class="text-lg font-semibold opacity-80 xl:text-xl">System Design</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-12 xl:mt-4">
+                <h1 class="text-3xl font-bold col-span-1 lg:col-span-5 xl:text-4xl">I designed a gamified learning app for rural farmers</h1>
+                <p class="mt-4 text-base col-span-1 lg:col-span-6 lg:mt-0 lg:col-start-7 lg:text-sm xl:text-lg">"Krishak App" is an initiative by Gham Power for efficient delivery of agri-advisory to its large network of rural small-holder farmers. Gham Power has undertaken many initiatives to disperse information related to profitable and sustainable agriculture to its farmer network. Krishak App aims to gamify that process and uplift the rural farmers in Nepal.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white px-8 py-8 grid grid-cols-1 sm:px-28 lg:grid-cols-12 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        <div class="lg:col-span-5">
+            <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">For a targeted learning experience</h1>
+            <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">Gham Power had been providing free and paid agri-training to small-holder farmers in Nepal for a long time. However, there was a need for a system to increase the involvement of farmers and to find out if the farmers were implementing what they had learned. There was also the problem of the lack of access to information for farmers who may have access to the internet but cannot access reliable information sources due to their lack of command of the English language. Apart from that, there was also the need for a control center that handled all of the ongoing processes.</p>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+            <a class="glightbox mt-6" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                <img class="mt-8 lg:mt-0" src="https://picsum.photos/1200/800" alt="image" />
+            </a>
+            <p class="mt-2 text-sm italic text-gray-400 text-center xl:text-base">Some screengrabs from the old website of My Emotions Matter</p>
+        </div>
+    </div>
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">I was the lead designer involved in the process and I was responsible for designing the UI for the whole application as well as working with the in-house agri-team to plan the features and the overall presentation of the application. I was also responsible for the handover of the final designs to the development team.</p>
+            </div>
+            <img class="hidden lg:inline-block lg:col-span-2 lg:h-52 lg:w-full lg:object-cover xl:h-64 2xl:pr-20 2xl:" src="img/MEM_Hero.jpg" alt="">            
+        </div>
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Approach</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">How we solved the problem</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">While it was an important problem to solve, there was no clear answer. It was important for the whole team to come together and brainstorm our way out of this fix. After much consideration, there were a few approaches that helped us move ahead.</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading1" onclick="accordion(this.id);" >
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >Market Research</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block" id="content1">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >Finding out what applications the farmers were using and familiar with was extremely important. I began by analyzing the top farming apps in Nepal and India to be familiar with what the farmers are looking for. Once the applications were deconstructed into services and features, it was easy to identify the possible overlaps in the applications and plan accordingly.</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading2" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Gathering data from farmers</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content2">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">Since the application was being designed keeping the farmers in mind, it was extremely important to understand the farmers and their requirements as well. So we visited the farmers in their homes in rural Nepal and tried to understand their appetite for information. Apart from that, we also used Gham Power's extensive network of farmers and reached out to them to seek clarification whenever we hit a wall in the decision-making.</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading3" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Working with agri-experts to discover relevant ideas</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content3">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">It was important to understand the farming technologies, and terminologies and to understand the farming industry in general if I was to create a solution that catered to that particular industry. Talking to the in-house team of agri-experts in Gham Power helped in identifying the possible sectors that require change and intervention. The agri-experts were also a part of the designing process as the wireframes and the prototypes were heavily discussed with the agri-team before being sent off to the developers. The knowledge I gained also helped in fine-tuning the back-end later on. </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Solution</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Highlights of the outcome</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">There was a lot of uncertainty with regards to the re-design before it was launched. Would the user group actually accept the re-design? Would the re-design actually drive up the lead generation? These questions were valid and prominent before the product was launched. Despite the self-doubt and the preliminary resistance, the outcomes were worth everything. </p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading4" onclick="accordion(this.id);" >
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >Gamification</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block mb-10" id="content5">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >It was difficult to make the farming population learn simply for the sake of learning. There was a need to give them a goal and add a sense of accomplishment to their learning process. We found the answer in gamifying the experience. To find a way to celebrate little activities and interactions by the farmers and create a sense of healthy competition in the farming community. Giving the farmers a goal to accomplish also acted as a great source of extrinsic motivation.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base">Some screengrabs from the old website of My Emotions Matter</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading5" onclick="accordion(this.id);" >
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >Agri-feed</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block" id="content5">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >Providing a section in the app that allowed farmers easy access to the relevant and timely topics concerning their industry and the capacity to access old information on a categorical basis would be a step in the right direction.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading6" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Elaborate system control</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content6">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The back-end control for the application was designed to make the whole process as easy as possible. All possible use-cases were considered and the back-end was designed. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Reflections</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">Working as the primary design lead, I had a few roles to fulfill. While working on this project, I was responsible for</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li class="pb-2">I realized the importance of micro-interactions in an application and how easy it is to miss them when working on a tight deadline. </li>
+                    <li class="pb-2">I learned to politely say no to requests for completely new features from clients when deadlines were approaching.</li>
+                </ul>
+            </div>           
+        </div>
+    </div>
+
+
+    <div class="bg-akayik-900">
+        <div class="flex items-center justify-between px-8 pb-6 pt-8 sm:px-28 lg:px-14 lg:pt-12 lg:pb-10 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="OGB-connect-product-design.html"><div class="flex items-center pr-2">
+                <img class="rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                <div class="lg:pl-4">
+                    <p class="text-sm font-base text-white text-left opacity-50 lg:text-base xl:text-lg">Previous</p>
+                    <p class="text-sm font-medium text-white text-left lg:text-lg xl:text-xl">Product design for smooth last mile distribution</p>
+                </div>
+                </div>
+            </a>
+            <a href="my-emotions-matter-website-redesign.html">
+                <div class="flex items-center pl-2">
+                    <div class="lg:pr-4">
+                        <p class="text-sm font-base text-white text-right opacity-50 lg:text-base xl:text-lg">Next</p>
+                        <p class="text-sm font-medium text-white text-right lg:text-lg xl:text-xl">Website redesign for effective communication</p>
+                    </div>
+                <img class="-rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900">
+        <p class="text-white text-center text-xs opacity-50 pb-4 pt-8 xl:text-sm">Copyright</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script type="text/javascript">
+        const lightbox = GLightbox({
+            touchNavigation: true,
+            loop: true
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channel Simplify : SaaS Product Design</title>
+    <link href="/css/tailwind.css" rel="stylesheet" />
+    <link href="/css/build.css" rel="stylesheet" />
+    <script defer src="script/myScript.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+</head>
+<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); " onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
+
+    <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
+        <div class="flex h-screen items-center justify-center w-screen gap-0">
+            <div class="w-40 md:w-48">
+                <div>
+                    <img class="w-full h-10 object-center lg:h-20 -mt-20" src="img/logo-white.svg" alt="">
+                </div>
+                <div class="w-full relative mt-6 lg:mt-12">
+                    <div class="z-90 animate-bar md:animate-barLarge">
+                        <div class="content-['''] bg-white w-8 h-1.5"></div>
+                    </div>
+                    <div class="content-['''] bg-white/20 w-full h-0.5 absolute top-0 left-0 mt-0.5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Navigation Menu Starts. It is translated out of the screen. It is brought inside when the hamburger icon is pressed. -->
+    <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
+      
+        <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="index.html" class=" col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt=""></a>
+            <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="closeNav();" src="img/cross-white.svg" alt="">
+        </div>
+
+        <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
+
+            <!-- Website Navigaiton Links -->
+            <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
+                <menu>
+                    <a href="index.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
+                    <a href="about.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
+                    <a href="about.html#contactInformation"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
+                </menu>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
+                <menu>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Email</li>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Behance</li>
+                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Instagram</li>
+                </menu>
+            </div>
+
+            <!-- Case Study Links -->
+            <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
+                <menu>
+                    <a class="block" href="channel-simplify-SaaS.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Channel Simplify
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="OGB-connect-product-design.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        OGB: Connect
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="super-krishak-system-design.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Super Krishak
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="my-emotions-matter-website-redesign.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        My Emotions Matter
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="off-grid-bazaar-project-management.html">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Off Grid Bazaar
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Remote Project Mangement</span>
+                        </li>
+                    </a>
+                </menu>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="font-sans">        
+        <div class="w-screen z-30 px-8 py-8 fixed -top-24 sm:px-28 lg:px-14 xl:px-20  drop-shadow-lg 2xl:mx-auto transition-all duration-500" id="header">
+            <div class="grid grid-cols-2 2xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+                <a href="index.html" class="col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt="" id="logoContainer"></a>
+                <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="openNav();" src="img/burger-white.svg" alt="" id="burgerContainer">
+            </div>
+        </div>
+        <div class="relative float-left -z-1">
+            <img class="h-96 w-screen object-cover object-middle block" src="img/ChannelSimplify/OverlayHero_Hotel Receptionists_Using a phone_Using the computer_Hotel Registration.webp" alt="Two hotel receptionists at the front desk of the hotel. One receptionist is using a computer while the other is on the phone." id="heroImage">
+            <div class="bg-gradient-to-t from-akayik-900 h-32 w-screen absolute bottom-0">
+                <p class="opacity-0">.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900 pt-4" id="blueDiv">
+        <div class="px-8 py-8 text-white sm:px-28 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            &nbsp;
+            <h3 class="text-lg font-semibold opacity-80 xl:text-xl">SaaS Product Design</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-12 xl:mt-4">
+                <h1 class="text-3xl font-bold col-span-1 lg:col-span-5 xl:text-4xl">I designed a SaaS Product for the hospitality industry</h1>
+                <p class="mt-4 text-base col-span-1 lg:col-span-6 lg:mt-0 lg:col-start-7 lg:text-sm xl:text-lg">Channel Managers are one of the most crucial tools when running hotels or any lodging-based enterprise that is promoting its products across multiple platforms. An average hotel has its website, promotes its services on various booking platforms, and also takes in-person reservations simultaneously. Acting as a crucial bridge between these various platforms, a Channel Manager is nothing short of the software version of a swiss-knife.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white px-8 py-8 grid grid-cols-1 sm:px-28 lg:grid-cols-12 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        <h3 class="text-lg font-semibold text-gray-900 opacity-75 xl:text-xl 2xl:mb-4 lg:col-span-12">Problem</h3>
+        <div class="lg:col-span-5">
+            <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">I had very little access to the users</h1>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+            <p class="mt-4 lg:mt-0 text-base text-gray-700 lg:text-sm xl:text-lg">The main challenge while working on this project was the limited interaction with the actual users. Most of the business correspondence took place with the hotel owners and hotel managers. And they were hardly using channel managers in the frequency of their floor staff. It was also exceedingly difficult to gain access to their staff for in-depth user observation or user interviews. Most of the requirements were received from business owners based on their pre-existing experience with channel managers that they were using. Another hurdle was the limited timeframe. All of the designs had to be wrapped within three months. </p>
+        </div>
+    </div>
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">I was the lead creative resource in the branding as well as the UI/ UX process and I</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li><span class="font-bold">Conducted competitor analysis</span> from a usability-centered viewpoint and documented the findings</li>
+                    <li><span class="font-bold">Headed the system design process</span> from a usability and branding perspective</li>
+                    <li><span class="font-bold">Collaborated</span> with another designer who translated the low-fidelity prototypes based on the design system</li>
+                    <li><span class="font-bold">Evaluated the designs</span> made by the other designer as well as the actual product developed by the front-end team</li>
+                </ul>
+            </div>
+            <img class="hidden lg:inline-block lg:col-span-2 h-[23rem] xl:h-[25rem] lg:w-full lg:object-cover 2xl:pr-20 2xl:" src="img/ChannelSimplify/Rough task flow for a channel manager.webp" alt="Hand drawn sketch of a task flow. The image is obstructed and only partially visible">            
+        </div>
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Approach</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">How we solved the problem</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">When our access to the user group was limited, we went to where our users went the most. We began with a thorough analysis of our competitor’s applications. A usability-centered deconstruction of the competitor’s applications and rebuilding everything was a complicated but rewarding process.</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading1" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Deconstructing competitor platforms</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content1">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">This was the first step in our design process. We began by jotting down the minute actions available to our users on our competitor platforms. After the deconstruction, they were grouped to plan for the organization of the features and tasks. Since using existing systems as references, we had to be mindful about not borrowing the issues of the existing platforms and only taking what we need. The deconstruction was focused on three key guiding points: </p>
+                    <ul class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                        <li><span class="font-bold">Existing task flow and task decomposition</span> that our users were habituated with</li>
+                        <li><span class="font-bold">Technical terms and jargon</span> that our users were habituated with</li>
+                        <li><span class="font-bold">Common UI patterns</span> (UI elements and navigation) that were utilized by most of our competitors</li>
+                    </ul>
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">By grouping the minute actions, we were able to narrow things down to five core task groups: business, reservations, channels, timeline, and property along with their respective subgroups. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-2/3 inline" href="img/ChannelSimplify/Cards sorted on the basis of feature grouping.webp" data-glightbox="type: image; description: Card sorting to organize the deconstructed features and tasks" data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Cards sorted on the basis of feature grouping.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Card sorting to organize the deconstructed features and tasks</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading2" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Creating a system for task structuring</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content2">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">It was obvious pretty early on that the design was going to be huge in terms of the scale of the application. We needed to work on a tight structure or we were bound to be lost sooner or later. Inspired by Data Flow Diagrams, we began by hierarchically numbering the processes. This gave a visual indication of how the application was growing and acted as our guiding map. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-2/3 inline" href="img/ChannelSimplify/Hierarchical task structuring for an easy UX pipeline.webp" data-glightbox="type: image; description: Numerically represented hierarchical task structuring" data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Hierarchical task structuring for an easy UX pipeline.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Numerically represented hierarchical task structuring</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading3" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Designing the task flow</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content3">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">After the core processes were defined, we began working on the task flow. Our key focus was on how the task would start and the logic behind each task We were planning for the data fields that would be collected as well as the various validatory steps conducted by the system. We made sure that our flows were modular i.e. they could be accessed through various branches in the user flow without seeming out of place.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/Reservation flow with different starting points.webp" data-glightbox="type: image; description: Flow with different starting points to create a new notification" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Reservation flow with different starting points.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/Flow to create a new room type.webp" data-glightbox="type: image; description: Flow to create a new room type" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Flow to create a new room type.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/Flow to create a notification.webp" data-glightbox="type: image; description: Flow to create a new notification" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Flow to create a notification.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some task flows that were designed based on key tasks</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading4" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Low-fidelity explorations</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content4">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">With the flow in place, we began exploring low-fidelity options for the layout, navigation, and other UI elements. It was important that we kept our minds open and try everything and anything that we could think of. Our low-fidelity explorations also helped us fine-tune our task flow and painted a clearer picture for us to start working on. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/ChannelSimplify/Wireframe sketches for quick disucssions and edits.webp" data-glightbox="type: image; description: Wireframe sketches that were made early on in the design process" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Wireframe sketches for quick disucssions and edits.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/ChannelSimplify/Rough sketches for icons that would be used later on in the interface.webp" data-glightbox="type: image; description: Sketches for icons that would be fine tuned later on" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Rough sketches for icons that would be used later on in the interface.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Low fidelity exploration for the the layout and other UI elements</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Solution</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Highlights of the process</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">Once the flow was put down on paper and the wireframes were finalized, it was time to approach the actual interface. It was a basic run-of-the-mill approach that started with translating the low fidelity prototypes into high fidelity mockups, addressing any complications that arose, and translating that to code. A few things that I was proud of:</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading5" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">A hierarchical and flexible navigation pattern</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content5">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The application had a wide range of functionality that had to be made available in a user-friendly manner. There were two navigation systems used in the application: a nesting-enabled side navigation drawer, and a scroll supporting tabbed navigation. The navigation drawer enabled moving around between unrelated sections while the tabbed navigation system allowed for navigation between related sections of the same page. </p>
+                     <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-2/3 inline" href="img/ChannelSimplify/Navigation patterns employed in the design.webm" data-glightbox="type: video; description: A representation of the navigation system employed in the design" data-gallery="g6" >
+                            <video class="pb-3 lg:pr-3 lg:pb-0" autoplay loop>
+                                <source src="img/ChannelSimplify/Navigation patterns employed in the design.webm" type="video/mp4">
+                                Your browser does not support inline videos
+                            </video>                            
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">A representation of the navigation system</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading6" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Well defined design system</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content6">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">With an application that was guaranteed to grow bigger than 100+ frames, it was important to have a flexible but well-documented design system. We pain a special focus on the color scheme, grid, UI components, and icon style.</p>
+                    <ul class="pl-6 list-disc">
+                        <li class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The <span class="font-bold">color scheme </span>was an easy decision as our job was done during the branding exercise. We used purple as the primary accent color and the point of reference for other variants. Yellow was used as a highlight. Colors like green and red were used conventionally to denote actions and errors.</li>
+                        <li class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The <span class="font-bold">grid </span>was planned based on the key structures: the sidebar, the main structure, and the modals. They followed strict column-based grids. The sidebar followed an 8-column grid, the main structure a 12-column grid, and the modals a 5-column grid. There was also a soft 8-pt grid in place for smaller UI elements.</li>
+                        <li class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The <span class="font-bold">UI elements </span>were designed on the fly. We began by designing pages, documenting design decisions, and implementing them in relevant instances later on. This helped us maintain a quick pace and still stay consistent.</li>
+                    </ul>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-wrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/UI elements - Part of the deisgn system.webp" data-glightbox="type: image; description: UI elements that were designed for the application" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/UI elements - Part of the deisgn system.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/8 column side navigation drawer.webp" data-glightbox="type: image; description: 8 column grid that was followed by the side navigation drawer" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/8 column side navigation drawer.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 hidden" href="img/ChannelSimplify/12 column body layout.webp" data-glightbox="type: image; description: 12 column grid that was followed by the layout in the main section" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0 hidden" src="img/ChannelSimplify/12 column body layout.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/Icons that were used throughout the UI.webp" data-glightbox="type: image; description: Icons that were used throughout the UI" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Icons that were used throughout the UI.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-0 hidden" href="img/ChannelSimplify/Icons designed for the amenities section of the property.webp" data-glightbox="type: image; description: Icons designed for the amenities section of the property" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0 hidden" src="img/ChannelSimplify/Icons designed for the amenities section of the property.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Design system components for the UI elements and the UI layout</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading7" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">High fidelity prototypes</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content7">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">With the look and feel of the elements in place, the rest of the design process was a breeze. We started with the categories. We started working on the first feature category and finalized it before starting work on the second category and so on. This allowed the developers to delve completely into the development of one category while the design team worked on another category.  </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/ReservationFlow.webm" data-glightbox="type: video; description: UI for the creation of a new reservation" data-gallery="g8" >
+                            <video class="pb-3 lg:pr-3 lg:pb-0" autoplay loop>
+                                <source src="img/ChannelSimplify/ReservationFlow.webm" type="video/mp4">
+                                Your browser does not support inline videos
+                            </video>                            
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/Property reports generated by the channel manager.webp" data-glightbox="type: image; description: Dashboard view of the property reports generated by the system" data-gallery="g8" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Property reports generated by the channel manager.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/ChannelSimplify/Section to edit the featured amenities in the applicaiton.webp" data-glightbox="type: image; description: UI for the section to edit the featured amenities in a selected room" data-gallery="g8" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/ChannelSimplify/Section to edit the featured amenities in the applicaiton.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Glimpses of the final UI design</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Reflections</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">This was one of the first product design initiatives that I lead and I learned a great deal from this experience. Some of the key learning that I am proud of:</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li>Creating a design system for a product with a large scope</li>
+                    <li>Making pixel-perfect icons and ensuring visual consistency in a large group of icons</li>
+                    <li>The importance of early planning to ensure smooth operations later on</li>
+                    <li>Collaborating with developers, to delegate, and QA</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-akayik-900">
+        <div class="flex items-center justify-between px-8 pb-6 pt-8 sm:px-28 lg:px-14 lg:pt-12 lg:pb-10 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="off-grid-bazaar-project-management.html"><div class="flex items-center pr-2">
+                <img class="rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                <div class="lg:pl-4">
+                    <p class="text-sm font-base text-white text-left opacity-50 lg:text-base xl:text-lg">Previous</p>
+                    <p class="text-sm font-medium text-white text-left lg:text-lg xl:text-xl">Project managemnt for a government initiative</p>
+                </div>
+                </div>
+            </a>
+            <a href="OGB-connect-product-design.html">
+                <div class="flex items-center pl-2">
+                    <div class="lg:pr-4">
+                        <p class="text-sm font-base text-white text-right opacity-50 lg:text-base xl:text-lg">Next</p>
+                        <p class="text-sm font-medium text-white text-right lg:text-lg xl:text-xl">Product design for smooth last mile distribution</p>
+                    </div>
+                <img class="-rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900">
+        <div class="pt-8 lg:pt-20">
+            <img src="img/logo-white.svg" class="h-10 mx-auto" alt="">
+            <p class="text-white text-center text-xs opacity-50 pb-8 lg:pb-12 xl:text-sm mt-2">© 2022 Apurba Neupane</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script type="text/javascript">
+        const lightbox = GLightbox({
+            plyr: {
+               config: {
+                    ratio: '4:3',
+                    hideControls: true,
+               }
+            },            
+            touchNavigation: true,
+            loop: true
+        });
+    </script>
+
+</body>
+</html>

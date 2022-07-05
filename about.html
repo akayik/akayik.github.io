@@ -4,13 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <!-- <link href="/css/tailwind.css" rel="stylesheet" /> -->
+    <!-- Tailwind Stylesheet -->
+    <link href="/css/tailwind.css" rel="stylesheet" />
+    <!-- Tailwind build stylesheet -->
     <link href="/css/build.css" rel="stylesheet" />
+    <!-- Custom javascript -->
     <script defer src="script/myScript.js"></script>
+    <!-- CDN for Glightbox -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
 <body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader();" onscroll="smallHeader(); slideHeader();">
 
+    <!-- Preloader Starts -->
     <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
         <div class="flex h-screen items-center justify-center w-screen gap-0">
             <div class="w-40 md:w-48">
@@ -26,7 +31,10 @@
             </div>
         </div>
     </div>
+    <!-- Preloader Ends -->
 
+    
+    <!-- Full Navigation Menu Starts. It is translated out of the screen. It is brought inside when the hamburger icon is pressed. -->
     <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
       
         <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
@@ -36,15 +44,17 @@
 
         <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
 
+            <!-- Website Navigaiton Links -->
             <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
                 <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
                 <menu>
-                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li>
+                    <a href="index.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
                     <a href="about.html"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
-                    <li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li>
+                    <a href="about.html#contactInformation"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
                 </menu>
             </div>
 
+            <!-- Contact Links -->
             <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
                 <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
                 <menu>
@@ -54,10 +64,11 @@
                 </menu>
             </div>
 
+            <!-- Case Study Links -->
             <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
-                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Work</h1>
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
                 <menu>
-                    <a class="block">
+                    <a class="block" href="channel-simplify-SaaS.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         Channel Simplify
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -65,7 +76,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="OGB-connect-product-design.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         OGB: Connect
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -73,7 +84,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="super-krishak-system-design.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         Super Krishak
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -81,7 +92,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="my-emotions-matter-website-redesign.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         My Emotions Matter
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -89,7 +100,7 @@
                         <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
                         </li>
                     </a>
-                    <a class="block">
+                    <a class="block" href="off-grid-bazaar-project-management.html">
                         <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
                         Off Grid Bazaar
                         <span class="hidden md:inline-block lg:hidden">|</span>
@@ -103,29 +114,33 @@
 
     </div>
 
+    <!-- Main Page starts -->
     <div>        
+        
+        <!-- Header Starts -->
         <div class="w-screen z-50 px-8 py-8 fixed top-0 sm:px-28 lg:px-14 xl:px-20  bg-white 2xl:mx-auto transition-all duration-500" id="header">
             <div class="grid grid-cols-2 2xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
                 <a href="index.html" class="col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-blue.svg" alt=""></a>
                 <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="openNav();" src="img/burger-blue.svg" alt="">
             </div>
         </div>
+        <!-- Header Ends -->
 
         <div class="px-8 pt-36 pb-4 grid grid-cols-1 sm:px-28 lg:px-14 lg:pb-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
             <div class="lg:grid lg:grid-cols-12 lg:gap-12">
                 <h1 class="text-3xl pb-10 text-akayik-900 font-bold xl:text-4xl lg:col-span-6 text-left order-1 lg:order-1 lg:pb-0">A constant work in progress</h1>
                 <div class="block lg:order-2 col-span-6"></div>
                 <div class="mt-2 h-72 md:h-96 grid grid-cols-4 grid-rows-3 gap-3 md:grid-cols-8 lg:col-span-6 lg:order-4 lg:col-start-7">
-                    <a class="glightbox col-span-3 row-span-2 md:col-span-5" href="img/me.png" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                    <a class="glightbox col-span-3 row-span-2 md:col-span-5" href="img/me.png" data-glightbox="type: image; description: Taken on 2019 on trek to Poon Hill" data-gallery="g1" >
                         <img class = "h-full w-full object-cover object-center" src="img/me.png" alt="image" />
                     </a>
-                    <a class="glightbox col-span-1 row-span-2 md:col-span-3" href="img/mug.jpg" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                    <a class="glightbox col-span-1 row-span-2 md:col-span-3" href="img/mug.jpg" data-glightbox="type: image; description: Negative space logo I designed for a coffee company" data-gallery="g1" >
                         <img class = "h-full w-full object-cover object-center" src="img/mug.jpg" alt="image" />
                     </a>
-                    <a class="glightbox col-span-2 row-span-1 md:col-span-4" href="img/sasheela.jpg" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                    <a class="glightbox col-span-2 row-span-1 md:col-span-4" href="img/sasheela.jpg" data-glightbox="type: image; description: UI design for a jewellery e-commerce platform" data-gallery="g1" >
                         <img class = "h-full w-full object-cover object-center" src="img/sasheela.jpg" alt="image" />
                     </a>
-                    <a class="glightbox col-span-2 row-span-1 md:col-span-4" href="img/gahana.jpg" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
+                    <a class="glightbox col-span-2 row-span-1 md:col-span-4" href="img/gahana.jpg" data-glightbox="type: image; description: Website design for a vehicle dealership" data-gallery="g1" >
                         <img class = "h-full w-full object-cover object-center" src="img/gahana.jpg" alt="image" />
                     </a>
                 </div>
@@ -140,7 +155,7 @@
             </div>
         </div>
 
-        <div class="bg-gray-200">
+        <div class="bg-gray-200" id="contactInformation">
             <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-12 pt-10 mt-6 pb-8 2xl:max-w-screen-2xl 2xl:mx-auto">
                 <div class="cols-span-1 lg:col-span-12 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20">
                     <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl pb-6">Want to get in touch?</h1>
