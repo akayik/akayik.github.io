@@ -155,8 +155,15 @@ function testimonialWidthResize() {
     var y = document.querySelector(".sectionHeader");
     const headerWidth = y.getBoundingClientRect().width;
     var widthValue = headerWidth + "px";
-    console.log(widthValue);
     x.style.width = widthValue;
+}
+
+function roleResize(){
+    var x = document.getElementById("roleContainer");
+    var y = document.getElementById("roleSketch");
+    const containerHeight = x.getBoundingClientRect().height;
+    var heightValue = containerHeight + "px";
+    y.style.height = heightValue; 
 }
 
 

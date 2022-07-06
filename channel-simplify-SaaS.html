@@ -9,7 +9,7 @@
     <script defer src="script/myScript.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
-<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); " onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
+<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); roleResize();" onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
 
     <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
         <div class="flex h-screen items-center justify-center w-screen gap-0">
@@ -143,8 +143,8 @@
         </div>
     </div>
 
-    <div class="bg-gray-200">
-        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+    <div class="bg-[#e8e7ee]">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto" id="roleContainer">
             <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
                 <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
                 <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">I was the lead creative resource in the branding as well as the UI/ UX process and I</p>
@@ -155,7 +155,7 @@
                     <li><span class="font-bold">Evaluated the designs</span> made by the other designer as well as the actual product developed by the front-end team</li>
                 </ul>
             </div>
-            <img class="hidden lg:inline-block lg:col-span-2 h-[23rem] xl:h-[25rem] lg:w-full lg:object-cover 2xl:pr-20 2xl:" src="img/ChannelSimplify/Rough task flow for a channel manager.webp" alt="Hand drawn sketch of a task flow. The image is obstructed and only partially visible">            
+            <img class="hidden lg:inline-block lg:col-span-2 lg:w-full lg:object-cover lg:object-left" id="roleSketch" src="img/ChannelSimplify/Rough task flow for a channel manager.webp" alt="Hand drawn sketch of a task flow. The image is obstructed and only partially visible">            
         </div>
     </div>
 

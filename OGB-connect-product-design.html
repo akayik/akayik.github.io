@@ -9,7 +9,7 @@
     <script defer src="script/myScript.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
-<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); " onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
+<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); roleResize();" onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
 
     <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
         <div class="flex h-screen items-center justify-center w-screen gap-0">
@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="relative float-left -z-1">
-            <img class="h-96 w-screen object-cover object-left block" src="img/MEM_Hero.jpg" alt="hero image" id="heroImage">
+            <img class="h-96 w-screen object-cover object-left block" src="img/Connect/Overlay.webp" alt="hero image" id="heroImage">
             <div class="bg-gradient-to-t from-akayik-900 h-32 w-screen absolute bottom-0">
                 <p class="opacity-0">.</p>
             </div>
@@ -137,18 +137,14 @@
         <div class="lg:col-span-5">
             <h3 class="text-lg font-semibold text-gray-900 opacity-75 xl:text-xl xl:mb-4">Problem</h3>
             <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">The current method was complex and users were finding it to be difficult</h1>
-            <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">The original application was serving two purposes: lead collection and gathering data on farmers. This meant that for a lead to be registered, the entire farming details of that farmer would have to be registered as well. There were 27 mandatory fields and 20+ additional fields that were optional. The form took more than 6 minutes and 40 seconds to fill out completely.</p>
         </div>
         <div class="lg:col-span-6 lg:col-start-7">
-            <a class="glightbox mt-6" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g1" >
-                <img class="mt-8 lg:mt-0" src="https://picsum.photos/1200/800" alt="image" />
-            </a>
-            <p class="mt-2 text-sm italic text-gray-400 text-center xl:text-base">Some screengrabs from the old website of My Emotions Matter</p>
+            <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">The original application was serving two purposes: lead collection and gathering data on farmers. This meant that for a lead to be registered, the entire farming details of that farmer would have to be registered as well. There were 27 mandatory fields and 20+ additional fields that were optional. The form took more than 6 minutes and 40 seconds to fill out completely.</p>
         </div>
     </div>
 
-    <div class="bg-gray-200">
-        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+    <div class="bg-[#e8e7ee]">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto" id="roleContainer">
             <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
                 <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
                 <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">Working as the primary design lead, I had a few roles to fulfill. While working on this project, I was responsible for</p>
@@ -159,7 +155,7 @@
                     <li>Look after the design handover to the development team, as well as plan and conduct alpha testing</li>
                 </ul>
             </div>
-            <img class="hidden lg:inline-block lg:col-span-2 h-[20rem] xl:h-[25rem] lg:w-full lg:object-cover 2xl:pr-20 2xl:" src="img/MEM_Hero.jpg" alt="">            
+            <img id="roleSketch" class="hidden lg:inline-block lg:col-span-2 lg:w-full lg:object-cover object-left" src="img/Connect/Role.webp" alt="">            
         </div>
     </div>
 
@@ -179,20 +175,20 @@
 
             <div>
                 <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading1" onclick="accordion(this.id);" >
-                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >User interviews and user testing</h2>
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4" >User research and user testing</h2>
                     <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
                 </div>
                 <div class="hidden lg:block" id="content1">
-                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >Interacting with the users was important at every step of the way. Since the users were microfinance employees working in rural areas of Nepal, I had a lot to learn about them. I conducted user inter interviews, both virtually and on-site, to understand them better. I had to understand their daily life, their work life, their relationship with the current application, and their problems and their aspirations if I were to create a system that helped them work more efficiently. I also conducted multiple rounds of user testing and feedback gathering as soon as the prototypes were ready. This helped gather constant validation that the re-design was a step in the right direction.</p>
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >Interacting with the users was important at every step of the way. Since the users were microfinance employees working in rural areas of Nepal, I had a lot to learn about them. I conducted user inter interviews, both virtually and on-site, to understand them better. I had to understand their daily life, their work life and their way of operations. It was also important to understand their relationship with the current application, their problems. and their aspirations. I also conducted multiple rounds of user testing and feedback gathering as soon as the prototypes were ready. This helped gather constant validation that the re-design was a step in the right direction.</p>
                     <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g2" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Connect/Observing the work life of microfinance agents.webp" data-glightbox="type: image; description: Visiting microfinance agents in the field and observing their professional life" data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Connect/Observing the work life of microfinance agents.webp" alt="image" />
                         </a>
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g2" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Connect/Observing microfinance agents interact with our software.webp" data-glightbox="type: image; description: Observing microfinance agents interact with our first version of the application" data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Connect/Observing microfinance agents interact with our software - Thumbnail.webp" alt="image" />
                         </a>
                     </div>
-                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-8">Some screengrabs from the old website of My Emotions Matter</p>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-8">Some photos taken during on-site user research in remote areas of Nepal</p>
                 </div>
             </div>
 
@@ -208,20 +204,23 @@
 
             <div class="lg:mt-12">
                 <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading3" onclick="accordion(this.id);">
-                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">MVP before scaling</h2>
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">MVP release and AB testing before scaling</h2>
                     <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
                 </div>
                 <div class="hidden lg:block lg:border-0" id="content3">
-                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">Since the re-design was a radical step, we decided to not go all-in at once. We first created an MVP, tested it for three months, gathered all the feedback, and then re-iterated it before making the platform available to all our microfinance partners.</p>
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">Since the re-design was a radical step, we decided to not go all-in at once. We first created an MVP, tested it for three months, gathered all the feedback, and then re-iterated it before making the platform available to all our microfinance partners. Even the smallest interactions were thoroughly discussed and experimented with before committing to a concept.</p>
                     <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g3" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Connect/Exploration into different ways of representing the quality of a lead.webp" data-glightbox="type: image; description: Multiple layouts and elements were experimented with before we settled on a way to communicate about the quality of the lead" data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Connect/Exploration into different ways of representing the quality of a lead.webp" alt="image" />
                         </a>
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g3" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Connect/Version One.webp" data-glightbox="type: image; description: The first greenlit application design that would act as the mold for future versions" data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Connect/Version One.webp" alt="image" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Connect/trello like lead management interaction in the early version.webp" data-glightbox="type: image; description: A trello like interaction that we experimented with in the early version but got rid of later on" data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Connect/trello like lead management interaction in the early version.webp" alt="image" />
                         </a>
                     </div>
-                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some of the early prototypes that would be the base of the final design</p>
                 </div>
             </div>
 
@@ -259,16 +258,19 @@
                     <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
                 </div>
                 <div class="hidden lg:block" id="content5">
-                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >The data gathering purpose of the application was completely dropped and the app was redesigned to only collect leads. This led to a minimal application with just 2 mandatory fields and two additional fields to fill out optionally. This reduced the lead collection time from more than 6 minutes to 20 seconds. </p>
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg pb-2 lg:pb-0" >The data gathering purpose of the pre-existing application was completely dropped and the app was redesigned to only collect leads. This led to a minimal application with just 2 mandatory fields and two additional fields to fill out optionally. This reduced the lead collection time from more than 6 minutes to 20 seconds. </p>
                     <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Connect/Major styleframes.webp" data-glightbox="type: image; description: Three major styeframes in the lead collection application" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Connect/Major styleframes.webp" alt="image" />
                         </a>
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g4" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Connect/Lead registration pipeline.webm" data-glightbox="type: video; description: The lead registration and observation process in the application" data-gallery="g4" >
+                            <video class="pb-3 lg:pr-3 lg:pb-0" autoplay loop>
+                                <source src="img/Connect/Lead registration pipeline.webm" type="video/mp4">
+                                Your browser does not support inline videos
+                            </video>
                         </a>
                     </div>
-                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">The final look and feel of the application dedicated for lead generation</p>
                 </div>
             </div>
 
@@ -280,14 +282,11 @@
                 <div class="hidden lg:block lg:border-0" id="content6">
                     <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">When we started working on the lead collection system, we soon realized that our lead management system was also lacking. We also worked on a detailed lead classification system and a suitable lead management platform to tie it all up. </p>
                     <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g5" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
-                        </a>
-                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="https://picsum.photos/1200/800" data-glightbox="type: image; description: A beautiful woman in the silent forest." data-gallery="g5" >
-                            <img class="pb-3 lg:pr-3 lg:pb-0" src="https://picsum.photos/1200/800" alt="image" />
+                        <a class="glightbox w-3/3 lg:w-3/5 inline" href="img/Connect/Lead Mangement Backend.webp" data-glightbox="type: image; description: A full-fledged lead management pipeline was born out of your research" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Connect/Lead Mangement Backend.webp" alt="image" />
                         </a>
                     </div>
-                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some screengrabs from the old website of My Emotions Matter</p>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">The final lead management pipeline</p>
                 </div>
             </div>
 
@@ -335,13 +334,22 @@
     </div>
 
     <div class="bg-akayik-900">
-        <p class="text-white text-center text-xs opacity-50 pb-4 pt-8 xl:text-sm">Copyright</p>
+        <div class="pt-8 lg:pt-20">
+            <img src="img/logo-white.svg" class="h-10 mx-auto" alt="">
+            <p class="text-white text-center text-xs opacity-50 pb-8 lg:pb-12 xl:text-sm mt-2">© 2022 Apurba Neupane</p>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     
     <script type="text/javascript">
         const lightbox = GLightbox({
+            plyr: {
+               config: {
+                    ratio: '4:3',
+                    hideControls: true,
+               }
+            },            
             touchNavigation: true,
             loop: true
         });
