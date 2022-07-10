@@ -31,7 +31,7 @@
 }
 
 .testimonial{
-    height: 20rem !important;
+    height: 22rem !important;
     margin: auto 0 !important;
 }
 
@@ -72,7 +72,7 @@
 
 @media (min-width: 375px) {
     .testimonial{
-        height: 17rem !important;
+        height: 20rem !important;
     }
 
     .slick-dots{
@@ -82,7 +82,7 @@
 
 @media (min-width: 425px) {
     .testimonial{
-        height: 15rem !important;
+        height: 18rem !important;
     }
 
     .slick-dots{
@@ -96,11 +96,17 @@
     }
 
     .testimonial{
-        height: 15rem !important;
+        height: 17rem !important;
     }
 
     .slick-dots{
         width: 88% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .testimonial{
+        height: 14rem !important;
     }
 }
 
