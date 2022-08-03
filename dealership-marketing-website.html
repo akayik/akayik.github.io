@@ -1,0 +1,365 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tata Dealership : Website Design</title>
+    <link href="/css/tailwind.css" rel="stylesheet" />
+    <link href="/css/build.css" rel="stylesheet" />
+    <script defer src="script/myScript.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+</head>
+<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); roleResize();" onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
+
+    <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
+        <div class="flex h-screen items-center justify-center w-screen gap-0">
+            <div class="w-40 md:w-48">
+                <div>
+                    <img class="w-full h-10 object-center lg:h-20 -mt-20" src="img/logo-white.svg" alt="">
+                </div>
+                <div class="w-full relative mt-6 lg:mt-12">
+                    <div class="z-90 animate-bar md:animate-barLarge">
+                        <div class="content-['''] bg-white w-8 h-1.5"></div>
+                    </div>
+                    <div class="content-['''] bg-white/20 w-full h-0.5 absolute top-0 left-0 mt-0.5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Navigation Menu Starts. It is translated out of the screen. It is brought inside when the hamburger icon is pressed. -->
+    <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
+      
+        <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="index.html" class=" col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt=""></a>
+            <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="closeNav();" src="img/cross-white.svg" alt="">
+        </div>
+
+        <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
+
+            <!-- Website Navigaiton Links -->
+            <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
+                <menu>
+                    <a href="index.html" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
+                    <a href="about.html" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
+                    <a href="about.html#contactInformation" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
+                </menu>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
+                <menu>
+                    <a href="mailto:hello@akayik.com"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Email</li></a>
+                    <a href="https://www.linkedin.com/in/akayik" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">LinkedIn</li></a>
+                    <a href="https://www.behance.net/akayik" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Behance</li></a>
+                    <a href="https://www.instagram.com/akayik_" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Instagram</li></a>
+                </menu>
+            </div>
+
+            <!-- Case Study Links -->
+            <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
+                <menu>
+                    <a class="block" href="channel-simplify-SaaS.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Channel Simplify
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="OGB-connect-product-design.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        OGB: Connect
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="super-krishak-system-design.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Super Krishak
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="my-emotions-matter-website-redesign.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        My Emotions Matter
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="off-grid-bazaar-project-management.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Off Grid Bazaar
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Remote Project Mangement</span>
+                        </li>
+                    </a>
+                </menu>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="font-sans">        
+        <div class="w-screen z-30 px-8 py-8 fixed -top-24 sm:px-28 lg:px-14 xl:px-20  drop-shadow-lg 2xl:mx-auto transition-all duration-500" id="header">
+            <div class="grid grid-cols-2 2xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+                <a href="index.html" class="col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt="" id="logoContainer"></a>
+                <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="openNav();" src="img/burger-white.svg" alt="" id="burgerContainer">
+            </div>
+        </div>
+        <div class="relative float-left -z-1">
+            <img class="h-96 w-screen object-cover object-middle block" src="img/Dealership/Overlay.webp" alt="Two hotel receptionists at the front desk of the hotel. One receptionist is using a computer while the other is on the phone." id="heroImage">
+            <div class="bg-gradient-to-t from-akayik-900 h-32 w-screen absolute bottom-0">
+                <p class="opacity-0">.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900 pt-4" id="blueDiv">
+        <div class="px-8 py-8 text-white sm:px-28 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            &nbsp;
+            <h3 class="text-lg font-semibold opacity-80 xl:text-xl">Web design</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-12 xl:mt-4">
+                <h1 class="text-3xl font-bold col-span-1 lg:col-span-5 xl:text-4xl">I designed a marketing website for a vehicle dealership</h1>
+                <p class="mt-4 text-base col-span-1 lg:col-span-6 lg:mt-0 lg:col-start-7 lg:text-sm xl:text-lg">My client is a leading car dealership that exclusively sells Tata vehicles. They had slowly taken over the pickup-truck marker and other trucks used by small business owners for goods delivery. They were aiming at expanding their business and decided that they needed a website. They wanted to create a website that would cater to large corporate businesses as well as small businesses.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white px-8 py-8 grid grid-cols-1 sm:px-28 lg:grid-cols-12 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        <h3 class="text-lg font-semibold text-gray-900 opacity-75 xl:text-xl 2xl:mb-4 lg:col-span-12">Problem</h3>
+        <div class="lg:col-span-5">
+            <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Vast differences in the user segment</h1>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+            <p class="mt-4 lg:mt-0 text-base text-gray-700 lg:text-sm xl:text-lg">The clients were having difficulty bridging different user segments. They could see that their clientele was almost equally divided between their corporate clients and small businesses. The problem arose when we realized that the organization had relied on different marketing strategies for the two major segmentations and we were unable to move ahead would finding an overlap.</p>
+        </div>
+    </div>
+
+    <div class="bg-[#e8e7ee]">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto" id="roleContainer">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">As the lead UI Designer, I had a few roles to fulfill</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li><span class="font-bold">Set up and conduct user interviews</span> to form user personas that would dictate our design decisions</li>
+                    <li><span class="font-bold">Create interfaces</span> that would cater to both different user groups</li>
+                    <li><span class="font-bold">Collaborate with developers</span> to ensure timely delivery of a developed website</li>
+                </ul>
+            </div>
+            <img class="hidden lg:inline-block lg:col-span-2 lg:w-full lg:object-cover lg:object-left" id="roleSketch" src="img/Dealership/Role.webp" alt="Hand drawn sketch of a task flow. The image is obstructed and only partially visible">            
+        </div>
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Approach</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">How we solved the problem</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">It was important for us to create a few bridges between user segmentation. That was clear for us from the start. So our first step was to get in touch with the users (the buyers) right away.</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading1" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">User Interview</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content1">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The first step was to get the client to agree to share its buyer details. It was extremely difficult for them to share such sensitive information. The client only agreed to let us interview their buyers after promising that all user interviews would be conducted in the presence of one of their representatives. We interviewed 10 users from each segment, created empathy maps, and looked for overlaps in their needs and aspirations before moving ahead. We also tried to find overlaps in their digital media consumption so that we could place their aesthetic taste on a few spectrums.</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading2" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">User Persona</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content2">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">The next step in the process was to define User Personas. Distilling the information that we gathered from the user interviews was very important to aid in our design decisions later on. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Dealership/User Persona 1.webp" data-glightbox="type: image;" data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Dealership/User Persona 1.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Dealership/User Persona 2.webp" data-glightbox="type: image;" data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Dealership/User Persona 2.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some user personas that we created during this stage</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading3" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Visual Design Research</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content3">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">After finding common areas between the different user segments, it was important for us to create a visual library of their respective tastes and preferences and find a way to create an amalgamation that pleased both the user segments. A significant amount of time was dedicated to creating a moodboard that would represent our understanding of the aesthetic preferences of both segments.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-2/3 inline" href="img/Dealership/Moodboard.webp" data-glightbox="type: image;" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Dealership/Moodboard.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">A part of the moodboard that was created during this stage</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Solution</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Highlights of the process</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">Despite there being a massive lack of clarity in the early stages of the design process, we were in a much better state when we moved on to designing the actual website. In the end, we were able to create some UI patterns that we were proud of.</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading5" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Clear content planning for different user segments</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content5">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">After we had a clear idea about the information each segment was looking for, we were able to segment the content of our landing page in accordance. Some segments would simply push specific high-selling vehicles while some segments encouraged to research and comparison between different models.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-wrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Dealership/Landing.webp" data-glightbox="type: image; description: Some highlights from the landing page design" data-gallery="g6" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Dealership/Landing.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Dealership/Recent.webp" data-glightbox="type: image; description: The most enquired vehicles in three main categories (double cab trucks, single cabin trucks, and minibusses) would be regularly updated in this section" data-gallery="g6" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Dealership/Recent.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Dealership/Compare Prompt in Landing.webp" data-glightbox="type: image; description: The highest and second highest bulk purchases would be highlighted in this section for each category" data-gallery="g6" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0 inline" src="img/Dealership/Compare Prompt in Landing.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 hidden" href="img/Dealership/Landing Page Section.webp" data-glightbox="type: image; description: Some highlights from the landing page design" data-gallery="g6" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0 hidden" src="img/Dealership/Landing Page Section.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some website sections were designed keeping specific user groups in mind</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading6" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">A UI dedicated to comparing vehicles</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content6">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">To cater to the corporate clients who want to be able to compare vehicles, we created an interface that allowed them to do just that. To be able to compare two vehicles of their choosing in a clear and concise manner.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-wrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Dealership/Comparison UI.webm" data-glightbox="type: video; description: UI for the creation of a new reservation" data-gallery="g7" >
+                            <video class="pb-3 lg:pr-3 lg:pb-0" autoplay loop>
+                                <source src="img/Dealership/Comparison UI.webm" type="video/mp4">
+                                Your browser does not support inline videos
+                            </video>                            
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-3/6 inline" href="img/Dealership/meeting mockup comapre UI.webp" data-glightbox="type: image; description: A mockup of the “compare” interface" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Dealership/meeting mockup comapre UI.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-2/3 inline hidden" href="img/Dealership/PDP.webp" data-glightbox="type: image; description: The compare button was also included in each PDP to make for an easy experience" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0 hidden" src="img/Dealership/PDP.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">A UI section that allows users to compare different offerings</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading7" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">A form to sell used vehicles</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content7">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">This was another output of our interaction with the staff of our clients. We learned that used vehicle sellers had to visit their offices or resort to social media to simply register themselves. A simple form ended up doubling their leads for vehicle sellers and it drastically improved their productivity as well. </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-2/3 inline" href="img/Dealership/Seller.webp" data-glightbox="type: image;" data-gallery="g8" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Dealership/Seller.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">A simple form that a seller would have to fill out to register their vehicles</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Reflections</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">There was a deep lack of clarity early on in the process. However, as we continued to interview users, we gained more insight into their thinking and that slowly helped us plan for the design decisions. One thing is very clear now. It’s very important to trust the process even if everything seems confusing and convoluted at the start. </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-akayik-900">
+        <div class="flex items-center justify-between px-8 pb-6 pt-8 sm:px-28 lg:px-14 lg:pt-12 lg:pb-10 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="off-grid-bazaar-project-management.html"><div class="flex items-center pr-2">
+                <img class="rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                <div class="lg:pl-4">
+                    <p class="text-sm font-base text-white text-left opacity-50 lg:text-base xl:text-lg">Previous</p>
+                    <p class="text-sm font-medium text-white text-left lg:text-lg xl:text-xl">Project management for a government initiative</p>
+                </div>
+                </div>
+            </a>
+            <a href="OGB-connect-product-design.html">
+                <div class="flex items-center pl-2">
+                    <div class="lg:pr-4">
+                        <p class="text-sm font-base text-white text-right opacity-50 lg:text-base xl:text-lg">Next</p>
+                        <p class="text-sm font-medium text-white text-right lg:text-lg xl:text-xl">Product design for smooth last mile distribution</p>
+                    </div>
+                <img class="-rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900">
+        <div class="pt-8 lg:pt-10">
+            <a href="https://akayik.com/"><img src="img/logo-white.svg" class="h-10 mx-auto opacity-50" alt=""></a>
+            <p class="text-white text-center text-xs opacity-50 pb-8 lg:pb-12 xl:text-sm mt-2">© 2022 Apurba Neupane</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script type="text/javascript">
+        const lightbox = GLightbox({
+            plyr: {
+               config: {
+                    ratio: '4:3',
+                    hideControls: true,
+               }
+            },            
+            touchNavigation: true,
+            loop: true
+        });
+    </script>
+
+</body>
+</html>
