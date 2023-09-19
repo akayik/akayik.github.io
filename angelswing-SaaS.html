@@ -1,0 +1,388 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angelswing : SaaS Product Design</title>
+    <link href="/css/tailwind.css" rel="stylesheet" />
+    <link href="/css/build.css" rel="stylesheet" />
+    <script defer src="script/myScript.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+</head>
+<body class="font-sans overflow-y-scroll overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); roleResize();" onscroll="smallHeader(); slideHeader(); caseHeaderBg();">
+
+    <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
+        <div class="flex h-screen items-center justify-center w-screen gap-0">
+            <div class="w-40 md:w-48">
+                <div>
+                    <img class="w-full h-10 object-center lg:h-20 -mt-20" src="img/logo-white.svg" alt="">
+                </div>
+                <div class="w-full relative mt-6 lg:mt-12">
+                    <div class="z-90 animate-bar md:animate-barLarge">
+                        <div class="content-['''] bg-white w-8 h-1.5"></div>
+                    </div>
+                    <div class="content-['''] bg-white/20 w-full h-0.5 absolute top-0 left-0 mt-0.5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Navigation Menu Starts. It is translated out of the screen. It is brought inside when the hamburger icon is pressed. -->
+    <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
+      
+        <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="index.html" class=" col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt=""></a>
+            <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="closeNav();" src="img/cross-white.svg" alt="">
+        </div>
+
+        <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
+
+            <!-- Website Navigaiton Links -->
+            <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
+                <menu>
+                    <a href="index.html" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
+                    <a href="about.html" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
+                    <a href="about.html#contactInformation" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
+                </menu>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
+                <menu>
+                    <a href="mailto:hello@akayik.com"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Email</li></a>
+                    <a href="https://www.linkedin.com/in/akayik" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">LinkedIn</li></a>
+                    <a href="https://www.behance.net/akayik" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Behance</li></a>
+                    <a href="https://www.instagram.com/akayik_" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Instagram</li></a>
+                </menu>
+            </div>
+
+            <!-- Case Study Links -->
+            <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
+                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
+                <menu>
+                    <a class="block" href="channel-simplify-SaaS.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Channel Simplify
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="OGB-connect-product-design.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        OGB: Connect
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="super-krishak-system-design.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Super Krishak
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="my-emotions-matter-website-redesign.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        My Emotions Matter
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
+                        </li>
+                    </a>
+                    <a class="block" href="off-grid-bazaar-project-management.html" target="_blank" rel="noopener noreferrer">
+                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
+                        Off Grid Bazaar
+                        <span class="hidden md:inline-block lg:hidden">|</span>
+                        <span class="inline md:hidden lg:inline"><br/></span>
+                        <span class="font-normal text-sm opacity-70 lg:text-lg">Remote Project Mangement</span>
+                        </li>
+                    </a>
+                </menu>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="font-sans">        
+        <div class="w-screen z-30 px-8 py-8 fixed -top-24 sm:px-28 lg:px-14 xl:px-20  drop-shadow-lg 2xl:mx-auto transition-all duration-500" id="header">
+            <div class="grid grid-cols-2 2xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+                <a href="index.html" class="col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt="" id="logoContainer"></a>
+                <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="openNav();" src="img/burger-white.svg" alt="" id="burgerContainer">
+            </div>
+        </div>
+        <div class="relative float-left -z-1">
+            <img class="h-96 w-screen object-cover object-middle block" src="img/Angelswing/HeroImage-Drones-Construction.webp" alt="Two hotel receptionists at the front desk of the hotel. One receptionist is using a computer while the other is on the phone." id="heroImage">
+            <div class="bg-gradient-to-t from-akayik-900 h-32 w-screen absolute bottom-0">
+                <p class="opacity-0">.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900 pt-4" id="blueDiv">
+        <div class="px-8 py-8 text-white sm:px-28 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+            &nbsp;
+            <h3 class="text-lg font-semibold opacity-80 xl:text-xl">SaaS Product Design</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-12 xl:mt-4">
+                <h1 class="text-3xl font-bold col-span-1 lg:col-span-5 xl:text-4xl">I maintained and improved the UX of a product</h1>
+                <p class="mt-4 text-base col-span-1 lg:col-span-6 lg:mt-0 lg:col-start-7 lg:text-sm xl:text-lg">Angelswing is a cloud platform that enables its users to create a digital twin of their construction sites with drone-captured imagery and 360 site captures. The platform allows for efficient inspection, planning, and management without having to ever visit the jobsite. That’s made possible with automatic data processing, CAD visualizations paired with accurate scans and measurements, and realistic construction machinery simulation.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white px-8 py-8 grid grid-cols-1 sm:px-28 lg:grid-cols-12 lg:px-14 lg:py-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        <h3 class="text-lg font-semibold text-gray-900 opacity-75 xl:text-xl 2xl:mb-4 lg:col-span-12">Problem</h3>
+        <div class="lg:col-span-5">
+            <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Unstructured design process led to isolated workflows and internal misalignment</h1>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+            <p class="mt-4 lg:mt-0 text-base text-gray-700 lg:text-sm xl:text-lg">The company was operating with a primary focus on swiftly rolling out features and resolving user concerns along the way. However, there wasn’t a strong emphasis on adhering to a well-defined or a structured design process. As a result, activities such as research, design documentation, and testing were somewhat overlooked. Moreover, the only designer who worked part-time as a contractor, had limited interactions with the development team. That led to extremely isolated workflows. Additionally, there was inadequate alignment among the various internal stakeholders and there wasn’t a synchronized approach.</p>
+        </div>
+    </div>
+
+    <div class="bg-[#e8e7ee]">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto" id="roleContainer">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">My Role</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">As the only UX Designer, I had a few roles to fulfill</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li><span class="font-bold">Engaged in user research and user testing sessions</span> while maintaining design documentation</li>
+                    <li><span class="font-bold">Conducted meeting with stakeholders</span> for alignment on product goals</li>
+                    <li><span class="font-bold">Adapted and Enhanced UX</span> through input from users and industry experts</li>
+                    <li><span class="font-bold">Facilitated design handovers</span> to the development team</li>
+                </ul>
+            </div>
+            <img class="hidden lg:inline-block lg:col-span-2 lg:w-full lg:object-cover lg:object-left" id="roleSketch" src="img/Angelswing/Rough-Integration-Plan.webp" alt="Hand drawn sketch of a task flow. The image is obstructed and only partially visible">            
+        </div>
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Strategy</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Our Approach to the situation</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">Balancing the need for continuous feature release with a more systematic approach was crucial. We focused on establishing a collaborative system that would help maintain a smooth workflow within the team.</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading1" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Varied User-Centered Research</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content1">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">We were trying our best to remain user-centered and we employed a comprehensive research strategy. We conducted user testing that involved both external clients and internal users. We also conducted Heuristic evaluations, based on Nielsen’s principles, that provided further guidance for decision-making. To gather both quantitative and qualitative data, we designed surveys that captured diverse user perspectives. Additionally, we conducted thorough competitive analysis within our industry and learned from successful products.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-2/3 inline" href="img/Angelswing/HeuristicAnalysis-Nielsens-UXResearch.webp" data-glightbox="type: image; description: Output from heuiristic analysis of a part of the product" data-gallery="g2" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/HeuristicAnalysis-Nielsens-UXResearch.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Output from heuiristic analysis of a part of the product</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading2" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Automate User-Inisight Generation</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content2">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">We leveraged Hotjar and Google Analytics to gather data and inform our decision-making process. Hotjar provided insights into user behavior by recording user interactions and generating heatmaps that visually highlighted patterns in user interactions and behavior. These heatmaps and session recordings helped pinpoint areas of interest and potential pain points. GA supplemented that by offering comprehensive insights into user behavior and user demographic. These data points were crucial in informing our decisions and staying focused on continual refinement based on user preferences.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-2/3 inline" href="img/Angelswing/Heatmpas-Hotjar-UXResearch.webp" data-glightbox="type: image; description: Some heatmaps that were obtained from Hotjar" data-gallery="g3" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/Heatmpas-Hotjar-UXResearch.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some heatmaps that were obtained from Hotjar</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading3" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Emphasized Detailed Documentation</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content3">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">We prioritized creating thorough documentation as a reference for moments of uncertainty in the future. We extensively documented design discussions and decisions. We also focused on restructuring existing design components, reverse engineered a design system, and developed all new components based on this system. To facilitate a seamless handover, each feature was accompanied by detailed documentation at either the epic or story level.</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading4" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Aligning Stakeholder Perspectives</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content4">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">It was important for us that all internal stakeholders be aligned in our product decisions. So we set up weekly sync-up calls where the product team would present their insights and propose changes and other stakeholder teams reciprocated with their perspectives. The essence of these meetings was to foster an alignment among all parties and a clear understanding of the “why” behind each major decision.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-white px-8 pt-8 pb-8 overflow-x-clip sm:px-28 lg:pb-20 lg:pt-0 lg:px-14 grid grid-cols-1 lg:grid-cols-12 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
+        
+        <div class="col-span-1 lg:col-span-5 place-self-start lg:sticky lg:top-0 lg:pt-20">
+
+            <h3 class="text-lg font-semibold text-gray-900 opacity-75 lg:col-span-12 xl:text-xl xl:mb-4">Solution</h3>
+            <div>
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Highlights of the outcome</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg mb-4">Despite there being a massive lack of clarity in the early stages of the design process, we were in a much better state when we moved on to designing the actual website. In the end, we were able to create some UI patterns that we were proud of.</p>
+            </div>
+
+        </div>
+
+        <div class="col-span-1 lg:col-span-6 lg:col-start-7 lg:pl-4 lg:border-l-4 overflow-clip lg:mt-32">
+
+            <div>
+                <div class="border-t-2 border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading5" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Redesign of existing features</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+
+                <div class="hidden lg:block lg:border-0" id="content5">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">On the basis of the comprehensive research into usability and user perception, as well as the general user feedback, a lot of major features underwent a transformative redesign. The pain points that were highlighted by the user research were addressed along with the gaps in usability that were identified with heuristic evaluations. Additionally, our redesign process seamlessly integrated findings from competitive research which led to an enriched output. The result was a product with an enhanced user experience that not only met user expectations but also surpassed them.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Angelswing/Galleryview-Lightbox-Engineer.webp" data-glightbox="type: image; description: An updated lightbox view that allows for easy navigation and organization" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/Galleryview-Lightbox-Engineer.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Angelswing/PrintDocuemnt-ConstructionMap-DroneView.webp" data-glightbox="type: image; description: An updated interface with presents to easily print the drone-captured data" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/PrintDocuemnt-ConstructionMap-DroneView.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Angelswing/NotificationSystem-ConstructionManagement.webp" data-glightbox="type: image; description: Expanded the notification system to be used for more than just version updates" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/NotificationSystem-ConstructionManagement.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline hidden" href="img/Angelswing/ProejctBoard-Responsive-MobileFirst.webp" data-glightbox="type: image; description: Updated the project board for easy navigation and responsiveness" data-gallery="g4" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/ProejctBoard-Responsive-MobileFirst.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some task flows that were designed based on key tasks</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading6" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Diverse Feature Enhacements</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content6">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">Based on the user research, it was clear that we also needed to introduce new sets of features to address the user concerns. So we underwent various cycles of brainstorming, prototyping, testing, and implementation for each new feature. Some features were subtle additions, while others required changing technologies used in the application. This also led to integrations with other products working in the same space. The output was an application that can be utilized in various stages of the construction process and act as a true construction management platform
+                    </p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-nowrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Angelswing/BIMSupport-Visualization.webp" data-glightbox="type: image; description: The platform was updated to support and visualize more file formats " data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/BIMSupport-Visualization.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Angelswing/ParametricModel-3DEditing-DynamicSettings.webp" data-glightbox="type: image; description: The simulation feature got a new boost with the option to edit the 3D models in real time" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/ParametricModel-3DEditing-DynamicSettings.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline" href="img/Angelswing/TerrainEditing-3DData-GroundWork.webp" data-glightbox="type: image; description: The users were given the ability to modify the 3D terrain in the platform itself and allow for more accurate calculations" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/TerrainEditing-3DData-GroundWork.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline hidden" href="img/Angelswing/AR-360Mapping-IndoorsView.webp" data-glightbox="type: image; description: The users can also view 3D captures of the construction site for a more realistic inspection" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/AR-360Mapping-IndoorsView.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline hidden" href="img/Angelswing/IssueManagement-Presentation-Corporate.webp" data-glightbox="type: image; description: The users can now create geo-tagged issues and manage them with the right amount of care and attention" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/IssueManagement-Presentation-Corporate.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/3 inline hidden" href="img/Angelswing/ConstructionFootage-RemoteMonitoring.webp" data-glightbox="type: image; description: The users can monitor the site with real-time video capture" data-gallery="g5" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/ConstructionFootage-RemoteMonitoring.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Some new and diverse features that were introduced to the product</p>
+                </div>
+            </div>
+
+            <div class="lg:mt-12">
+                <div class="border-b-2 py-2 flex justify-between items-center lg:py-0 lg:border-0" id="heading7" onclick="accordion(this.id);">
+                    <h2 class="text-xl font-bold text-gray-800 xl:text-2xl pb-2 lg:pb-4">Rich Design Inventory and Documentation</h2>
+                    <img class="bg-gray-300 bg-opacity-0 rounded-full w-8 h-8 p-1 opacity-50 lg:hidden" src="img/ArrowBottom.svg" alt="">
+                </div>
+                <div class="hidden lg:block lg:border-0" id="content7">
+                    <p class="mt-2 text-base text-gray-700 lg:text-sm xl:text-lg">Each new feature or update was extensively documented. The design rationale, the various explorations, and high-fidelity prototypes were made accessible to all stakeholders. Furthermore, with each new update or a variant, the component library underwent revisions. Within a year, we had a robust design system in place with an array of figma variants for major components. This not only sped up the design process down the road but also nurtured collaboration between designers and developers. Each feature also had an accompanying handover document which greatly simplified the development process.</p>
+                    <div class="mt-8 flex flex-wrap justify-left lg:flex-wrap overflow:scroll lg:overflow-hidden">
+                        <a class="glightbox w-3/3 lg:w-1/2 inline" href="img/Angelswing/DesignSystem-Components-UILibrary.webp" data-glightbox="type: image; description: Existing UI elements were documented to create a design system and all new ones were designed to follow the design system" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/DesignSystem-Components-UILibrary.webp" alt="" />
+                        </a>
+                        <a class="glightbox w-3/3 lg:w-1/2 inline" href="img/Angelswing/DesignDocumentation-Handover.webp" data-glightbox="type: image; description: A new handover document format was created that drastically reduced handover meeting hours" data-gallery="g7" >
+                            <img class="pb-3 lg:pr-3 lg:pb-0" src="img/Angelswing/DesignDocumentation-Handover.webp" alt="" />
+                        </a>
+                    </div>
+                     <p class="mt-2 mb-3 text-sm italic text-gray-400 text-left xl:text-base lg:mb-0">Design documentation initiatives to introduce more order to the system</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bg-gray-200">
+        <div class="px-8 sm:px-28 lg:px-0 grid grid-cols-1 lg:grid-cols-5 pt-8 pb-8 lg:pt-0 lg:pb-0 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <div class="cols-span-1 lg:col-span-3 lg:pl-14 lg:pr-28 lg:my-auto xl:pl-20 py-12">
+                <h1 class="text-3xl font-bold text-akayik-900 xl:text-4xl">Reflections</h1>
+                <p class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg">During my time with Angelswing, I encountered various challenges and learning opportunities:</p>
+                <ul class="mt-4 text-base text-gray-700 lg:text-sm xl:text-lg list-disc pl-6">
+                    <li>Gathering user insights from a user base that didn't speak my language required creativity and a lot of assistance</li>
+                    <li>The lack of documentation can make the process of managing a platform very tedious and is something that should be prioritized the most</li>
+                    <li>Navigating stakeholder alignment is a difficult task but the end results are always rewarding</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-akayik-900">
+        <div class="flex items-center justify-between px-8 pb-6 pt-8 sm:px-28 lg:px-14 lg:pt-12 lg:pb-10 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <a href="dealership-marketing-website.html"><div class="flex items-center pr-2">
+                <img class="rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                <div class="lg:pl-4">
+                    <p class="text-sm font-base text-white text-left opacity-50 lg:text-base xl:text-lg">Previous</p>
+                    <p class="text-sm font-medium text-white text-left lg:text-lg xl:text-xl">Website for a vehicle dealership</p>
+                </div>
+                </div>
+            </a>
+            <a href="channel-simplify-SaaS.html">
+                <div class="flex items-center pl-2">
+                    <div class="lg:pr-4">
+                        <p class="text-sm font-base text-white text-right opacity-50 lg:text-base xl:text-lg">Next</p>
+                        <p class="text-sm font-medium text-white text-right lg:text-lg xl:text-xl">SaaS Product for the hospitality industry</p>
+                    </div>
+                <img class="-rotate-90 rounded-full w-8 h-8 p-1" src="img/ArrowWhite.svg" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-akayik-900">
+        <div class="pt-8 lg:pt-10">
+            <a href="https://akayik.com/"><img src="img/logo-white.svg" class="h-10 mx-auto opacity-50" alt=""></a>
+            <p class="text-white text-center text-xs opacity-50 pb-8 lg:pb-12 xl:text-sm mt-2">© 2023 Apurba Neupane</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script type="text/javascript">
+        const lightbox = GLightbox({
+            plyr: {
+               config: {
+                    ratio: '4:3',
+                    hideControls: true,
+               }
+            },            
+            touchNavigation: true,
+            loop: true
+        });
+    </script>
+
+</body>
+</html>
