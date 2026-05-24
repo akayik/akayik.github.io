@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./dist/output.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!--slick-->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <!--custom css-->
+    <link rel="stylesheet" href="/src/dotSlider.css" >
+    <!--glightbox-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="/src/slider.css">
+    <!--scripts-->
+    <script src="/src/js/global.js" defer></script>
+    <script src="/src/js/prelaoder.js"></script>
+  
+
+
+</head>
+<body class="bg-slate-2 font-montserrat block mx-auto static relative overflow-x-hidden">
+
+    <!--preloader-->
+    <div id="intro-bg" class="fixed inset-0 z-40 bg-slate-1"></div>
+
+    <div id="preloader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-1">
+        <!-- Logo -->
+        <img src="/Images/logo.svg" 
+            class="w-22 md:w-28 lg:w-32 md:w-22 mb-6" 
+            alt="Logo">
+    
+        <div class="relative w-32 h-1 bg-gray-200 overflow-hidden rounded">
+            <div class="absolute w-16 h-1 bg-cloud-1 animate-slide"></div>
+        </div>
+            
+        <style>
+            #intro-bg {
+                transform: translateX(100%);
+                transition: transform 0.8s ease;
+            }
+
+            #preloader {
+                transform: translateX(0);
+                transition: opacity 0.6s ease, transform 0.8s ease;
+            }
+
+            @keyframes slide {
+            0% { left: -25%; }
+            50% { left: 50%; }
+            100% { left: 100%; }
+            }
+            .animate-slide {
+            animation: slide 1.5s infinite linear;
+            }
+        </style>
+    </div>
+    
+    <!--navbar-->
+    
+    <div id="navbar" class=" block mx-auto w-screen z-40 absolute top-0 sticky h-18 md:h-22 lg:h-24 bg-slate-2/40 backdrop-blur transform transition-all duration-300">
+        <a href="/index.html"> <img src="/Images/logo.svg" alt="akayik" class="block mx-auto w-22 md:w-28 lg:w-32 md:w-22 pt-4 lg:pt-4"> </a>
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <a href="/index.html"> 
+                <div class="flex align-center absolute top-0 pt-4 md:pt-6 lg:pt-8 opacity-100 lg:opacity-70 hover:opacity-100 transition-opacity duration-300">
+                    <img src="Images/BackArrow.svg" class="w-8">
+                    <p class="pl-2 text-cloud-1 pt-1 invisible lg:visible">Back</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <!--hero section-->
+    <section id="hero" class="pb-14 bg-slate-2 w-full pt-12 lg:pt-4 bg-linear-to-b from-63% via-slate-1 via-63% to-slate-1 to-100% md:from-73% md:via-73% lg:from-44% lg:via-44% xl:from-45% xl:via-45%">
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-8">
+            <!--follwing section only visible after large size screens-->
+            <div class="col-span-6 pt-8 hidden lg:inline">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Objective</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Design a remote project management solution for a government agency</h1>
+                </div>
+                <div class="text-cloud-2 pt-8 text-left pr-2 lg:pr-12">
+                    <p>A government agency needed to monitor solar-powered water pumping systems provided to rural farmers across Nepal. Traditional on-site inspections were becoming costly and inefficient as operations scaled. We needed to create a digital solution that enabled remote monitoring, project management, and quality analysis while staying within technical feasibility.
+                </div>
+            </div>
+            <div class="col-span-12 lg:col-span-6 displaySlider">
+                <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                    <a href="Images/Projects/OGB/hero.jpg" class="glightbox" data-gallery="hero" data-description="A web-based remote project management platform that digitized the entire operations" >
+                        <img src="Images/Projects/OGB/hero.jpg" class="rounded-2xl object-cover w-full h-68 md:h-96 lg:h-80">
+                    </a>
+                </div>
+                <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                    <a href="Images/Projects/OGB/highlight22.webp" class="glightbox" data-gallery="hero" data-description="Set of components that were created to materialize the platform" >
+                        <img src="Images/Projects/OGB/highlight22.webp" class="rounded-2xl object-cover w-full h-68 md:h-96 lg:h-80">
+                    </a>
+                </div>
+            </div>
+                
+            <!--following section hidden after large size screens-->
+            <div class="col-span-12 pt-4 lg:hidden">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Objective</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Design a remote project management solution for a government agency</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-8 text-left pr-2">
+                    <p>A government agency needed to monitor solar-powered water pumping systems provided to rural farmers across Nepal. Traditional on-site inspections were becoming costly and inefficient as operations scaled. We needed to create a digital solution that enabled remote monitoring, project management, and quality analysis while staying within technical feasibility.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--breakdown-->
+    <section id="breakdown" class="pt-2 pb-18 bg-slate-1 w-full">
+        <div class="grid grid-cols-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <div class="col-span-12 md:col-span-4 grid grid-cols-8 w-full">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">My Role</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Lead Product Designer</br>User Research</br>Requirement Gathering</br>Stakeholder Manaement</br>Validation & QA Oversight<p>
+            </div>
+            <div class="col-span-12 grid md:col-span-4 grid-cols-8 w-full pt-8 md:pt-0 pl-0 md:pl-8 lg:pl-0">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">Process</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">User Interviews</br>Iterative Design</br>Cross-team collaboration</br>Testing<p>
+            </div>
+            <div class="col-span-12 md:col-span-4 grid grid-cols-8 w-full pt-8 md:pt-0">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">Deliverables</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Documentation (UMLs, Flows)</br>Design System and Component Library</br>High-fidelity Prototypes<p>
+            </div>
+        </div>
+    </section>
+
+    <!--description-->
+    <section id="description" class="py-14 bg-slate-2 w-full">
+        <div class="grid grid-cols-12 gap-8 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <div class="col-span-12 md:col-span-6">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Challenges</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Scope creep and more</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>The project requirements kept expanding after every meeting while operating on a tight deadline. Multiple parties were involved—the government agency, development team, R&D team, and upper management—each with different expectations. We also had to balance ambitious feature requests with technical feasibility and realistic timelines.</p>
+                </div>
+            </div>
+            <!--the following section is only visible after medium sized screens-->
+            <div class="col-span-6 pt-8 md:pt-0 hidden md:inline">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Approach</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Communication and Documentation</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>We tackled the challenges through empathy-driven conversations, comprehensive documentation, and consistent stakeholder alignment. User interviews helped us understand real needs versus wants. Detailed documentation in the form of UMLs, meeting minutes, and organized spreadsheets kept everyone accountable. Routine check-ins and constant communication ensured no one was left out of the loop, enabling quick decision-making.</p>
+                </div>
+            </div>
+            <!--the following section is hidden after medium sized screens-->
+            <div class="col-span-12 pt-8 md:hidden">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Approach</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Communication and Documentation</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>We tackled the challenges through empathy-driven conversations, comprehensive documentation, and consistent stakeholder alignment. User interviews helped us understand real needs versus wants. Detailed documentation in the form of UMLs, meeting minutes, and organized spreadsheets kept everyone accountable. Routine check-ins and constant communication ensured no one was left out of the loop, enabling quick decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--highlights-->
+
+    <section id="design-outcomes" class="bg-slate-1 w-full transition-padding duration-300">
+        <div class="py-14 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
+            <!--sticky paragraph section-->
+            <div id="sticky-sidebar" class="col-span-12 bg-slate-1/90 pt-6 lg:col-start-1 lg:col-end-6 top-0 place-self-start static lg:sticky backdrop-blur-lg z-10 transition-top duration-300">
+                <div class="col-span-12">
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Design Outcomes</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Digitized real-world operations</h1>
+                </div>
+                <div class="text-cloud-2 pt-8 text-left pb-4 md:pb-10">
+                    <p>After multiple conversations and iterations, we were able to create a system that satisfied the users and the people involved in creating it. The system successfully digitized real-world operations while providing an intuitive interface for managing complex IoT data and project workflows.</br></br>Please scroll more to see all that we were able to accomplish.</p>
+                </div>
+            </div>
+            <!--scrollable highlights section-->
+            <div class="col-span-12 md:col-start-3 md:col-end-11 lg:col-start-7 lg:col-end-13 w-full lg:mt-25 overflow-clip">
+                <div class="w-full">
+                    <div class="col-span-12 lg:col-span-6 displaySlider">
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/process1.webp" class="glightbox" data-gallery="process1" data-description="Empathy map created for the government agency" >
+                                <img src="Images/Projects/OGB/process1.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/process2.webp" class="glightbox" data-gallery="process1" data-description="An early flowchart of one of the flows of the oprations of the government agency" >
+                                <img src="Images/Projects/OGB/process2.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">1<span class="pl-1 text-cloud-2/60 text-sm">/3</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Documenting user insights</p>
+                            <p class="text-cloud-2">Some documentations amde during the early stages of design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <div class="col-span-12 lg:col-span-6 displaySlider mt-12 lg:mt-6">
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/highlight11.webp" class="glightbox" data-gallery="highlight1" data-description="Real-time visualization of the parameters that are monitored for system performance evaluation" >
+                                <img src="Images/Projects/OGB/highlight11.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/highlight12.webp" class="glightbox" data-gallery="highlight1" data-description="Dashboard view of the entire on-going operations" >
+                                <img src="Images/Projects/OGB/highlight12.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/highlight13.jpg" class="glightbox" data-gallery="highlight1" data-description="The project creation process mirrored the xisting stages in real life" >
+                                <img src="Images/Projects/OGB/highlight13.jpg" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/highlight14.jpg" class="glightbox" data-gallery="highlight1" data-description="The IoT device customization was fine-tuned for the requirements and specifications of the organization as well the parameters of the project" >
+                                <img src="Images/Projects/OGB/highlight14.jpg" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/highlight15.jpg" class="glightbox" data-gallery="highlight1" data-description="Visualization of each data point was tailored to meet the uniqque requirements of the organization" >
+                                <img src="Images/Projects/OGB/highlight15.jpg" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">2<span class="pl-1 text-cloud-2/60 text-sm">/3</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Intuitive and Streamlined remote monitoring interface</p>
+                            <p class="text-cloud-2">A remote monitoring dashboard and digitized existing pipeline for monitoring real-time system data</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-12 lg:mt-6">
+                    <div class="col-span-12 lg:col-span-6 displaySlider">
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/highlight21.webp" class="glightbox" data-gallery="highlight2" data-description="A detailed and reusable user flow for the registration of a solar water pump proejct" >
+                                <img src="Images/Projects/OGB/highlight21.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGB/highlight22.webp" class="glightbox" data-gallery="highlight2" data-description="A collection of individual UI elements that were used in the design" >
+                                <img src="Images/Projects/OGB/highlight22.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">3<span class="pl-1 text-cloud-2/60 text-sm">/3</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Detailed Design System and Scalable Flows</p>
+                            <p class="text-cloud-2">While digitizling the pipeline, the process was broken down into modular interconnected sections that could be independently updated in the future</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--reflections-->
+    <section id="reflections" class="w-full bg-slate-2 py-14">
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Reflections</h1>
+            <div class="grid grid-cols-12">
+                <p class="text-left text-cloud-2 mt-8 col-span-12 lg:col-span-5">The project involved a wide range of stakeholders that had their own ideas of what the best solution was. Working on this project taught me valuable lessons about stakeholder management and design process efficiency. Some of the other reflections were as follows</p>
+                <ul class="text-left text-cloud-2 mt-8 list-disc ml-4 col-span-12 lg:col-span-7 lg:pl-14">
+                    <li>The importance of bringing stakeholders together early</li>
+                    <li>Finding the overlap between everyone's vision of the "best solution"</li>
+                    <li>How documented conversations anchor the design process and prevent perpetual back-and-forths</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--navigation-->
+    <section id="navigation" class="w-full bg-slate-1 pt-14">
+        <div class="grid grid-cols-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto gap-4">
+            <a class="col-span-6 ml-0 hover:ml-4 transition-all delay-100 duration-200 ease-in-out" href="ogbc.html">
+                <div class="flex items-center">
+                    <div class="w-8 md:w-6"><img src="Images/Arrow1.svg"></div>
+                    <div class="pl-8">
+                        <p class="text-cloud-2">Previous</p>
+                        <p class="text-cloud-1">Product design for smooth last mile distribution</p>
+                    </div>
+                </div>
+            </a>
+            <a class="col-span-6 mr-0 hover:mr-4 transition-all delay-100 duration-200 ease-in-out" href="ChannelSimplify.html">
+                <div class="flex flex-row-reverse items-center text-right">
+                    <div class="w-8 md:w-6"><img src="Images/Arrow2.svg"></div>
+                    <div class="pr-8">
+                        <p class="text-cloud-2">Next</p>
+                        <p class="text-cloud-1">SaaS prodcut for the hospitality industry</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--footer-->
+    <section id="footer" class="bg-slate-1 pt-24 pb-4 md:pb-12 lg:pt-18 lg:pb-8" >
+        <img src="Images/logo.svg" class="w-24 pb-6 block mx-auto opacity-50">
+        <p class="text-cloud-2 text-sm text-center block mx-auto pb-18">© 2026 Apurba Neupane</p>
+    </section>
+
+    <!--slick.js-->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.displaySlider').slick({
+            infinite: true,
+            dots: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            autoplay: false,
+            autoplaySpeed: 8000,
+            pauseOnFocus: true,
+          });
+        });
+    </script>
+
+    <!--glightbox.js-->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({
+        selector: '.glightbox',
+        loop: true,
+        touchNavigation: true,
+        zoomable: true,
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+
+@theme {  
+    --color-*: initial;
+
+    --color-slate-0: #000000;
+    --color-slate-1: #131313;
+    --color-slate-2: #252525;
+
+    --color-cloud-1: #d3d3d3;
+    --color-cloud-2: #868686;
+
+    --color-brand-blue: #4AA0D9;
+
+    --font-montserrat: Montserrat, sans-serif;
+}

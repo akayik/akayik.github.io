@@ -1,264 +1,493 @@
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akayik</title>
-    <!-- Tailwind Stylesheet -->
-    <link href="/css/tailwind.css" rel="stylesheet" />
-    <!-- Tailwind build stylesheet -->
-    <link href="/css/build.css" rel="stylesheet" />
-    <!-- Custom javascript -->
-    <script defer src="script/myScript.js"></script>
-    <!-- Javascript for the testimonial section -->
-    <script defer src="script/testimonial.js"></script>
-    <!-- Stylesheet for the testimonial section -->
-    <link rel="stylesheet" href="/css/testimonial.css">
-    <!-- CDN for two slick slider css -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="./dist/output.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!--slick-->
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <!--custom css-->
+  <link rel="stylesheet" href="/src/testimonialSlider.css" >
+  <!--glightbox-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="/src/slider.css">
+  <!--scripts-->
+  <script src="/src/js/prelaoder.js"></script>
 
 </head>
+<body class="bg-slate-0 font-montserrat block mx-auto static overflow-x-hidden">
 
-<body class="font-sans overflow-hidden overflow-x-hidden" id="body" onload="hideLoader(); slideHeader(); testimonialWidthResize();" onscroll="smallHeader(); slideHeader();" onresize="testimonialWidthResize();">
+    <!--preloader-->
+    <div id="intro-bg" class="fixed inset-0 z-40 bg-slate-1"></div>
 
-    <!-- Preloader Starts -->
-    <div class="bg-akayik-900 absolute top-0 left-0 z-[100] transition-transform duration-300" id="loader">
-        <div class="flex h-screen items-center justify-center w-screen gap-0">
-            <div class="w-40 md:w-48">
-                <div>
-                    <img class="w-full h-10 object-center lg:h-20 -mt-20" src="img/logo-white.svg" alt="">
-                </div>
-                <div class="w-full relative mt-6 lg:mt-12">
-                    <div class="z-90 animate-bar md:animate-barLarge">
-                        <div class="content-['''] bg-white w-8 h-1.5"></div>
-                    </div>
-                    <div class="content-['''] bg-white/20 w-full h-0.5 absolute top-0 left-0 mt-0.5"></div>
-                </div>
-            </div>
+    <div id="preloader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-1">
+        <!-- Logo -->
+        <img src="/Images/logo.svg" 
+            class="w-22 md:w-28 lg:w-32 md:w-22 mb-6" 
+            alt="Logo">
+    
+        <div class="relative w-32 h-1 bg-gray-200 overflow-hidden rounded">
+            <div class="absolute w-16 h-1 bg-cloud-1 animate-slide"></div>
         </div>
+            
+        <style>
+            #intro-bg {
+                position: fixed;
+                inset: 0;
+                background-color: rgb(248 250 252); /* same as bg-slate-1 */
+                z-index: 40;
+                transform: translateX(100%); /* start off-screen to the right */
+                transition: transform 0.8s ease; /* enable slide animation */
+            }
+
+            #preloader {
+                transition: opacity 0.6s ease, transform 0.8s ease;
+                transform: translateX(0);
+            }
+
+            @keyframes slide {
+            0% { left: -25%; }
+            50% { left: 50%; }
+            100% { left: 100%; }
+            }
+            .animate-slide {
+            animation: slide 1.5s infinite linear;
+            }
+        </style>
     </div>
-    <!-- Preloader Ends -->
+    
+    <!--navbar-->
 
-
-    <!-- Full Navigation Menu Starts. Is translated out of the screen. Is brought inside when the hamburger icon is pressed. -->
-    <div class="bg-akayik-900 font-sans fixed w-screen h-screen z-50 -translate-y-full transition-transform duration-300 ease-linear" id="fullNav">
-      
-        <div class="top-0 w-screen px-8 py-8 grid grid-cols-2 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
-            <a href="index.html" class=" col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-white.svg" alt=""></a>
-            <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="closeNav();" src="img/cross-white.svg" alt="">
-        </div>
-
-        <div class="px-8 sm:px-28 lg:px-14 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto text-white mt-4 grid grid-cols-2 lg:grid-cols-12 lg:mt-8">
-
-            <!-- Website Navigaiton Links -->
-            <div class="col-span-1 order-1 md:order-2 lg:row-span-1 lg:col-span-4">
-                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Links</h1>
-                <menu>
-                    <a href="index.html" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Work</li></a>
-                    <a href="about.html" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">About</li></a>
-                    <a href="about.html#contactInformation" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Contact</li></a>
-                </menu>
-            </div>
-
-            <!-- Contact Links -->
-            <div class="col-span-1 ml-4 order-2 md:order-3 lg:ml-0 lg:row-span-1 lg:col-span-4">
-                <h1 class="text-xl font-bold lg:text-3xl mb-4 md:mb-8 lg:mb-10">Contact</h1>
-                <menu>
-                    <a href="mailto:hello@akayik.com"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Email</li></a>
-                    <a href="https://www.linkedin.com/in/akayik" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">LinkedIn</li></a>
-                    <a href="https://www.behance.net/akayik" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Behance</li></a>
-                    <a href="https://www.instagram.com/akayik_" target="_blank" rel="noopener noreferrer"><li class="mb-2 font-semibold text-sm lg:text-xl lg:mb-4 hover:pl-3">Instagram</li></a>
-                </menu>
-            </div>
-
-            <!-- Case Study Links -->
-            <div class="col-span-2 order-3 md:order-1  md:mb-16 lg:row-span-2 lg:col-span-8">
-                <h1 class="text-xl font-bold lg:text-3xl mb-4 mt-8 md:mt-0 md:mb-8 lg:mb-10">Recent Case Studies</h1>
-                <menu>
-                    <a class="block" href="channel-simplify-SaaS.html" target="_blank" rel="noopener noreferrer">
-                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
-                        Channel Simplify
-                        <span class="hidden md:inline-block lg:hidden">|</span>
-                        <span class="inline md:hidden lg:inline"><br/></span>
-                        <span class="font-normal text-sm opacity-70 lg:text-lg">SaaS Product Design</span>
-                        </li>
-                    </a>
-                    <a class="block" href="OGB-connect-product-design.html" target="_blank" rel="noopener noreferrer">
-                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
-                        OGB: Connect
-                        <span class="hidden md:inline-block lg:hidden">|</span>
-                        <span class="inline md:hidden lg:inline"><br/></span>
-                        <span class="font-normal text-sm opacity-70 lg:text-lg">Product Design</span>
-                        </li>
-                    </a>
-                    <a class="block" href="super-krishak-system-design.html" target="_blank" rel="noopener noreferrer">
-                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
-                        Super Krishak
-                        <span class="hidden md:inline-block lg:hidden">|</span>
-                        <span class="inline md:hidden lg:inline"><br/></span>
-                        <span class="font-normal text-sm opacity-70 lg:text-lg">System Design</span>
-                        </li>
-                    </a>
-                    <a class="block" href="my-emotions-matter-website-redesign.html" target="_blank" rel="noopener noreferrer">
-                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
-                        My Emotions Matter
-                        <span class="hidden md:inline-block lg:hidden">|</span>
-                        <span class="inline md:hidden lg:inline"><br/></span>
-                        <span class="font-normal text-sm opacity-70 lg:text-lg">Website Re-design</span>
-                        </li>
-                    </a>
-                    <a class="block" href="off-grid-bazaar-project-management.html" target="_blank" rel="noopener noreferrer">
-                        <li class="font-semibold mb-3 in inline-block lg:mb-8 lg:text-xl hover:pl-6">
-                        Off Grid Bazaar
-                        <span class="hidden md:inline-block lg:hidden">|</span>
-                        <span class="inline md:hidden lg:inline"><br/></span>
-                        <span class="font-normal text-sm opacity-70 lg:text-lg">Remote Project Mangement</span>
-                        </li>
-                    </a>
-                </menu>
-            </div>
-        </div>
-
-    </div>
-    <!-- Full Navigation Menu ends -->
-
-
-    <!-- Main Page starts -->
-    <div>        
-        
-        <!-- Header Starts -->
-        <div class="w-screen z-30 px-8 py-8 fixed -top-24 sm:px-28 lg:px-14 xl:px-20  bg-white drop-shadow-lg 2xl:mx-auto transition-all duration-500" id="header">
-            <div class="grid grid-cols-2 2xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
-                <a href="index.html" class="col-span-1"><img class="mr-auto my-auto w-24" src="img/logo-blue.svg" alt=""></a>
-                <img class="h-5 my-auto col-span-1 justify-self-end cursor-pointer" onclick="openNav();" src="img/burger-blue.svg" alt="">
-            </div>
-        </div>                                                                                                                                                                                                                                                        
-        <!-- Header Ends -->
-
-        <div class="px-8 pt-36 pb-4 grid grid-cols-1 sm:px-28 lg:px-14 lg:pb-20 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
-            <div class="text-center lg:grid lg:grid-cols-12">
-                <p class="text-m text-gray-500 font-semibold lg:text-xl lg:col-span-4 lg:col-start-5">Hi there. I am Apurba 👋</p>
-                <h1 class="mt-2 text-2xl lg:text-4xl text-akayik-900 font-medium lg:col-span-6 lg:col-start-4">I design <span class="font-bold">UX Solutions</span></h1>
-                <p class="mt-6 text-gray-700 text-base xl:text-lg lg:col-span-8 lg:col-start-3">I have been designing minimal, goal-driven products and interfaces since 2016. I enjoy balancing user needs and business needs to create problem-oriented human-centered designs.</p>
-            </div>
-        </div>
-
-        <div class="mx-8 my-8 grid grid-cols-1 sm:mx-28 lg:grid-cols-12 lg:mx-14 lg:my-0 xl:mx-0 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto lg:grid-rows-3 lg:auto-rows-max lg:gap-5 lg:h-[90%]">
-
-            <a class="relative mb-6 lg:mb-0 lg:col-span-7 lg:row-span-2" href="channel-simplify-SaaS.html">
-                <div>
-                    <div class="bg-[#862a97]/70 text-white absolute left-0 bottom-0 lg:top-0 lg:bg-[#862a97]/50 lg:hover:bg-[#862a97]/0 hover:duration-700 z-0 w-full px-4 py-4 lg:px-8 lg:py-6">
-                        <p class="font-bold text-xl lg:text-2xl">Channel Simplify</p>
-                        <p class="font-base">SaaS Product Design</p>
-                    </div>
-                    <img class="h-48 md:h-64 w-full object-cover object-center lg:hidden" src="img/Channel_Hero_Mobile.jpg">
-                    <img class="object-cover object-center hidden lg:block lg:h-full lg:w-full" src="img/Channel_Hero.jpg">
-                </div>
-            </a>
-
-            <a class="relative mb-6 lg:mb-0 lg:col-span-5 lg:row-span-1" href="OGB-connect-product-design.html">
-                <div>
-                    <div class="bg-[#FF8B45]/70 text-white absolute left-0 bottom-0 lg:top-0 lg:bg-[#FF8B45]/50 lg:hover:bg-[#FF8B45]/0 hover:duration-700 z-0 w-full px-4 py-4 lg:px-8 lg:py-6">
-                        <p class="font-bold text-xl lg:text-2xl">OGB: Connect</p>
-                        <p class="font-base">Product Design</p>
-                    </div>
-                    <img class="h-48 md:h-64 w-full object-cover object-center lg:h-full" src="img/Connect_Hero.jpg">
-                </div>
-            </a>
-
-            <a class="relative mb-6 lg:mb-0 lg:col-span-5 lg:row-span-1" href="super-krishak-system-design.html">
-                <div>
-                    <div class="bg-[#4aa0d9]/70 text-white absolute left-0 bottom-0 lg:top-0 lg:bg-[#4aa0d9]/50 lg:hover:bg-[#4aa0d9]/0 hover:duration-700 z-0 w-full px-4 py-4 lg:px-8 lg:py-6">
-                        <p class="font-bold text-xl lg:text-2xl">Super Krishak</p>
-                        <p class="font-base">System Design</p>
-                    </div>
-                    <img class="h-48 md:h-64 w-full object-cover object-center lg:h-full" src="img/Super_Hero.jpg">
-                </div>
-            </a>
-
-            <a class="relative mb-6 lg:mb-0 lg:col-span-6 lg:row-span-1" href="my-emotions-matter-website-redesign.html">
-                <div>
-                    <div class="bg-[#f1a513]/70 text-white absolute left-0 bottom-0 lg:top-0 lg:bg-[#f1a513]/50 lg:hover:bg-[#f1a513]/0 hover:duration-700 z-0 w-full px-4 py-4 lg:px-8 lg:py-6">
-                        <p class="font-bold text-xl lg:text-2xl">My Emotions Matter</p>
-                        <p class="font-base ">Website Re-design</p>
-                    </div>
-                    <img class="h-48 md:h-64 w-full object-cover object-center lg:h-full" src="img/MEM_Hero1.jpg">
-                </div>
-            </a>
-
-            <a class="relative mb-6 lg:mb-0 lg:col-span-6 lg:row-span-1" href="off-grid-bazaar-project-management.html">
-                <div>
-                    <div class="bg-[#366bbb]/70 text-white absolute left-0 bottom-0 lg:top-0 lg:bg-[#366bbb]/50 lg:hover:bg-[#366bbb]/0 hover:duration-700 z-0 w-full px-4 py-4 lg:px-8 lg:py-6">
-                        <p class="font-bold text-xl lg:text-2xl">Off Grid Bazaar</p>
-                        <p class="font-base ">Remote Project Management</p>
-                    </div>
-                    <img class="h-48 md:h-64 w-full object-cover object-center lg:h-full" src="img/OGB_Hero.jpg">
-                </div>
-            </a>
-
-        </div>
-
-        <div class="px-8 pb-4 sm:px-28 lg:pt-14 lg:pb-12 lg:px-10 xl:px-20 2xl:max-w-screen-2xl 2xl:mx-auto">
-            <div class="text-center lg:px-40">
-                <p class="text-gray-700 text-base lg:text-sm xl:text-lg pb-4 lg:col-span-10 lg:col-start-2 noHeight">Before I donned the hat of a UX Designer, I had other hats: Graphic Designer, Logo Designer, Branding Specialist, and Brand Consultant. While the labels have changed over the years, my view on design hasn’t. For me, design will always be about solving significant problems. I have enjoyed designing for as long as I can remember and I love briefs that push me to my limits and force me to evolve. I love learning new things, implementing them in my process, and serving people better.</p>
-                <a class="text-akayik-900 block text-base lg:text-sm xl:text-lg pb-10 lg:pb-4 lg:col-span-4 lg:col-start-5 mt-8 lg:font-medium" href="about.html" target="_blank" rel="noopener noreferrer"><u>Learn more about me as a designer and my design journey</u></a>
-            </div>
-        </div>
-
-        <div class="testimonialSection">
-            <div class="testimonialHolder">
-                <div class="sectionHeader">
-                    <h3 class="sectionSubheading">Testimonials</h3>
-                    <p class="sectionMainheading">What people say</p>
-                </div>
-                <div class="testimonialContainer  testimonialSlider" id="testimonialContainer">
-                    <div class="testimonial">
-                        <p class="testimonialcontent">I find it easy to work with people who take the time to listen and understand first before offering their two cents. Apurba does just that. He's been easy to work with because he seeks feedback. Thanks to him, we have been better able to communicate our brand values than before.</p>
-                        <p class="testimonialPerson">Sagar Satyal</p>
-                        <p class="testimonialCompany">Co-founder, My Emotions Matter</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonialcontent">Apurba takes his clients on a co-creative journey that all feels effortless in the end. I have collaborated in quite a number of Commissioned as well as Volunteering projects with him. The outputs and the support has kept me continuing to recommend him to everyone requiring a design solution for more than 5 years now. </p>
-                        <p class="testimonialPerson">Pankaj Niroula</p>
-                        <p class="testimonialCompany">Tech Lead, King's College</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonialcontent">Apurba was an energetic part of our team that brought a keen sense of design and user-friendliness to our products and services. He is dedicated, passionate, and a hard-working professional. His friendly and thoughtful presence made our cross-team communication smoother and has been a valuable  asset since day one.</p>
-                        <p class="testimonialPerson">Manish Marahatta</p>
-                        <p class="testimonialCompany">CEO, Eydean Inc.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="navbar" class=" block mx-auto w-screen z-40 absolute top-0 sticky h-18 md:h-22 lg:h-24 bg-slate-0/40 backdrop-blur transform transition-transform duration-300">
+        <img src="/Images/logo.svg" alt="akayik" class="block mx-auto w-22 md:w-28 lg:w-32 md:w-22 pt-4 lg:pt-4">
     </div>
 
-    <div class="bg-gray-200">
-        <div class="pt-8 lg:pt-10">
-            <a href="https://akayik.com/"><img src="img/logo-gray-700.svg" class="h-10 mx-auto opacity-50" alt=""></a>
-            <p class="text-gray-700 text-center text-xs opacity-50 pb-8 lg:pb-12 xl:text-sm mt-2">© 2023 Apurba Neupane</p>
+    <!--hero section-->
+
+    <section id="hero" class="bg-slate-0 static pt-2 md:pt-10">
+        <div class="relative w-screen bg-slate-0">
+            <img src="/Images/Hero.png" alt="a guy smiling" class="lg:w-3/8 block mx-auto md:w-3/6 w-full">
+            <div class="bg-slate-0 lg:h-24 md:h-50 h-70 lg:h-40 xl:h-4"> </div>
+            <div class="text-cloud-2 block w-screen absolute bottom-0">
+                <div class="w-[300px] md:w-[600px] xl:w-[1200px] mx-auto text-center">
+                    <p>Hi there, I am Apurba 👋</p>
+                    <h1 class="text-cloud-1 text-xl xl:text-2xl pt-2">I design <b>Digital Products, Experiences, and Solutions</b></h1>
+                    <p class="pt-2 pb-6 md:w-120 xl:w-200 mx-auto">I have been designing minimal, goal-driven products and interfaces since 2016. I enjoy balancing user needs and business needs to create human-centered designs that attempt to tackle the problem at the very crux of it.</p>
+                    <div class="hidden lg:block" >
+                        <div 
+                            class="flex w-52 lg:w-49 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-2 cursor-pointer border-2 hover:border-cloud-2 border-slate-1"
+                            onclick="window.scrollBy({ top: 500, behavior: 'smooth' })"
+                        >
+                            <img src="Images/DownArrow.svg">
+                            <p class="pl-2">Scroll to see more</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-        
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    </section>  
+
+    <!--case studies-->
+
+    <section id="case studies" class="bg-linear-to-b from-45% via-slate-1 via-45% to-slate-1 to-100% pb-16 pt-14 md:pt-12">
+        <div class="block mx-auto pt-12 md:pt-8 pb-4 max-w-[350px] md:max-w-[600px] lg:max-w-[950px]">
+            <p class="text-center text-xl text-cloud-2 pb-2">Case Studies</p>
+            <h2 class="text-center text-cloud-1 text-3xl font-semibold">Some highlighted projects</h1>
+        </div>
+        <div>
+            <div class="max-w-[350px] md:max-w-[600px] mx-auto mt-8 lg:max-w-[950px] xl:max-w-[1200px]">
+                <div class="grid grid-cols-12 gap-4">
+                    <div id="hover-area1" class="hover-area relaive col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#12386F] hover:to-slate-2 hover:text-cloud-1 text-cloud-2 hover:text-cloud-1 rounded-2xl pl-10 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
+                        <div id="custom-cursor1" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
+                            <img src="Images/RightArrow.svg" class="w-6">
+                            <p class="pl-2 text-cloud-1">See full details</p>
+                        </div>
+                        <a href="/angelswing.html" class="cursor-none">
+                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
+                                <p class="text-xl font-semibold">Angelswing</p>
+                                <div class="text-sm pt-2">
+                                    <p class="inline">UX Research •</p>
+                                    <p class="inline">Management Tools •</p>
+                                    <p class="inline">Construction Industry</p>
+                                </div>
+                            </div>
+                            <img id="tile1" src="Images/Tiles/AS.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
+                        </a>
+                    </div>
+                    <div id="hover-area3" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#B94813] hover:to-slate-2 hover:text-cloud-1 text-cloud-2 hover:text-cloud-1 rounded-2xl pl-10 lg:mt-0 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
+                        <div id="custom-cursor3" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
+                            <img src="Images/RightArrow.svg" class="w-6">
+                            <p class="pl-2 text-cloud-1">See full details</p>
+                        </div>
+                        <a href="/ogbc.html" class="cursor-none">
+                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
+                                <p class="text-xl font-semibold">OGB Connect</p>
+                                <div class="text-sm pt-2">
+                                    <p class="inline">Ethnographic Research •</p>
+                                    <p class="inline">Product Design •</p>
+                                    <p class="inline">Iterative Design </p>
+                                </div>
+                            </div>
+                            <img id="tile3" src="Images/Tiles/OGBC.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
+                        </a>
+                    </div>
+                    <div id="hover-area2" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#126093] hover:to-slate-2 text-cloud-2 hover:text-cloud-1 rounded-2xl pl-10 mt-8 lg:mt-0 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
+                        <div id="custom-cursor2" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
+                            <img src="Images/RightArrow.svg" class="w-6">
+                            <p class="pl-2 text-cloud-1">See full details</p>
+                        </div>
+                        <a href="/superkrishak.html" class="cursor-none">
+                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
+                                <p class="text-xl font-semibold">Super Krishak</p>
+                                <div class="text-sm pt-2">
+                                    <p class="inline">Mobile App Design •</p>
+                                    <p class="inline">System Design •</p>
+                                    <p class="inline">Gamified Learning</p>
+                                </div>
+                            </div>
+                            <img id="tile2" src="Images/Tiles/SU.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
+                        </a>
+                    </div>
+                    <div id="hover-area4" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#1C4889] hover:to-slate-2 hover:text-cloud-1 text-cloud-2 hover:text-cloud-1 rounded-2xl pl-10 mt-8 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
+                        <div id="custom-cursor4" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
+                            <img src="Images/RightArrow.svg" class="w-6">
+                            <p class="pl-2 text-cloud-1">See full details</p>
+                        </div>
+                        <a href="/OGB.html" class="cursor-none">
+                            <div>
+
+                            </div>
+                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
+                                <p class="text-xl font-semibold">Off Grid Bazaar</p>
+                                <div class="text-sm pt-2">
+                                    <p class="inline">ERP Design •</p>
+                                    <p class="inline">B2B SaaS Design •</p>
+                                    <p class="inline">Pipeline Monitoring</p>
+                                </div>
+                            </div>
+                            <img id="tile4" src="Images/Tiles/OGB.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
+                        </a>
+                    </div>
+                    <div id="hover-area5" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#6B197A] hover:to-slate-2 hover:text-cloud-1 text-cloud-2 hover:text-cloud-1 rounded-2xl pl-10 mt-8 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
+                        <div id="custom-cursor5" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
+                            <img src="Images/RightArrow.svg" class="w-6">
+                            <p class="pl-2 text-cloud-1">See full details</p>
+                        </div>
+                        <a href="/ChannelSimplify.html" class="cursor-none">
+                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
+                                <p class="text-xl font-semibold">Channel Simplify</p>
+                                <div class="text-sm pt-2">
+                                    <p class="inline">SaaS Product Design •</p>
+                                    <p class="inline">UX Design •</p>
+                                    <p class="inline">Competitive Research</p>
+                                </div>
+                            </div>
+                            <img id="tile5" src="Images/Tiles/CS.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
+                        </a>
+                    </div>
+                    <div id="hover-area6" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#D16C07] hover:to-slate-2 hover:text-cloud-1 text-cloud-2 hover:text-cloud-1 rounded-2xl pl-10 mt-8 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
+                        <div id="custom-cursor6" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
+                            <img src="Images/RightArrow.svg" class="w-6">
+                            <p class="pl-2 text-cloud-1">See full details</p>
+                        </div>
+                        <a href="/mem.html" class="cursor-none">
+                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
+                                <p class="text-xl font-semibold">My Emotions Matter</p>
+                                <div class="text-sm pt-2">
+                                    <p class="inline">Website Redesign •</p>
+                                    <p class="inline">Creative Direction •</p>
+                                    <p class="inline">Visual Design •</p>
+                                    <p class="inline">UX Writing</p>
+                                </div>
+                            </div>
+                            <img id="tile6" src="Images/Tiles/MEM.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--experience section-->
+    <section id="experience" class="bg-slate-1 w-full pt-14 pb-14 md:pt-16">
+        <div class="max-w-[350px] lg:max-w-[950px] md:max-w-[600px] xl:max-w-[1200px] py-12 md:py-4 md:pb-12 md:pt-12 px-8 rounded-xl mx-auto grid grid-cols-12 bg-linear-to-t lg:bg-linear-to-r from-slate-1 from-25% via-slate-2 via-55% to-slate-2 to-100%">
+            <div class="lg:col-start-1 lg:col-end-6 col-span-12 md:block lg:text-left text-center">
+                <p class="text-xl text-cloud-2 pb-2 hidden lg:inline">How I've worked</p>
+                <p class="text-xl text-cloud-2 pb-8 lg:hidden">Recent Experiences</p>
+                <h2 class="text-cloud-1 text-2xl font-semibold">Focusing on the needs and solving through design</h1>
+            </div>
+
+            <!--the block below is only visible on large screens. multiple column layout for larger screens-->
+
+            <div class="hidden lg:block text-cloud-2 md:w-[600px] mx-auto mt-10 lg:mt-0 lg:w-full lg:col-start-6 lg:col-end-12">
+                <p class="text-xl text-cloud-2 pb-2 lg:pl-4 xl:pl-20">Recent Experiences</p>
+                <div class="grid grid-cols-6 lg:grid-cols-8 lg:pl-4 xl:pl-20">
+                    <div class="col-span-5">
+                        <p><b>SAP</b></p>
+                        <p>Werkstudent</p>
+                    </div>
+                    <div class="col-span-3">
+                        <p>2024-present</p>
+                        <p>Germany, Remote</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 lg:grid-cols-8 mt-4 lg:pl-4 xl:pl-20">
+                    <div class="col-span-5">
+                        <p><b>Angelswing Inc.</b></p>
+                        <p>UX Designer</p>
+                    </div>
+                    <div class="col-span-3">
+                        <p>2022-2024</p>
+                        <p>South Korea, Remote</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 lg:grid-cols-8 mt-4 lg:pl-4 xl:pl-20">
+                    <div class="col-span-5">
+                        <p><b>Herald International College</b></p>
+                        <p>Asst. Lecturer - HCI</p>
+                    </div>
+                    <div class="col-span-3">
+                        <p>2022-2023</p>
+                        <p>Kathmandu, Nepal</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 lg:grid-cols-8 mt-4 lg:pl-4 xl:pl-20">
+                    <div class="col-span-5">
+                        <p><b>Gham Power Nepal</b></p>
+                        <p>UX Designer</p>
+                    </div>
+                    <div class="col-span-3">
+                        <p>2020-2022</p>
+                        <p>Kathmandu, Nepal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--different design for smaller screens. single column layout-->
+
+            <div class="text-cloud-2 col-span-12 pt-8 text-center lg:hidden">
+                <div>
+                    <p><b>SAP</b></p>
+                    <p>Werkstudent</p>
+                    <p class="text-sm">2024-present, Germany, Remote</p>
+                    <p>•</p>
+                </div>
+                <div>
+                    <p><b>Angelswing Inc.</b></p>
+                    <p>UX Designer</p>
+                    <p class="text-sm">2022-2024, South Korea, Remote</p>
+                    <p>•</p>
+                </div>
+                <div>
+                    <p><b>Herland International College</b></p>
+                    <p>Assistant Lecturere - HCI</p>
+                    <p class="text-sm">2022-2023, Kathmandu, Nepal</p>
+                    <p>•</p>
+                </div>
+                <div>
+                    <p><b>Gham Power Nepal</b></p>
+                    <p>UX Designer</p>
+                    <p class="text-sm">2020-2022, Kathmandu, Nepal</p>
+                    <p>•</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--testimoial section-->
+
+    <section id="testimonial" class="py-14 bg-slate-2 w-full">
+        <div class="max-w-[350px] xl:max-w-[1200px] lg:max-w-[900px] md:max-w-[600px] mx-auto grid grid-cols-12">
+            <div class="col-span-12 md:col-start-1 md:col-end-5">
+                <p class="text-center md:text-left text-xl text-cloud-2 pb-2">Testimonials</p>
+                <h2 class="text-center md:text-left text-cloud-1 text-3xl font-semibold">What people say</h1>
+            </div>
+            <div class="pt-12 md:pt-0 text-cloud-2 col-span-12 md:col-start-6 md:col-end-13 pl-8 autoplay">
+                <div class="testimonialSlider">
+
+                    <div class="item px-2">
+                        <p>I find it easy to work with people who take the time to listen and understand first before offering their two cents. Apurba does just that. He's been easy to work with because he seeks feedback. Thanks to him, we have been better able to communicate our brand values than before.</p>
+                        <div class="pt-12">
+                            <p class="font-semibold text-lg">Sagar Satyal</p>
+                            <p>Co-founder, My Emotions Matter</p>
+                        </div>
+                    </div>
+
+                    <div class="item px-2">
+                        <p>Apurba takes his clients on a co-creative journey that all feels effortless in the end. I have collaborated in quite a number of Commissioned as well as Volunteering projects with him. The outputs and the support has kept me continuing to recommend him to everyone requiring a design solution for more than 5 years now.</p>
+                        <div class="pt-12">
+                            <p class="font-semibold text-lg">Pankaj Niroula</p>
+                            <p>Tech Lead, King's College</p>
+                        </div>
+                    </div>
+
+                    <div class="item px-2">
+                        <p>Apurba was an energetic part of our team that brought a keen sense of design and user-friendliness to our products and services. He is dedicated, passionate, and a hard-working professional. His friendly and thoughtful presence made our cross-team communication smoother and has been a valuable  asset since day one.</p>
+                        <div class="pt-12">
+                            <p class="font-semibold text-lg">Manish Marahatta</p>
+                            <p>CEO, Eydean Inc.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--closing section-->
+    <section id="closing" class="py-14 bg-slate-1 w-full">
+        <div class="max-w-[350px] lg:max-w-[900px] md:max-w-[600px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-16">
+            <!--the blow below is only visible on larger screens and a multi-column layout-->
+            <div class="col-start-1 col-end-6 hidden lg:inline">
+                <p class="text-left text-cloud-2 pb-2">Before I donned the hat of a UX Designer full-time, I have had other hats: Graphic Designer, Logo Designer, Branding Specialist, and Brand Consultant. But while the labels have changed over the years, my view on design hasn’t. I still think of design as a means to solve problems with ingenuity and creativity. And my love for the creative field has only grown stronger. I still do branding work, make graphic designs and paintings when the brief or the muse is compelling enough. </p>
+            </div>
+            <div class="max-w-[350px] md:max-w-[600px] xl:max-w-[900px] col-span-12 lg:col-start-6 lg:col-end-13">
+                <div class="grid grid-cols-6 gap-4 h-84 md:h-120 lg:h-90">
+                    <!--the images occupy more columns in medium sized screens and occupy more in large screens-->
+                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden flex align-center">
+                        <a href="/Images/More/bench.jpg" class="glightbox" data-gallery="gallery1" data-description="A bench that I love seeing from my balcony">
+                            <img src="/Images/More/bench.jpg" class="object-cover h-full w-full">
+                        </a>
+                    </div>
+                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden flex align-center">
+                        <a href="/Images/More/biralis.jpg" class="glightbox" data-gallery="gallery1" data-description="Brand design for an up and coming food content creator">
+                            <img src="/Images/More/biralis.jpg" class="object-cover h-full w-full">
+                        </a>
+                    </div>
+                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden flex align-center">
+                        <a href="/Images/More/mug.jpg" class="glightbox" data-gallery="gallery1" data-description="One of the proudest logo designs that I've made">
+                            <img src="/Images/More/mug.jpg" class="object-cover h-full w-full">
+                        </a>
+                    </div>
+                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden flex align-center">
+                        <a href="/Images/More/gahana.jpg" class="glightbox" data-gallery="gallery1" data-description="My first ever e-commerce design back in 2019">
+                            <img src="/Images/More/gahana.jpg" class="object-cover h-full w-full">
+                        </a>
+                    </div>
+                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden flex align-center">
+                        <a href="/Images/More/sasheela.jpg" class="glightbox" data-gallery="gallery1" data-description="A website I designed for a car dealership in 2020">
+                            <img src="/Images/More/sasheela.jpg" class="object-cover h-full w-full">
+                        </a>
+                    </div>
+                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden flex align-center">
+                        <a href="/Images/More/lightning.jpg" class="glightbox" data-gallery="gallery1" data-description="The view from my window was spectacular on a random day in 2024">
+                            <img src="/Images/More/lightning.jpg" class="object-cover h-full w-full">
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--the blow below is only visible till medium sized screens which have a single layout design-->
+            <div class="lg:hidden sm:block max-w-[350px] pt-12 md:max-w-[600px] mx-auto">
+                <p class="text-left text-cloud-2 pb-2">Before I donned the hat of a UX Designer full-time, I have had other hats: Graphic Designer, Logo Designer, Branding Specialist, and Brand Consultant. But while the labels have changed over the years, my view on design hasn’t. I still think of design as a means to solve problems with ingenuity and creativity. And my love for the creative field has only grown stronger. I still do branding work, make graphic designs and paintings when the brief or the muse is compelling enough. </p>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <section id="footer" class="bg-slate-1 pt-24 pb-4 md:pb-12 lg:pt-18 lg:pb-8" >
+        <img src="Images/logo.svg" class="w-24 pb-6 block mx-auto opacity-50">
+        <p class="text-cloud-2 text-sm text-center block mx-auto pb-18">© 2026 Apurba Neupane</p>
+    </section>
+
+    <!--slick.js-->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
-          $('.testimonialSlider').slick({
-            infinite: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 6000,
+            $('.testimonialSlider').slick({
             infinite: true,
-            prevArrow: '',
-            nextArrow: '',
-          });
+            dots: true,
+            slidesToShow: 1,
+            slidesToScroll:1,
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 8000,
+            pauseOnFocus: true,
+            });
+        });
+    </script>
+        
+    <!--glightbox.js-->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({
+        selector: '.glightbox',
+        loop: true,
+        touchNavigation: true,
+        zoomable: true,
         });
     </script>
 
+    <!--crusor activities-->
+    <script>
+        for (let i = 1; i <= 6; i++) {
+        const hoverArea = document.getElementById(`hover-area${i}`);
+        const cursor = document.getElementById(`custom-cursor${i}`);
+
+        if (!hoverArea || !cursor) continue; // skip if missing
+
+        hoverArea.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
+        hoverArea.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
+
+        hoverArea.addEventListener('mousemove', (e) => {
+            const rect = hoverArea.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+        });
+        }
+    </script>
+
+    <!--dimming activities-->
+    <script>
+        const hoverAreas = document.querySelectorAll('.hover-area');
+        const tiles = document.querySelectorAll('[id^="tile"]'); // selects tile1, tile2, ...
+
+        hoverAreas.forEach((area, index) => {
+        area.addEventListener('mouseenter', () => {
+            tiles.forEach((tile, tileIndex) => {
+            if (tileIndex !== index) { // dim all tiles except the hovered one
+                tile.style.opacity = '0.4';
+            }
+            });
+        });
+
+        area.addEventListener('mouseleave', () => {
+            tiles.forEach(tile => {
+            tile.style.opacity = '1'; // reset all tiles
+            });
+        });
+        });
+    </script>
+
+    <!--navbar behavior-->
+    <script>
+        let lastScrollY = window.scrollY;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            // Scrolling down → hide navbar
+            navbar.classList.add('-translate-y-full'); // move it up
+        } else {
+            // Scrolling up → show navbar
+            navbar.classList.remove('-translate-y-full');
+        }
+
+        lastScrollY = currentScrollY;
+        });
+    </script>
 </body>
 </html>

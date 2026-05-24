@@ -1,0 +1,329 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./dist/output.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!--slick-->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <!--custom css-->
+    <link rel="stylesheet" href="/src/dotSlider.css" >
+    <!--glightbox-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="/src/slider.css">
+    <!--scripts-->
+    <script src="/src/js/global.js" defer></script>
+    <script src="/src/js/prelaoder.js"></script>
+  
+
+
+</head>
+<body class="bg-slate-2 font-montserrat block mx-auto static relative overflow-x-hidden">
+
+    <!--preloader-->
+    <div id="intro-bg" class="fixed inset-0 z-40 bg-slate-1"></div>
+
+    <div id="preloader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-1">
+        <!-- Logo -->
+        <img src="/Images/logo.svg" 
+            class="w-22 md:w-28 lg:w-32 md:w-22 mb-6" 
+            alt="Logo">
+    
+        <div class="relative w-32 h-1 bg-gray-200 overflow-hidden rounded">
+            <div class="absolute w-16 h-1 bg-cloud-1 animate-slide"></div>
+        </div>
+            
+        <style>
+            #intro-bg {
+                transform: translateX(100%);
+                transition: transform 0.8s ease;
+            }
+
+            #preloader {
+                transform: translateX(0);
+                transition: opacity 0.6s ease, transform 0.8s ease;
+            }
+
+            @keyframes slide {
+            0% { left: -25%; }
+            50% { left: 50%; }
+            100% { left: 100%; }
+            }
+            .animate-slide {
+            animation: slide 1.5s infinite linear;
+            }
+        </style>
+    </div>
+    
+    <!--navbar-->
+    
+    <div id="navbar" class=" block mx-auto w-screen z-40 absolute top-0 sticky h-18 md:h-22 lg:h-24 bg-slate-2/40 backdrop-blur transform transition-all duration-300">
+        <a href="/index.html"> <img src="/Images/logo.svg" alt="akayik" class="block mx-auto w-22 md:w-28 lg:w-32 md:w-22 pt-4 lg:pt-4"> </a>
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <a href="/index.html"> 
+                <div class="flex align-center absolute top-0 pt-4 md:pt-6 lg:pt-8 opacity-100 lg:opacity-70 hover:opacity-100 transition-opacity duration-300">
+                    <img src="Images/BackArrow.svg" class="w-8">
+                    <p class="pl-2 text-cloud-1 pt-1 invisible lg:visible">Back</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!--hero section-->
+    <section id="hero" class="pb-14 bg-slate-2 w-full pt-12 lg:pt-4 bg-linear-to-b from-68% via-slate-1 via-68% to-slate-1 to-100% md:from-78% md:via-78% lg:from-44% lg:via-44% xl:from-36% xl:via-36%">
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-8">
+            <!--follwing section only visible after large size screens-->
+            <div class="col-span-6 pt-8 hidden lg:inline">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Objective</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Redesign a website for clear communication and credibility</h1>
+                </div>
+                <div class="text-cloud-2 pt-8 text-left pr-2 lg:pr-12">
+                    <p><a href="https://myemotionsmatter.com/" class="underline decoration-[#D16C07] text-[#D16C07]">My Emotions Matter</a> teaches Emotional Intelligence through workshops, courses, and consulting. They were struggling to communicate the details of their work clearly. With a shift toward more B2B transactions, they needed a professional website that built trust and credibility while catering to both businesses and individuals.</p>
+                </div>
+            </div>
+            <div class="col-span-12 lg:col-span-6 displaySlider">
+                <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                    <a href="Images/Projects/MEM/highlight1.webp" class="glightbox" data-gallery="hero" data-description="A redesigned website with clear communicaiton and navigaiton" >
+                        <img src="Images/Projects/MEM/highlight1.webp" class="rounded-2xl object-cover w-full h-68 md:h-96 lg:h-80">
+                    </a>
+                </div>
+                <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                    <a href="Images/Projects/MEM/process2.webp" class="glightbox" data-gallery="hero" data-description="A moodboard that was created to establish the look and feel of the website" >
+                        <img src="Images/Projects/MEM/process2.webp" class="rounded-2xl object-cover w-full h-68 md:h-96 lg:h-80">
+                    </a>
+                </div>
+            </div>
+                
+            <!--following section hidden after large size screens-->
+            <div class="col-span-12 pt-4 lg:hidden">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Objective</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Redesign a website for clear communication and credibility</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-8 text-left pr-2">
+                    <p><a href="https://myemotionsmatter.com/" class="underline decoration-[#D16C07] text-[#D16C07]">My Emotions Matter</a> teaches Emotional Intelligence through workshops, courses, and consulting. They were struggling to communicate the details of their work clearly. With a shift toward more B2B transactions, they needed a professional website that built trust and credibility while catering to both businesses and individuals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--breakdown-->
+    <section id="breakdown" class="pt-2 pb-18 bg-slate-1 w-full">
+        <div class="grid grid-cols-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <div class="col-span-12 md:col-span-4 grid grid-cols-8 w-full">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">My Role</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Solo Desiger</br>UI Design</br>Icon & Graphic Design</br>UX Writing</br>Visual System Development<p>
+            </div>
+            <div class="col-span-12 grid md:col-span-4 grid-cols-8 w-full pt-8 md:pt-0">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">Process</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Content Restructuring</br>Narrative Development</br>Competitive Research</br>Mood Boarding</br>Iterative Refinement<p>
+            </div>
+            <div class="col-span-12 md:col-span-4 grid grid-cols-8 w-full pt-8 md:pt-0">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">Deliverables</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Content Strategy</br>Visual Design System</br>Minimal Website</br>Clear Navigation<p>
+            </div>
+        </div>
+    </section>
+
+    <!--description-->
+    <section id="description" class="py-14 bg-slate-2 w-full">
+        <div class="grid grid-cols-12 gap-8 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <div class="col-span-12 md:col-span-6">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Challenges</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Struggles with clear communication</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>The company knew their work was important, and their clients agreed. However, the details of what they did and how they did it were difficult to communicate. They needed to present themselves professionally while appealing to both businesses and individuals, two very different audiences.</p>
+                </div>
+            </div>
+            <!--the following section is only visible after medium sized screens-->
+            <div class="col-span-6 pt-8 md:pt-0 hidden md:inline">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Approach</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Finding the right tone</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>We focused on creating clear, concise content by reviewing all existing documentation and marketing materials. We restructured the narrative to create distinct differentiation between service offerings. Thorough research and mood boarding helped us explore visual directions before settling on a final look and feel that worked for both target audiences.</p>
+                </div>
+            </div>
+            <div class="col-span-12">
+                <div class="max-w-[350px] md:max-w-[600px] mx-auto lg:max-w-[950px] xl:max-w-[1200px]">
+                    <div class="grid h-75 md:h-112 lg:h-40 xl:h-60 w-full grid-cols-12 grid-rows-2 md:grid-rows-1 gap-4"> <!--no. of rows change when screen is small-->
+                        <div class="col-span-6 row-span-1 lg:col-span-3 rounded-2xl overflow-hidden">
+                            <a href="Images/Projects/MEM/process1.webp" class="glightbox" data-gallery="breakdown" data-description="The old website that needed redesign" >
+                                <img src="Images/Projects/MEM/process1.webp" class="object-cover h-full w-full">
+                            </a>
+                        </div>
+                        <div class="col-span-6 row-span-1 lg:col-span-3 rounded-2xl overflow-hidden">
+                            <a href="Images/Projects/MEM/process2.webp" class="glightbox" data-gallery="breakdown" data-description="A moodboard that was created to establish the look and feel of the website" >
+                                <img src="Images/Projects/MEM/process2.webp" class="object-cover h-full w-full">
+                            </a>
+                        </div>
+                        <div class="col-span-6 row-span-1 lg:col-span-3 rounded-2xl overflow-hidden">
+                            <a href="Images/Projects/MEM/process3.webp" class="glightbox" data-gallery="breakdown" data-description="Different navigation displays that were explored" >
+                                <img src="Images/Projects/MEM/process3.webp" class="object-cover h-full w-full">
+                            </a>
+                        </div>
+                        <div class="col-span-6 row-span-1 lg:col-span-3 rounded-2xl overflow-hidden relative">
+                            <a href="Images/Projects/MEM/process4.webp" class="glightbox" data-gallery="breakdown" data-description="Different hero sections that were explored during the design of the landing page" >
+                                <img src="Images/Projects/MEM/process4.webp" class="object-cover h-full w-full">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--the following section is hidden after medium sized screens-->
+            <div class="col-span-12 pt-8 md:hidden">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Approach</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Finding the right tone</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>We focused on creating clear, concise content by reviewing all existing documentation and marketing materials. We restructured the narrative to create distinct differentiation between service offerings. Thorough research and mood boarding helped us explore visual directions before settling on a final look and feel that worked for both target audiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--highlights-->
+
+    <section id="design-outcomes" class="bg-slate-1 w-full transition-padding duration-300">
+        <div class="py-14 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
+            <!--sticky paragraph section-->
+            <div id="sticky-sidebar" class="col-span-12 bg-slate-1/90 pt-6 lg:col-start-1 lg:col-end-6 top-0 place-self-start static lg:sticky backdrop-blur-lg z-10 transition-top duration-300">
+                <div class="col-span-12">
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Design Outcomes</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Some highlights</h1>
+                </div>
+                <div class="text-cloud-2 pt-8 text-left pb-4 md:pb-10">
+                    <p>We built a minimal, easy-to-navigate website that clearly explains MEM’s services, and it has led to higher-quality leads and smoother client interactions.</br></br>Please scroll more to see all that we were able to accomplish.</p>
+                </div>
+            </div>
+            <!--scrollable highlights section-->
+            <div class="col-span-12 md:col-start-3 md:col-end-11 lg:col-start-7 lg:col-end-13 w-full lg:mt-25 overflow-clip">
+                <div class="w-full">
+                    <div class="grid grid-cols-12 mt-4">
+                        <p class="text-cloud-1 col-span-1 text-lg">1<span class="pl-1 text-cloud-2/60 text-sm">/2</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Measurable business impact</p>
+                            <p class="text-cloud-2">The company has seen significant growth in lead quality and noticeable improvement in client interactions. Clients now have more clarity about what they want and which offerings they seek, reducing back-and-forth and improving conversion.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-12 lg:mt-6">
+                    <div class="col-span-12 lg:col-span-6 displaySlider">
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/MEM/highlight1.webp" class="glightbox" data-gallery="highlight1" data-description="A mockup of the final landing page design" >
+                                <img src="Images/Projects/MEM/highlight1.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/MEM/highlight2.webp" class="glightbox" data-gallery="highlight1" data-description="Mobile view of the final design for the resources section" >
+                                <img src="Images/Projects/MEM/highlight2.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/MEM/highlight3.webp" class="glightbox" data-gallery="highlight1" data-description="Laptop view of the final design for the about us section of the website" >
+                                <img src="Images/Projects/MEM/highlight3.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">2<span class="pl-1 text-cloud-2/60 text-sm">/2</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Clear narrative and packaging</p>
+                            <p class="text-cloud-2">We built a minimal, clear website that guides users effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--reflections-->
+    <section id="reflections" class="w-full bg-slate-2 py-14">
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Reflections</h1>
+            <div class="grid grid-cols-12">
+                <p class="text-left text-cloud-2 mt-8 col-span-12 lg:col-span-5">It was a project close to my heart and I wanted to help the organization do the best job possible. Here are some of the key learning that I am proud of.</p>
+                <ul class="text-left text-cloud-2 mt-8 list-disc ml-4 col-span-12 lg:col-span-7 lg:pl-14">
+                    <li>This website redesign taught me valuable lessons about clarity and audience targeting</li>
+                    <li>How a clear problem definition aligns everyone toward a common goal</li>
+                    <li>The complexity of serving multiple target audiences and finding visual overlap that works for all</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--navigation-->
+    <section id="navigation" class="w-full bg-slate-1 pt-14">
+        <div class="grid grid-cols-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto gap-4">
+            <a class="col-span-6 ml-0 hover:ml-4 transition-all delay-100 duration-200 ease-in-out" href="ChannelSimplify.html">
+                <div class="flex items-center">
+                    <div class="w-8 md:w-6"><img src="Images/Arrow1.svg"></div>
+                    <div class="pl-8">
+                        <p class="text-cloud-2">Previous</p>
+                        <p class="text-cloud-1">SaaS prodcut for the hospitality industry</p>
+                    </div>
+                </div>
+            </a>
+            <a class="col-span-6 mr-0 hover:mr-4 transition-all delay-100 duration-200 ease-in-out" href="angelswing.html">
+                <div class="flex flex-row-reverse items-center text-right">
+                    <div class="w-8 md:w-6"><img src="Images/Arrow2.svg"></div>
+                    <div class="pr-8">
+                        <p class="text-cloud-2">Next</p>
+                        <p class="text-cloud-1">SaaS prodcut for the construction industry</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--footer-->
+    <section id="footer" class="bg-slate-1 pt-24 pb-4 md:pb-12 lg:pt-18 lg:pb-8" >
+        <img src="Images/logo.svg" class="w-24 pb-6 block mx-auto opacity-50">
+        <p class="text-cloud-2 text-sm text-center block mx-auto pb-18">© 2026 Apurba Neupane</p>
+    </section>
+
+    <!--slick.js-->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.displaySlider').slick({
+            infinite: true,
+            dots: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            autoplay: false,
+            autoplaySpeed: 8000,
+            pauseOnFocus: true,
+          });
+        });
+    </script>
+
+    <!--glightbox.js-->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({
+        selector: '.glightbox',
+        loop: true,
+        touchNavigation: true,
+        zoomable: true,
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+/* Move dots to the left */
+.slick-dots {
+    position: absolute;
+    bottom: -3rem;       /* adjust vertical position */
+    left: 0;         /* move horizontally */
+    text-align: left;
+  }
+  
+  /* Reset default button styles */
+  .slick-dots li button {
+    font-size: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  /* Base dot style */
+  .slick-dots li button:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #868686;     /* inactive color */
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect for inactive dots */
+  .slick-dots li button:hover:before {
+    transform: scale(1.2);
+  }
+  
+  /* Active dot style */
+  .slick-dots li.slick-active button:before {
+    background-color: #d3d3d3;     /* active color */
+    transform: scale(1.3);         /* larger size */
+  }
+  

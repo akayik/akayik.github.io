@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./dist/output.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!--slick-->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <!--custom css-->
+    <link rel="stylesheet" href="/src/dotSlider.css" >
+    <!--glightbox-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="/src/slider.css">
+    <!--scripts-->
+    <script src="/src/js/global.js" defer></script>
+    <script src="/src/js/prelaoder.js"></script>
+  
+
+
+</head>
+<body class="bg-slate-2 font-montserrat block mx-auto static relative overflow-x-hidden">
+
+    <!--preloader-->
+    <div id="intro-bg" class="fixed inset-0 z-40 bg-slate-1"></div>
+
+    <div id="preloader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-1">
+        <!-- Logo -->
+        <img src="/Images/logo.svg" 
+            class="w-22 md:w-28 lg:w-32 md:w-22 mb-6" 
+            alt="Logo">
+    
+        <div class="relative w-32 h-1 bg-gray-200 overflow-hidden rounded">
+            <div class="absolute w-16 h-1 bg-cloud-1 animate-slide"></div>
+        </div>
+            
+        <style>
+            #intro-bg {
+                transform: translateX(100%);
+                transition: transform 0.8s ease;
+            }
+
+            #preloader {
+                transform: translateX(0);
+                transition: opacity 0.6s ease, transform 0.8s ease;
+            }
+
+            @keyframes slide {
+            0% { left: -25%; }
+            50% { left: 50%; }
+            100% { left: 100%; }
+            }
+            .animate-slide {
+            animation: slide 1.5s infinite linear;
+            }
+        </style>
+    </div>
+    
+    <!--navbar-->
+    
+    <div id="navbar" class=" block mx-auto w-screen z-40 absolute top-0 sticky h-18 md:h-22 lg:h-24 bg-slate-2/40 backdrop-blur transform transition-all duration-300">
+        <a href="/index.html"> <img src="/Images/logo.svg" alt="akayik" class="block mx-auto w-22 md:w-28 lg:w-32 md:w-22 pt-4 lg:pt-4"> </a>
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <a href="/index.html"> 
+                <div class="flex align-center absolute top-0 pt-4 md:pt-6 lg:pt-8 opacity-100 lg:opacity-70 hover:opacity-100 transition-opacity duration-300">
+                    <img src="Images/BackArrow.svg" class="w-8">
+                    <p class="pl-2 text-cloud-1 pt-1 invisible lg:visible">Back</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!--hero section-->
+    <section id="hero" class="pb-14 bg-slate-2 w-full pt-12 lg:pt-4 bg-linear-to-b from-67% via-slate-1 via-67% to-slate-1 to-100% md:from-77% md:via-77% lg:from-43% lg:via-43% xl:from-36% xl:via-36%">
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-8">
+            <!--follwing section only visible after large size screens-->
+            <div class="col-span-6 pt-8 hidden lg:inline">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Objective</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Redesign a lead management pipeline to increase generation</h1>
+                </div>
+                <div class="text-cloud-2 pt-8 text-left pr-2 lg:pr-12">
+                    <p><a href="https://ghampower.com/" class="underline decoration-[#FF8B45] text-[#FF8B45]">Gham Power</a> had a lead collector app for microfinance organizations that needed improvement. The original application served dual purposes: lead collection and comprehensive farmer data gathering. That resulted in a complex 27+ field form that took over 6 minutes to complete. We needed to simplify the process and dramatically increase lead generation.</p>
+                </div>
+            </div>
+            <div class="col-span-12 lg:col-span-6 displaySlider">
+                <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                    <a href="Images/Projects/OGBC/hero.jpg" class="glightbox" data-gallery="hero" data-description="A web-based digital twin platform that allowed for quasi real-time monitoring of construction sites" >
+                        <img src="Images/Projects/OGBC/hero.jpg" class="rounded-2xl object-cover w-full h-68 md:h-96 lg:h-80">
+                    </a>
+                </div>
+                <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                    <a href="Images/Projects/OGBC/highlight21.webp" class="glightbox" data-gallery="hero" data-description="A notificaiton system was created to inform users of issues and challenges on the ongoing construction site" >
+                        <img src="Images/Projects/OGBC/highlight21.webp" class="rounded-2xl object-cover w-full h-68 md:h-96 lg:h-80">
+                    </a>
+                </div>
+            </div>
+                
+            <!--following section hidden after large size screens-->
+            <div class="col-span-12 pt-4 lg:hidden">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Objective</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Redesign a lead management pipeline to increase generation</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-8 text-left pr-2">
+                    <p><a href="https://ghampower.com/" class="underline decoration-[#FF8B45] text-[#FF8B45]">Gham Power</a> had a lead collector app for microfinance organizations that needed improvement. The original application served dual purposes—lead collection and comprehensive farmer data gathering—resulting in a complex 27+ field form that took over 6 minutes to complete. We needed to simplify the process and dramatically increase lead generation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--breakdown-->
+    <section id="breakdown" class="pt-2 pb-18 bg-slate-1 w-full">
+        <div class="grid grid-cols-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <div class="col-span-12 md:col-span-4 grid grid-cols-8 w-full">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">My Role</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Design Lead</br>Research Design</br>User Testing</br>Design Handover<p>
+            </div>
+            <div class="col-span-12 grid md:col-span-4 grid-cols-8 w-full pt-8 md:pt-0">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">Process</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Field Research</br>Interviews and tests</br>Data-driven decisions</br>MVP Testing</br>Iterative Design<p>
+            </div>
+            <div class="col-span-12 md:col-span-4 grid grid-cols-8 w-full pt-8 md:pt-0">
+                <p class="col-span-3 text-cloud-2/60 md:col-span-8 pb-2 xl:col-span-2 xl:pb-0">Deliverables</p>
+                <p class="col-span-5 md:col-span-8 text-cloud-2 xl:col-span-5 xl:pl-4">Lead Collection App</br>Lead Classification System</br>Lead Management Platform</br>Design System<p>
+            </div>
+        </div>
+    </section>
+
+    <!--description-->
+    <section id="description" class="py-14 bg-slate-2 w-full">
+        <div class="grid grid-cols-12 gap-8 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <div class="col-span-12 md:col-span-6">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Challenges</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Complexity deterring users</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>The existing application tried to do too much at once. With 27 mandatory fields and 20+ optional fields, it took more than 6 minutes and 40 seconds to register a single lead. Multiple organizations were already using this system, so any redesign needed strong justification and would face scrutiny.</p>
+                </div>
+            </div>
+            <!--the following section is only visible after medium sized screens-->
+            <div class="col-span-6 pt-8 md:pt-0 hidden md:inline">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Approach</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">User validation at every step</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>We conducted virtual and on-site interviews with microfinance employees in rural Nepal to understand their daily work life and relationship with the current app. Pre-planned questionnaires converted subjective feedback into quantifiable metrics, removing bias from decision-making. We launched an MVP first, tested it for three months, gathered feedback, and iterated before full rollout.</p>
+                </div>
+            </div>
+            <div class="col-span-12">
+                <div class="max-w-[350px] md:max-w-[600px] mx-auto lg:max-w-[950px] xl:max-w-[1200px]">
+                    <div class="grid md:h-48 h-75 w-full grid-cols-12 grid-rows-2 md:grid-rows-1 gap-4"> <!--no. of rows change when screen is small-->
+                        <div class="col-span-12 md:col-span-6 rounded-2xl overflow-hidden">
+                            <a href="Images/Projects/OGBC/process1.webp" class="glightbox" data-gallery="breakdown" data-description="I tailed microfinance staff for a week to understand their day to day operations and to understand their context better" >
+                                <img src="Images/Projects/OGBC/process1.webp" class="object-cover h-full w-full">
+                            </a>
+                        </div>
+                        <div class="col-span-12 md:col-span-6 rounded-2xl overflow-hidden">
+                            <a href="Images/Projects/OGBC/process2.webp" class="glightbox" data-gallery="breakdown" data-description="A huge part of the field study was to see how the microfinance staff interacted with our apps (old one as well as the MVP redesign)" >
+                                <img src="Images/Projects/OGBC/process2.webp" class="object-cover object-[40%_80%] h-full w-full">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--the following section is hidden after medium sized screens-->
+            <div class="col-span-12 pt-8 md:hidden">
+                <div>
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Approach</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">User validation at every step</h1>
+                </div>
+                <div class="col-span-12 text-cloud-2 pt-4 text-left">
+                    <p>We conducted virtual and on-site interviews with microfinance employees in rural Nepal to understand their daily work life and relationship with the current app. Pre-planned questionnaires converted subjective feedback into quantifiable metrics, removing bias from decision-making. We launched an MVP first, tested it for three months, gathered feedback, and iterated before full rollout.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--highlights-->
+
+    <section id="design-outcomes" class="bg-slate-1 w-full transition-padding duration-300">
+        <div class="py-14 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-4">
+            <!--sticky paragraph section-->
+            <div id="sticky-sidebar" class="col-span-12 bg-slate-1/90 pt-6 lg:col-start-1 lg:col-end-6 top-0 place-self-start static lg:sticky backdrop-blur-lg z-10 transition-top duration-300">
+                <div class="col-span-12">
+                    <p class="text-left md:text-left text-xl text-cloud-2 pb-2">Iterative Design</p>
+                    <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Some highlights from the Creative Process</h1>
+                </div>
+                <div class="text-cloud-2 pt-8 text-left pb-4 md:pb-10">
+                    <p>We raised leads per branch from <b>9 to 50 per month per branch</b> by redesigning the experience. Lead collection was simplified to four fields, reducing entry time to 20 seconds. We also built a complete lead classification and management system to strengthen the entire pipeline.</br></br>Please scroll more to see all that we were able to accomplish.</p>
+                </div>
+            </div>
+            <!--scrollable highlights section-->
+            <div class="col-span-12 md:col-start-3 md:col-end-11 lg:col-start-7 lg:col-end-13 w-full lg:mt-25 overflow-clip">
+                <div class="w-full">
+                    <div class="col-span-12 lg:col-span-6 displaySlider">
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/ogbc/process4.webp" class="glightbox" data-gallery="process1" data-description="As the suggested redesign was very drastic, an MVP app was designed and tested on a small user base" >
+                                <img src="Images/Projects/ogbc/process4.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/ogbc/process3.webp" class="glightbox" data-gallery="process1" data-description="Multiple layouts and elements were experimented with before we settled on a way to communicate about the quality of leads" >
+                                <img src="Images/Projects/ogbc/process3.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/ogbc/process5.webp" class="glightbox" data-gallery="process1" data-description="A kanban style of lead management was also explroed in the MVP stage of the design process" >
+                                <img src="Images/Projects/ogbc/process5.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">1<span class="pl-1 text-cloud-2/60 text-sm">/5</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">MVP Design</p>
+                            <p class="text-cloud-2">An MVP version of the idea was designed and tested on a small user base</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-18">
+                    <a href="Images/Projects/OGBC/highlight01.jpg" class="glightbox" data-gallery="highlight1" data-description="A rebrand of the lead management pipeline to communicate that we would now do things differently">    
+                        <img src="Images/Projects/OGBC/highlight01.jpg" class="rounded-2xl mb-3 object-cover overflow-hidden border-4 border-cloud-2/80 md:mb-6 lg:mt-8 ">
+                    </a>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">2<span class="pl-1 text-cloud-2/60 text-sm">/5</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">A fresh rebrand</p>
+                            <p class="text-cloud-2">With the success of the MVP, the lead managment pipeline was also rebranded to refresh sentiments</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-12 lg:mt-6">
+                    <div class="col-span-12 lg:col-span-6 displaySlider">
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-12 mx-4">
+                            <a href="Images/Projects/OGBC/highlight11.webp" class="glightbox" data-gallery="highlight2" data-description="Three major keyframes in the lead collection application" >
+                                <img src="Images/Projects/OGBC/highlight11.webp" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-8 mx-4">
+                            <a href="Images/Projects/OGBC/highlight12.webm" class="glightbox" data-gallery="highlight2" data-description="The lead registration and observation process in the application" >
+                                <video class="rounded-2xl border-4 border-cloud-2/80" autoplay loop>
+                                    <source src="Images/Projects/OGBC/highlight12.webm">
+                                    Your browser does not support inline video. Please open the website in Chrome or Firefox
+                                </video>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">3<span class="pl-1 text-cloud-2/60 text-sm">/5</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Minimal, focused redesign</p>
+                            <p class="text-cloud-2">Simplified lead collection that cut time from 6 minutes to 20 seconds</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-18">
+                    <a href="Images/Projects/OGBC/highlight21.webp" class="glightbox" data-gallery="highlight3" data-description="A full-fledged lead management pipeline was born out of our research">    
+                        <img src="Images/Projects/OGBC/highlight21.webp" class="rounded-2xl mb-3 object-cover overflow-hidden border-4 border-cloud-2/80 md:mb-6 lg:mt-8 ">
+                    </a>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">4<span class="pl-1 text-cloud-2/60 text-sm">/5</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Complete lead management pipeline</p>
+                            <p class="text-cloud-2">Full lead classification and management system to complete the full pipeline</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mt-12 lg:mt-6">
+                    <div class="col-span-12 lg:col-span-6 displaySlider">
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-12 mx-4">
+                            <a href="Images/Projects/OGBC/highlight41.jpg" class="glightbox" data-gallery="highlight4" data-description="An offline pitch deck was designed to be used on field where projectors are not feasible" >
+                                <img src="Images/Projects/OGBC/highlight41.jpg" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-12 mx-4">
+                            <a href="Images/Projects/OGBC/highlight42.jpg" class="glightbox" data-gallery="highlight4" data-description="The pitch deck was designed to address all the pain ponits of the farmers in the region" >
+                                <img src="Images/Projects/OGBC/highlight42.jpg" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>
+                        <div class="item w-full h-68 md:h-96 lg:h-80 lg:mt-12 mx-4">
+                            <a href="Images/Projects/OGBC/highlight43.jpg" class="glightbox" data-gallery="highlight4" data-description="The pitch deck had a client side and a staff side. The staff side also had the pitch so that the staff didn't have to memorize it all" >
+                                <img src="Images/Projects/OGBC/highlight43.jpg" class="rounded-2xl border-4 border-cloud-2/80 object-cover">
+                            </a>
+                        </div>                        
+                    </div>
+                    <div class="grid grid-cols-12">
+                        <p class="text-cloud-1 col-span-1 text-lg">5<span class="pl-1 text-cloud-2/60 text-sm">/5</span></p>
+                        <div class="col-span-11 pl-4">
+                            <p class="text-cloud-1">Thinking beyond digital solutions</p>
+                            <p class="text-cloud-2">Some non-digital solutions were also designed to aid the microfinance people to talk pitch our products better</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--reflections-->
+    <section id="reflections" class="w-full bg-slate-2 py-14">
+        <div class="max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto">
+            <h2 class="text-left md:text-left text-cloud-1 text-3xl font-semibold">Reflections</h1>
+            <div class="grid grid-cols-12">
+                <p class="text-left text-cloud-2 mt-8 col-span-12 lg:col-span-5">This project was a revision and reinforcement of all the UX related learnings I'd collected over the years. Here are some of the key learning that have stuck with me.</p>
+                <ul class="text-left text-cloud-2 mt-8 list-disc ml-4 col-span-12 lg:col-span-7 lg:pl-14">
+                    <li>This project reinforced critical lessons about user research and early validation of assumptions</li>
+                    <li>The humbling experience of interacting with rural farming communities</li>
+                    <li>How quantifiable data, while incomplete, challenges personal bias and helps aligns teams</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--navigation-->
+    <section id="navigation" class="w-full bg-slate-1 pt-14">
+        <div class="grid grid-cols-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1200px] mx-auto gap-4">
+            <a class="col-span-6 ml-0 hover:ml-4 transition-all delay-100 duration-200 ease-in-out" href="superkrishak.html">
+                <div class="flex items-center">
+                    <div class="w-8 md:w-6"><img src="Images/Arrow1.svg"></div>
+                    <div class="pl-8">
+                        <p class="text-cloud-2">Previous</p>
+                        <p class="text-cloud-1">Gamified learning for rural farmers in Nepal</p>
+                    </div>
+                </div>
+            </a>
+            <a class="col-span-6 mr-0 hover:mr-4 transition-all delay-100 duration-200 ease-in-out" href="OGB.html">
+                <div class="flex flex-row-reverse items-center text-right">
+                    <div class="w-8 md:w-6"><img src="Images/Arrow2.svg"></div>
+                    <div class="pr-8">
+                        <p class="text-cloud-2">Next</p>
+                        <p class="text-cloud-1">Project management platform for a government initiative</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--footer-->
+    <section id="footer" class="bg-slate-1 pt-24 pb-4 md:pb-12 lg:pt-18 lg:pb-8" >
+        <img src="Images/logo.svg" class="w-24 pb-6 block mx-auto opacity-50">
+        <p class="text-cloud-2 text-sm text-center block mx-auto pb-18">© 2026 Apurba Neupane</p>
+    </section>
+
+    <!--slick.js-->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.displaySlider').slick({
+            infinite: true,
+            dots: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            autoplay: false,
+            autoplaySpeed: 8000,
+            pauseOnFocus: true,
+          });
+        });
+    </script>
+
+    <!--glightbox.js-->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({
+        selector: '.glightbox',
+        loop: true,
+        touchNavigation: true,
+        zoomable: true,
+        });
+    </script>
+
+</body>
+</html>

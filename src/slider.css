@@ -1,0 +1,11 @@
+/* Stronger selector to override defaults */
+.glightbox-container .gdesc-inner {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.14rem;
+    background-color: #252525 !important;
+    color: #d3d3d3 !important;
+    padding: 1rem !important;
+  }
+
+  
