@@ -246,10 +246,11 @@ strong { font-weight: var(--weight-bold); }
 }
 @media (hover: hover) {
   .cta:hover .cta__label,
+  .cs-card:hover .cta__label,
   .project-item__link:hover .cta__label { background-size: 100% 1px; }
 
   .cta:hover .cta__arrow,
-  .cs-card:has(.cs-card__media:hover) .cta__arrow,
+  .cs-card:hover .cta__arrow,
   .project-item__link:hover .cta__arrow {
     animation: arrow-nudge 0.7s var(--ease-in-out) 1;
   }
@@ -523,9 +524,11 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
 /* =====================================================================
    6. HERO
    ===================================================================== */
+/* No bottom padding: the featured section follows closely so its heading
+   shows at the bottom of taller screens (see .featured below). */
 .hero {
   padding-top: calc(var(--nav-height) + var(--space-6));
-  padding-bottom: var(--section-pad);
+  padding-bottom: 0;
 }
 .hero__grid { row-gap: var(--space-5); }
 
@@ -542,21 +545,6 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
 .hero__title { margin-top: var(--space-1); }
 .hero__title strong { color: var(--text-primary); }
 
-/* ---- Scroll cue (large screens only) ---- */
-.hero__cue {
-  display: none;
-  align-items: center;
-  gap: var(--space-3);
-  font-size: var(--fs-label);
-  font-weight: var(--weight-bold);
-  line-height: var(--lh-label);
-  color: var(--text-label);
-}
-.hero__cue .icon { width: 1.5rem; height: 1.5rem; color: var(--graphic-primary); transition: transform var(--dur-base) var(--ease-out); }
-@media (hover: hover) {
-  .hero__cue:hover { color: var(--text-strong); }
-  .hero__cue:hover .icon { transform: translateY(var(--space-1)); }
-}
 
 /* ---- Project type list ----
    Small screens: one horizontally scrolling row that runs edge to edge.
@@ -742,10 +730,14 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
   line-height: var(--lh-body);
   color: var(--text-secondary);
 }
+/* Facts box: same highlight gradient as the case studies (hero sits on Surface/Page) */
 .hero__facts {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-card);
+  background: linear-gradient(to right, var(--surface-tag), var(--surface-page));
 }
 
 /* ---- Large screens: side by side, vertical carousel ---- */
@@ -760,7 +752,6 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
   /* Image top lines up with the "I am Apurba…" line, not the greeting */
   .hero__media { grid-column: 7 / span 6; margin-top: calc(var(--fs-intro) * var(--lh-heading) + var(--space-1)); }
 
-  .hero__cue { display: inline-flex; margin-top: auto; padding-top: var(--space-6); align-self: flex-start; }
 
   /* Same look as the case study side menu: a line marks the selected item.
      Line: half a column (64-80rem) or one column (80rem+), then a gutter,
@@ -827,8 +818,46 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
    Small/medium: image, label, text stacked.
    ===================================================================== */
 .featured__head { --cols: 12; }
+/* Smaller gap after the hero than between other sections, so the next
+   section is visible below the hero on taller screens. */
+.featured.section { padding-top: var(--space-7); }
 
-.cs-card { row-gap: var(--space-5); align-items: start; }
+/* Whole card is clickable: the "Case Study" link stretches over the card.
+   The image link sits above it so its tilt still follows the mouse.
+   On hover the card gets a rounded Surface/Section background. The padding
+   and the negative margin are always there, so nothing moves on hover:
+   the background reaches a little past the content, the text stays on the grid. */
+.featured__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.cs-card {
+  --card-bleed: var(--space-5);
+  position: relative;
+  row-gap: var(--space-5);
+  align-items: start;
+  margin-inline: calc(-1 * var(--card-bleed));
+  padding: var(--card-bleed);
+  margin-block: calc(-1 * var(--card-bleed));
+  border-radius: calc(var(--radius-image) + var(--space-2));
+  transition: background-color var(--dur-base) ease;
+}
+.cs-card .cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.cs-card__media { position: relative; z-index: 1; }
+.cs-card .cta:focus-visible { outline: none; }
+.cs-card:has(.cta:focus-visible) {
+  outline: 2px solid var(--text-primary); /* px: focus ring */
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  .cs-card:hover { background: var(--surface-section); }
+}
 .cs-card__media,
 .cs-card__label,
 .cs-card__body { grid-column: 1 / -1; }
@@ -892,7 +921,6 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
 }
 .cs-card .cta { margin-top: var(--space-6); }
 
-.featured__divider { margin-block: var(--space-7); }
 
 @media (min-width: 64rem) {
   .featured__head { --cols: 6; }
@@ -901,7 +929,8 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
   .cs-card__body  { grid-column: 2 / span 5; grid-row: 1; }
   .cs-card__media { grid-column: 7 / span 6; grid-row: 1; }
 
-  .featured__divider { margin-block: var(--space-8); }
+  .featured__list { gap: var(--space-9); }
+  .cs-card { --card-bleed: var(--space-6); }
 }
 
 
@@ -1063,8 +1092,13 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
 }
 .projects__list { width: 100%; }
 
-.project-item + .project-item {
-  border-top: 1px solid var(--graphic-secondary); /* px: hairline */
+/* No lines between items: a little space, and a rounded Surface/Page
+   background on hover (the list sits on Surface/Section). The padding and
+   negative margin are always there, so nothing moves on hover. */
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 /* Each item: title + tags on the left, arrow on the right, aligned with the title's first line.
    The "Case Study" word is hidden visually (still read by screen readers). */
@@ -1073,9 +1107,13 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: var(--space-5);
   align-items: start;
-  padding-block: var(--space-5);
+  padding: var(--space-5);
+  margin-inline: calc(-1 * var(--space-5));
+  border-radius: var(--radius-card);
+  transition: background-color var(--dur-base) ease;
 }
-.project-item:first-child .project-item__link { padding-top: 0; }
+/* First item's text stays level with the heading, as before */
+.project-item:first-child .project-item__link { margin-top: calc(-1 * var(--space-5)); }
 
 .project-item__text {
   display: flex;
@@ -1106,6 +1144,7 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
   clip: rect(0 0 0 0);
 }
 @media (hover: hover) {
+  .project-item__link:hover { background: var(--surface-page); }
   .project-item__link:hover .project-item__title { color: var(--text-strong); }
 }
 /* Small screens show 3 items before "See More" (larger screens show 4) */

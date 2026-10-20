@@ -302,11 +302,12 @@
    4. METRICS
    Small: stacked. Medium and up: 3 side by side, 4 columns each.
    ===================================================================== */
+/* One rounded Surface/Section box around all three metrics (no lines) */
 .cs-metrics__list {
   row-gap: var(--space-6);
-  padding-block: var(--space-6);
-  border-top: 1px solid var(--graphic-secondary);    /* px: hairline */
-  border-bottom: 1px solid var(--graphic-secondary); /* px: hairline */
+  padding: var(--space-6);
+  border-radius: var(--radius-card);
+  background: var(--surface-section);
 }
 .cs-metric {
   grid-column: 1 / -1;
