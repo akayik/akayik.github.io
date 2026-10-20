@@ -818,9 +818,10 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
    Small/medium: image, label, text stacked.
    ===================================================================== */
 .featured__head { --cols: 12; }
-/* Smaller gap after the hero than between other sections, so the next
-   section is visible below the hero on taller screens. */
-.featured.section { padding-top: var(--space-7); }
+/* Gap after the hero = the gap between this section's heading and the first
+   case study (smaller than other section gaps, so the next section shows
+   below the hero on taller screens). */
+.featured.section { padding-top: var(--section-head-gap); }
 
 /* Whole card is clickable: the "Case Study" link stretches over the card.
    The image link sits above it so its tilt still follows the mouse.
