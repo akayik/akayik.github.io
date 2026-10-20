@@ -1,0 +1,859 @@
+/* =====================================================================
+   CASE STUDY PAGE
+   ---------------------------------------------------------------------
+   Loaded after tokens.css and main.css, which still provide the reset,
+   grid, preloader, navbar, top blur, footer base and theme colours.
+   Only what is new on case study pages lives here.
+
+    1. Navbar: "Go Back" link
+    2. Landing (title, carousel, details)
+    3. Carousels (landing + sections)
+    4. Metrics
+    5. Body: groups, sections, backgrounds
+    6. Text + highlight boxes
+    7. Images and videos
+    8. Side menu (large: list with a line · small/medium: pill + panel)
+    9. Footer: Previous / Next
+   10. Lightbox
+   11. Reduced motion
+
+   Breakpoints (same as the landing page):
+   small < 48rem · medium 48rem · large 64rem · XL 80rem
+
+   Column maths: inside a .container, one column is
+   (100cqw - 11 × gutter) / 12, stored below as --col.
+   ===================================================================== */
+
+.cs-page { --col: calc((100cqw - 11 * var(--gutter)) / 12); }
+
+
+/* =====================================================================
+   1. NAVBAR: "GO BACK"
+   Large: arrow + "Go Back". Small/medium: arrow only (label kept for
+   screen readers). Hover: the arrow nudges once, the label underlines.
+   ===================================================================== */
+.back-link {
+  grid-column: 1;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;          /* comfortable tap area */
+  font-size: var(--fs-toggle);  /* same size as Light / Dark */
+  line-height: var(--lh-label);
+  color: var(--text-primary);
+}
+.back-link__arrow {
+  width: 2.5rem;     /* 40px, as in Figma */
+  height: 0.875rem;
+  flex: none;
+  transform: scaleX(-1);   /* the shared arrow points right; this one points left */
+}
+.back-link__label {
+  /* hover underline, same technique as .cta__label */
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px; /* px: hairline */
+  transition: background-size var(--dur-base) var(--ease-out);
+}
+@media (max-width: 63.999rem) {
+  .back-link__label {
+    position: absolute;
+    width: 1px;  /* px: screen-reader-only pattern */
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@keyframes arrow-nudge-back {
+  0%, 100% { transform: scaleX(-1) translateX(0); }
+  45%      { transform: scaleX(-1) translateX(var(--space-2)); }  /* flipped, so this moves left */
+}
+@media (hover: hover) {
+  .back-link:hover .back-link__label { background-size: 100% 1px; }
+  .back-link:hover .back-link__arrow { animation: arrow-nudge-back 0.7s var(--ease-in-out) 1; }
+}
+
+
+/* =====================================================================
+   2. LANDING
+   Large: title + details (cols 1-6) · carousel (cols 7-12)
+   Small/medium: title, carousel, details.
+   ===================================================================== */
+.cs-hero {
+  padding-top: calc(var(--nav-height) + var(--space-6));
+  padding-bottom: var(--space-7);
+}
+.cs-hero__grid { row-gap: var(--space-6); align-items: start; }
+
+.cs-hero__intro,
+.cs-hero__media,
+.cs-facts { grid-column: 1 / -1; }
+
+.cs-hero__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.cs-hero__title {
+  font-size: var(--fs-cs-title);     /* same role as the landing case study titles */
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-heading);
+  color: var(--text-primary);
+}
+
+/* ---- Details: label · text ----
+   Small: label 3 cols · text 9. Medium: 2 · 10.
+   Large: label 1 col · text 5 cols, starting half a column in. */
+.cs-facts {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: var(--space-5);
+  font-size: var(--fs-cs-body);
+  line-height: var(--lh-body);
+}
+.cs-facts dt {
+  grid-column: 1 / span 3;
+  color: var(--text-label);
+  white-space: nowrap;   /* may run into the gutter, never into the text */
+}
+.cs-facts dd {
+  grid-column: 4 / -1;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+@media (min-width: 48rem) {
+  .cs-hero { padding-bottom: var(--space-8); }
+  .cs-facts dt { grid-column: 1 / span 2; }
+  .cs-facts dd { grid-column: 3 / -1; }
+}
+
+@media (min-width: 64rem) {
+  .cs-hero { padding-top: calc(var(--nav-height) + var(--space-7)); }
+
+  .cs-hero__intro { grid-column: 1 / span 6; grid-row: 1; }
+  .cs-facts       { grid-column: 1 / span 6; grid-row: 2; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .cs-hero__media { grid-column: 7 / span 6; grid-row: 1 / span 2; }
+
+  .cs-facts dt { grid-column: 1; }
+  .cs-facts dd { grid-column: 2 / -1; padding-left: calc(var(--col) / 2); }
+}
+
+
+/* =====================================================================
+   3. CAROUSELS
+   Slides move sideways (drag, swipe or dots). After the last slide it
+   loops back to the first. Same look as the landing carousel: inactive
+   slides sit dimmed and slightly zoomed.
+   Frame shape: follows the slide that is showing (js/case-study.js sets
+   its height), so square or wide images are never cropped. Portrait
+   images (taller than wide) are shown at 4:3, cropped from the centre
+   (data-focus on a slide picks another point). Before the script runs
+   the frame is 4:3.
+   Move between slides by dragging, swiping, sideways trackpad
+   scrolling, the arrow pills, the dots, or ←/→ when a slide is focused.
+   ===================================================================== */
+.cs-carousel {
+  --ratio: 4 / 3;
+  --slide-gap: var(--space-3);
+  position: relative;
+  aspect-ratio: var(--ratio);
+  border-radius: var(--radius-image);
+  overflow: hidden;
+  isolation: isolate;
+  transition: height var(--carousel-duration, 0.9s) var(--ease-in-out);
+  touch-action: pan-y;   /* vertical swipes still scroll the page */
+  user-select: none;
+  -webkit-user-select: none;
+  background: var(--surface-tag);
+  cursor: grab;   /* hints that it can be dragged; a plain click still opens the lightbox */
+}
+/* Set by the script: height of the showing slide (keeps its natural shape) */
+.cs-carousel.has-height {
+  aspect-ratio: auto;
+  height: var(--carousel-h);
+}
+.cs-carousel.is-dragging,
+.cs-carousel.is-dragging .cs-carousel__slide { cursor: grabbing; }
+
+.cs-carousel__track {
+  --offset: 0;
+  --drag: 0px;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: var(--slide-gap);
+  transform: translate3d(calc(var(--offset) * -1 * (100% + var(--slide-gap)) + var(--drag)), 0, 0);
+  transition: transform var(--carousel-duration, 0.9s) var(--ease-in-out);
+  will-change: transform;
+}
+.cs-carousel.is-dragging .cs-carousel__track { transition: none; }
+
+.cs-carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-image);
+}
+.cs-carousel__slide > img,
+.cs-carousel__slide > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focus, center);
+  pointer-events: none;      /* the browser's own image drag can't start, so the carousel drag works */
+  -webkit-user-drag: none;
+  transform: scale(1.08);
+  filter: brightness(0.6) saturate(0.8);
+  transition: transform 1.2s var(--ease-out), filter 0.9s ease;
+}
+.cs-carousel__slide.is-active > img,
+.cs-carousel__slide.is-active > video {
+  transform: scale(1);
+  filter: none;
+}
+
+/* Controls: ( ‹ )  ( • • • )  ( › ) along the bottom, inside the image.
+   Three separate frosted pills, space-2 apart. */
+.cs-carousel__controls {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: var(--space-3);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.cs-carousel__dots,
+.cs-carousel__arrow {
+  border-radius: var(--radius-pill);
+  background: var(--overlay-on-image);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+.cs-carousel__dots {
+  display: flex;
+  align-items: center;
+  padding: var(--space-1);
+}
+
+/* Arrow pills: a circle as tall as the dots pill */
+.cs-carousel__arrow {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 1.25rem;    /* = dots pill height (0.75rem dot + 2 × space-1) */
+  height: 1.25rem;
+  color: var(--dot-on-image);
+  cursor: pointer;
+}
+.cs-carousel__arrow::before {   /* bigger invisible hit area */
+  content: "";
+  position: absolute;
+  inset: calc(var(--space-2) * -1) calc(var(--space-1) * -1);
+}
+.cs-carousel__arrow svg {
+  width: 0.375rem;   /* 6 × 10px */
+  height: 0.625rem;
+  opacity: 0.8;
+  transition: opacity var(--dur-base) ease, transform var(--dur-base) var(--ease-out);
+}
+.cs-carousel__arrow--prev svg { transform: translateX(-0.03125rem); }        /* optical centring */
+.cs-carousel__arrow--next svg { transform: scaleX(-1) translateX(-0.03125rem); }   /* chevron points left; flip it */
+@media (hover: hover) {
+  .cs-carousel__arrow:hover svg { opacity: 1; }
+  .cs-carousel__arrow--prev:hover svg { transform: translateX(-0.125rem); }
+  .cs-carousel__arrow--next:hover svg { transform: scaleX(-1) translateX(-0.125rem); }
+}
+.cs-carousel__arrow:focus-visible { outline-offset: 0.125rem; }
+
+.cs-dot {
+  display: grid;
+  place-items: center;
+  width: 0.75rem;
+  height: 0.75rem;
+  cursor: pointer;
+}
+.cs-dot::before {
+  content: "";
+  width: 0.3125rem;   /* 5px */
+  height: 0.3125rem;
+  border-radius: var(--radius-pill);
+  background: var(--dot-on-image);
+  opacity: 0.45;
+  transition: width var(--dur-base) var(--ease-out), opacity var(--dur-base) ease;
+}
+.cs-dot.is-active { width: 1.25rem; }
+.cs-dot.is-active::before { width: 1rem; opacity: 1; }
+@media (hover: hover) {
+  .cs-dot:hover::before { opacity: 0.8; }
+}
+
+
+/* =====================================================================
+   4. METRICS
+   Small: stacked. Medium and up: 3 side by side, 4 columns each.
+   ===================================================================== */
+.cs-metrics__list {
+  row-gap: var(--space-6);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--graphic-secondary);    /* px: hairline */
+  border-bottom: 1px solid var(--graphic-secondary); /* px: hairline */
+}
+.cs-metric {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: var(--text-primary);
+}
+.cs-metric__value {
+  font-size: var(--fs-cs-metric-value);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-tight);
+}
+.cs-metric__sub {
+  font-size: var(--fs-cs-metric-sub);
+  line-height: var(--lh-label);
+}
+
+@media (min-width: 48rem) {
+  .cs-metric { grid-column: span 4; }
+}
+
+
+/* =====================================================================
+   5. BODY: GROUPS AND SECTIONS
+   A group = one menu item. Its background stretches the full screen
+   width; the content inside stays on the grid.
+   Small/medium: content in columns 2-12 (column 1 holds the menu pill).
+   Large: content in columns 6-12 (columns 1-4 hold the menu).
+   ===================================================================== */
+.cs-body { position: relative; }
+
+.cs-group {
+  padding-block: var(--section-pad);
+  transition: background-color var(--dur-base) ease;
+}
+/* Background classes: swap these by hand */
+.cs-group--page    { --cs-bg: var(--surface-page);    background: var(--surface-page); }
+.cs-group--section { --cs-bg: var(--surface-section); background: var(--surface-section); }
+
+/* Sections inside one group are separated by the same space as a group's padding */
+.cs-group__inner { row-gap: var(--section-pad); }
+
+.cs-section {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+  /* Lets images measure the column width (cqw) to cap their height at 4:3 */
+  container-type: inline-size;
+}
+.cs-section__title {
+  font-size: var(--fs-section-title);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-heading);
+  color: var(--text-primary);
+}
+
+@media (min-width: 64rem) {
+  .cs-section { grid-column: 6 / span 7; }
+}
+
+
+/* =====================================================================
+   6. TEXT + HIGHLIGHT BOXES
+   ===================================================================== */
+.cs-text {
+  font-size: var(--fs-cs-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+}
+.cs-text p + p { margin-top: 1.6em; }   /* one blank line between paragraphs, as in Figma */
+.cs-text__lead { font-weight: var(--weight-bold); }
+.cs-text__note { font-style: italic; color: var(--text-display); }   /* "On attribution" notes */
+
+/* Bullet lists: a small dot, items one space-2 apart */
+.cs-text ul { display: flex; flex-direction: column; gap: var(--space-2); }
+.cs-text p + ul,
+.cs-text ul + p { margin-top: var(--space-4); }
+.cs-text li {
+  position: relative;
+  padding-left: var(--space-5);
+}
+.cs-text li::before {
+  content: "";
+  position: absolute;
+  left: var(--space-1);
+  top: calc(0.8em - 0.15625rem);   /* centred on the first line (line height 1.6) */
+  width: 0.3125rem;                /* 5px, same as the carousel dots */
+  height: 0.3125rem;
+  border-radius: var(--radius-pill);
+  background: var(--text-display);
+}
+.cs-text li strong { font-weight: var(--weight-bold); }
+
+/* Highlight box. The gradient follows the group it sits in:
+   on a page group:    Surface/Tag  → Surface/Page
+   on a section group: Surface/Page → Surface/Section
+   (change --hl-from / --hl-to below to adjust) */
+.cs-highlight {
+  padding: var(--space-5);
+  border-radius: var(--radius-card);
+  background: linear-gradient(to right, var(--hl-from), var(--hl-to));
+  font-size: var(--fs-cs-body);
+  font-weight: var(--weight-semibold);   /* it is a highlight: a step above body text */
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+}
+.cs-group--page    .cs-highlight { --hl-from: var(--surface-tag);  --hl-to: var(--surface-page); }
+.cs-group--section .cs-highlight { --hl-from: var(--surface-page); --hl-to: var(--surface-section); }
+
+/* Large text version */
+.cs-highlight--large {
+  font-size: var(--fs-cs-highlight-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-tight);
+  color: var(--text-secondary);
+}
+
+@media (min-width: 64rem) {
+  .cs-highlight--large { padding: var(--space-6); }
+}
+
+
+/* =====================================================================
+   7. IMAGES AND VIDEOS
+   Full column width, natural height: square and wide images are never
+   cropped. Portrait images (taller than wide) get cs-media--portrait:
+   they are shown at 4:3, cropped top and bottom from the centre by
+   default. Set data-focus="center top" (or "50% 30%") on the figure to
+   keep another part. The lightbox always shows the whole image.
+   ===================================================================== */
+.cs-media {
+  margin: 0;
+  border-radius: var(--radius-image);
+  overflow: hidden;
+  background: var(--surface-tag);
+  cursor: zoom-in;
+}
+.cs-media > img,
+.cs-media > video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cs-media--portrait > img,
+.cs-media--portrait > video {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: var(--focus, center);
+}
+
+/* Keyboard focus on media that opens the lightbox */
+[data-lightbox-item]:focus-visible { outline-offset: 0.25rem; border-radius: var(--radius-image); }
+
+
+/* =====================================================================
+   8. SIDE MENU
+   Built by js/case-study.js from the groups' data-menu labels.
+   It lives on its own layer over the whole body so it can stay sticky
+   across every group. Its top follows the navbar: it always sits just
+   below the top blur, so the blur never covers it.
+   ===================================================================== */
+
+/* Top blur height factor per navbar state (same numbers as section 5 of main.css) */
+:root                    { --cs-blur-factor: 1; }
+html[data-nav="hidden"]  { --cs-blur-factor: 0.9; }
+html[data-nav="visible"] { --cs-blur-factor: 1.2; }
+
+.cs-menu-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;   /* only the menu itself is clickable */
+}
+.cs-menu-layer__inner {
+  height: 100%;
+  /* Starts level with the first section title */
+  padding-block: var(--section-pad);
+}
+
+.cs-menu {
+  /* blur height (navbar + space-5, × state factor) + a small gap */
+  --cs-menu-top: calc((var(--nav-height) + var(--space-5)) * var(--cs-blur-factor) + var(--space-4));
+  /* Pill width: column 1 + its gutter, minus a little breathing room (max 37px, as in Figma) */
+  --pill-w: min(2.3125rem, calc(var(--col) + var(--gutter) - var(--space-2)));
+  --line-thickness: 0.25rem;   /* 4px, as in Figma */
+  position: sticky;
+  top: var(--cs-menu-top);
+  width: fit-content;
+  pointer-events: auto;
+  transition: top 0.5s var(--ease-out);   /* same timing as the navbar */
+}
+/* Invisible ruler: JS reads the menu's top from it when a menu item is clicked
+   (height = navbar + space-5, padding = the gap below the blur) */
+.cs-measure {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  box-sizing: content-box;
+  height: calc(var(--nav-height) + var(--space-5));
+  padding-top: var(--space-4);
+}
+
+/* --col needs the container's width */
+.cs-menu-layer__inner .cs-menu { --col: calc((100cqw - 11 * var(--gutter)) / 12); }
+
+/* ---- The list (shared by the large-screen menu and the small-screen panel) ---- */
+.cs-menu__panel {
+  display: grid;
+  grid-template-columns: var(--menu-line-w, 1.5rem) auto;
+  column-gap: var(--space-4);
+  align-items: start;
+}
+.cs-menu__list {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.cs-menu__link {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: var(--fs-cs-menu);
+  line-height: var(--lh-label);
+  color: var(--text-display);
+  white-space: nowrap;
+  transition: color var(--dur-fast) ease, transform var(--dur-base) var(--ease-out);
+}
+/* Reserve the bold width so the active item doesn't shift its neighbours */
+.cs-menu__link::after {
+  content: attr(data-label);
+  font-weight: var(--weight-bold);
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+.cs-menu__link[aria-current="true"] {
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+}
+@media (hover: hover) {
+  .cs-menu__link:hover { color: var(--text-strong); }
+  .cs-menu__link:hover:not([aria-current="true"]) { transform: translateX(var(--space-2)); }
+}
+
+/* The line that marks the current item. JS sets --line-y. */
+.cs-menu__line {
+  --line-y: 0px;
+  position: absolute;
+  top: 0;
+  left: var(--menu-pad-left, 0px);
+  width: var(--menu-line-w, 1.5rem);
+  height: var(--line-thickness);
+  border-radius: var(--radius-pill);
+  background: var(--text-secondary);
+  transform: translateY(var(--line-y));
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+/* ---- Small & medium: pill + frosted panel ---- */
+@media (max-width: 63.999rem) {
+  .cs-menu__toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--pill-w);
+    padding-block: var(--space-4);
+    border: 0.1875rem solid var(--surface-page);   /* 3px page outline: stands out on section backgrounds */
+    border-radius: var(--radius-tag);
+    background: var(--surface-section);
+    transition: opacity var(--dur-fast) ease, background-color var(--dur-base) ease, border-color var(--dur-base) ease;
+  }
+  .cs-menu.is-open .cs-menu__toggle { opacity: 0; }
+
+  .cs-menu__marks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.125rem;   /* 2px between the tiny marks (icon detail, below the spacing scale) */
+  }
+  .cs-menu__mark {
+    width: var(--line-thickness);
+    height: var(--line-thickness);
+    border-radius: var(--radius-pill);
+    background: var(--text-display);
+    transition: height var(--dur-base) var(--ease-out), background-color var(--dur-base) ease;
+  }
+  .cs-menu__mark.is-active {
+    height: 1.125rem;   /* 18px, as in Figma */
+    background: var(--text-secondary);
+  }
+
+  .cs-menu__panel {
+    --menu-pad-left: var(--space-5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: max-content;
+    padding: var(--space-6) var(--space-6) var(--space-6) var(--menu-pad-left);
+    border: 0.1875rem solid color-mix(in srgb, var(--surface-page) 90%, transparent);
+    border-radius: var(--radius-tag);
+    background: color-mix(in srgb, var(--surface-section) 90%, transparent);
+    backdrop-filter: blur(0.40625rem);   /* 6.5px, as in Figma */
+    -webkit-backdrop-filter: blur(0.40625rem);
+    /* Closed: clipped down to the pill's size, then hidden */
+    clip-path: inset(0 calc(100% - var(--pill-w)) calc(100% - var(--pill-h, 6rem)) 0 round var(--radius-tag));
+    opacity: 0;
+    visibility: hidden;
+    transition: clip-path 0.5s var(--ease-out), opacity 0.3s ease, visibility 0s linear 0.5s;
+  }
+  .cs-menu.is-open .cs-menu__panel {
+    clip-path: inset(0 0 0 0 round var(--radius-tag));
+    opacity: 1;
+    visibility: visible;
+    transition: clip-path 0.5s var(--ease-out), opacity 0.2s ease, visibility 0s;
+  }
+  /* The line inside the panel is offset by the panel's border */
+  .cs-menu__line { margin-left: -0.1875rem; }
+}
+
+/* ---- Large: always-visible list with the line on the left ----
+   XL: line 1 column · items in columns 2-4.
+   Large (64-80rem): line half a column, so the items get more room. */
+@media (min-width: 64rem) {
+  .cs-menu {
+    --menu-line-w: calc(var(--col) / 2);
+    width: calc(4 * var(--col) + 3 * var(--gutter));
+  }
+  .cs-menu__toggle { display: none; }
+  .cs-menu__panel {
+    position: relative;
+    column-gap: var(--gutter);
+  }
+}
+@media (min-width: 80rem) {
+  .cs-menu { --menu-line-w: var(--col); }
+}
+
+
+/* =====================================================================
+   9. FOOTER: PREVIOUS / NEXT
+   Background classes (swap by hand): footer--section / footer--page.
+   Hover: the whole link slides a little towards the centre.
+   ===================================================================== */
+.footer--page    { background: var(--surface-page); }
+.footer--section { background: var(--surface-section); }
+.footer { transition: background-color var(--dur-base) ease; }
+
+.cs-pager {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: var(--space-6);
+  margin-bottom: var(--space-7);
+}
+.cs-pager__link {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.cs-pager__link--next {
+  justify-self: end;
+  text-align: right;
+}
+.cs-pager__chevron {
+  width: 0.875rem;   /* 14px, as in Figma */
+  height: 1.625rem;
+  flex: none;
+  color: var(--graphic-primary);
+}
+.cs-pager__link--next .cs-pager__chevron { transform: scaleX(-1); }
+
+.cs-pager__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--fs-eyebrow);   /* 18 · 20 · 20 */
+  line-height: var(--lh-label);
+}
+.cs-pager__label { color: var(--text-label); }
+.cs-pager__title {
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  transition: color var(--dur-fast) ease;
+}
+@media (hover: hover) {
+  .cs-pager__link--prev:hover { transform: translateX(var(--space-4)); }
+  .cs-pager__link--next:hover { transform: translateX(calc(-1 * var(--space-4))); }
+  .cs-pager__link:hover .cs-pager__title { color: var(--text-strong); }
+}
+
+.footer__home { display: block; }
+
+@media (min-width: 64rem) {
+  .cs-pager__link--prev { grid-column: 1 / span 5; }
+  .cs-pager__link--next { grid-column: 8 / span 5; }
+}
+
+
+/* =====================================================================
+   10. LIGHTBOX
+   Page-coloured overlay, the image or video centred, caption box below
+   with a counter. Arrows / swipe / keyboard move within one group;
+   it loops. Click an image to zoom in, click again to zoom out.
+   ===================================================================== */
+html.is-lightbox-open body { overflow: hidden; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: var(--space-7) var(--page-pad) var(--space-5);
+  opacity: 0;
+  transition: opacity var(--dur-base) ease;
+}
+.lightbox[hidden] { display: none; }
+.lightbox.is-open { opacity: 1; }
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--surface-page) 95%, transparent);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.lightbox__figure {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  transform: scale(0.96);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.lightbox.is-open .lightbox__figure { transform: none; }
+
+.lightbox__stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-image);
+  transition: opacity 0.25s ease, transform 0.35s var(--ease-out);
+}
+.lightbox__stage.is-leaving { opacity: 0; transform: translateX(calc(var(--dir, 1) * -1 * var(--space-6))); }
+.lightbox__stage.is-entering { opacity: 0; transform: translateX(calc(var(--dir, 1) * var(--space-6))); transition: none; }
+
+.lightbox__media {
+  display: block;
+  max-width: min(100%, 75rem);
+  max-height: calc(100dvh - 12rem);   /* leaves room for the caption and the close button */
+  width: auto;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+img.lightbox__media {
+  cursor: zoom-in;
+  transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.lightbox__stage.is-zoomed img.lightbox__media {
+  cursor: zoom-out;
+  transform: scale(2);
+}
+.lightbox__stage.is-zoomed.is-panning img.lightbox__media { transition: none; }
+
+/* Caption box: as wide as the image, never wider */
+.lightbox__caption {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-5);
+  width: 0;
+  min-width: 100%;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-card);
+  background: var(--surface-section);
+  font-size: var(--fs-cs-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+}
+.lightbox__count {
+  flex: none;
+  color: var(--text-label);
+  font-variant-numeric: tabular-nums;
+}
+.lightbox__caption.is-empty { display: none; }
+
+/* Buttons */
+.lightbox__btn {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  transition: color var(--dur-fast) ease, background-color var(--dur-fast) ease, transform var(--dur-base) var(--ease-out);
+}
+.lightbox__btn svg { width: 1.5rem; height: 1.5rem; }
+.lightbox__nav svg { width: 0.875rem; height: 1.625rem; }
+@media (hover: hover) {
+  .lightbox__btn:hover { color: var(--text-strong); background: var(--surface-section); }
+  .lightbox__nav--prev:hover { transform: translate(calc(-1 * var(--space-1)), -50%); }
+  .lightbox__nav--next:hover { transform: translate(var(--space-1), -50%); }
+}
+.lightbox__close { top: var(--space-3); right: var(--space-3); }
+.lightbox__nav { top: 50%; transform: translateY(-50%); }
+.lightbox__nav--prev { left: var(--space-2); }
+.lightbox__nav--next { right: var(--space-2); }
+.lightbox__nav--next svg { transform: scaleX(-1); }
+.lightbox.is-single .lightbox__nav { display: none; }
+
+/* Small screens: the arrows sit over the image edges on a soft backing */
+@media (max-width: 63.999rem) {
+  .lightbox__nav { background: color-mix(in srgb, var(--surface-page) 70%, transparent); }
+}
+
+@media (min-width: 64rem) {
+  .lightbox { padding: var(--space-7) var(--space-9) var(--space-6); }
+  .lightbox__close { top: var(--space-5); right: var(--space-5); }
+  .lightbox__nav--prev { left: var(--space-6); }
+  .lightbox__nav--next { right: var(--space-6); }
+}
+
+
+/* =====================================================================
+   11. REDUCED MOTION
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .cs-carousel__track { transition-duration: 0.01ms !important; }
+  .cs-carousel__slide > img,
+  .cs-carousel__slide > video { transform: none; transition: filter 0.3s ease; }
+  .cs-menu,
+  .cs-menu__line,
+  .cs-menu__link,
+  .cs-pager__link,
+  .lightbox__figure,
+  .lightbox__stage { transition: none !important; }
+  .cs-pager__link:hover { transform: none !important; }
+}

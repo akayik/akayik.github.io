@@ -1,0 +1,308 @@
+/* =====================================================================
+   DESIGN TOKENS
+   ---------------------------------------------------------------------
+   Every colour, font size, line height, space and width used on the site
+   lives here. Change a value here and it updates everywhere.
+
+   Sources:
+   - Colours: "Portfolio - Dark.json" / "Portfolio - Light.json" (+ Graphic/Secondary from Figma)
+   - Type:    "textStyles.json" (desktop) and the iPhone 13 & 14 frame (mobile)
+   - Spacing: the approved spacing system (10 steps, rem only)
+
+   1rem = 16px.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1. FONTS (self-hosted Montserrat)
+   --------------------------------------------------------------------- */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-800-normal.woff2") format("woff2");
+}
+
+
+:root {
+  /* -------------------------------------------------------------------
+     2. COLOURS: DARK MODE (default)
+     ------------------------------------------------------------------- */
+  --surface-page:      #191919;  /* Surface/Page */
+  --surface-section:   #252525;  /* Surface/Section (alternate section bands) */
+  --surface-tag:       #2F2F2F;  /* Surface/Tag */
+
+  --text-primary:      #FFFFFF;  /* Text/Primary */
+  --text-strong:       #FFFFFF;  /* Text/Strong (hover) */
+  --text-secondary:    #D3D3D3;  /* Text/Secondary */
+  --text-label:        #D3D3D3;  /* Text/Label (eyebrows, "See More") */
+  --text-display:      #A9A9A9;  /* Text/Display (unselected list items, inactive toggle) */
+
+  --graphic-primary:   #D3D3D3;  /* Graphic/Primary (icons, arrows, active dots) */
+  --graphic-secondary: #676767;  /* Graphic/Secondary (borders, dividers, inactive dots, footer) */
+
+  --status-available:  #8AF32B;  /* Status/Available (current job dot) */
+
+  color-scheme: dark;
+
+
+  /* -------------------------------------------------------------------
+     3. TYPOGRAPHY
+     Font sizes come straight from the text styles. Where an element uses a
+     different size on small screens, it has a "role" token below that
+     switches at 64rem (see section 7).
+     ------------------------------------------------------------------- */
+  --font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --weight-regular:   400;
+  --weight-semibold:  600;   /* highlight boxes (body-size text) */
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  /* Text styles (textStyles.json) */
+  --fs-display:        3.125rem;  /* Body/Display   50px */
+  --fs-hero:           2.125rem;  /* Hero           34px */
+  --fs-metric:         2rem;      /* Body/Metric    32px */
+  --fs-heading:        1.875rem;  /* Heading        30px */
+  --fs-body-large:     1.625rem;  /* Body/Large     26px */
+  --fs-label-large:    1.5rem;    /* Label/Large    24px */
+  --fs-label:          1.25rem;   /* Label/Default  20px */
+  --fs-body-medium:    1.125rem;  /* Body/Medium    18px */
+  --fs-body:           1rem;      /* Body/Default   16px */
+
+  /* Mobile-only sizes taken from the iPhone frame */
+  --fs-m-28:           1.75rem;   /* 28px */
+  --fs-m-26:           1.625rem;  /* 26px */
+  --fs-m-22:           1.375rem;  /* 22px */
+  --fs-m-14:           0.875rem;  /* 14px */
+  --fs-m-12:           0.75rem;   /* 12px */
+
+  /* Line heights */
+  --lh-tight:   1.1;   /* Hero 34, Display 50, Metric 32 */
+  --lh-heading: 1.25;  /* Titles 26-30 */
+  --lh-label:   1.3;   /* Single-line labels 18-24 */
+  --lh-body:    1.6;   /* Paragraphs */
+
+
+  /* -------------------------------------------------------------------
+     4. SPACING SCALE (approved)
+     ------------------------------------------------------------------- */
+  --space-1:  0.25rem;  /*   4px  eyebrow ↔ title, title ↔ subtitle */
+  --space-2:  0.5rem;   /*   8px  tag padding (vertical), card title ↔ text, name ↔ role */
+  --space-3:  0.75rem;  /*  12px  CTA label ↔ arrow, case-study stack, tag gaps */
+  --space-4:  1rem;     /*  16px  tag padding (horizontal) */
+  --space-5:  1.25rem;  /*  20px  card padding, icon ↔ text, hero text blocks, phone side margin */
+  --space-6:  2rem;     /*  32px  image ↔ text, above CTAs, mobile list rows */
+  --space-7:  4rem;     /*  64px  heading ↔ content (small) */
+  --space-8:  6rem;     /*  96px  between featured case studies */
+  --space-9:  7.5rem;   /* 120px  heading ↔ content (XL) */
+  --space-10: 9.5rem;   /* 152px  section padding (XL) */
+
+
+  /* -------------------------------------------------------------------
+     5. RADII
+     ------------------------------------------------------------------- */
+  --radius-image: 0.9375rem;  /* 15px on small screens, 30px from 64rem */
+  --radius-card:  0.75rem;    /* 12px on small screens, 20px from 64rem */
+  --radius-tag:   0.9375rem;  /* 15px */
+  --radius-icon:  0.75rem;    /* 12px icon tiles */
+  --radius-pill:  62.5rem;    /* fully round (dots) */
+
+
+  /* -------------------------------------------------------------------
+     6. LAYOUT (small screens first; overridden per breakpoint below)
+     ------------------------------------------------------------------- */
+  --container:      21.875rem;  /* 350px max content width */
+  --page-pad:       1.25rem;    /* minimum gap between content and screen edge */
+  --gutter:         1.25rem;    /* gap between the 12 grid columns */
+  --section-pad:    var(--space-7);
+  --section-head-gap: var(--space-7);
+
+  --logo-height:    2.125rem;   /* 34px (navbar logo) */
+  --nav-pad-top:    var(--space-4);
+  --nav-pad-bottom: var(--space-5);
+  --nav-height: calc(var(--nav-pad-top) + var(--logo-height) + var(--nav-pad-bottom));
+
+  /* Section-role font sizes.
+     Each role has three values: small (< 48rem) · medium (48–64rem) · large (64rem+).
+     Small is ~10% below the iPhone frame; medium keeps the iPhone frame sizes;
+     large uses the desktop text styles. Values switch in section 7 below. */
+  --fs-intro:         1.25rem;                 /* "Hi there" / "I am Apurba…"   20 · 22 · 26 */
+  --fs-hero-list:     var(--fs-body-medium);   /* hero project list             18 · 20 · 20 */
+  --fs-hero-support:  var(--fs-m-14);          /* hero paragraph + facts        14 · 14 · 18 */
+  --fs-eyebrow:       var(--fs-body-medium);   /* small label above titles      18 · 20 · 20 */
+  --fs-section-title: var(--fs-label-large);   /* section titles                24 · 26 · 30 */
+  --fs-cs-label:      var(--fs-body);          /* "CS / 01"                     16 · 18 · 18 */
+  --fs-cs-title:      var(--fs-label-large);   /* featured case study titles    24 · 28 · 30 */
+  --fs-cs-role:       var(--fs-body);          /* italic role line              16 · 16 · 18 */
+  --fs-cs-text:       var(--fs-m-14);          /* case study description        14 · 14 · 16 */
+  --fs-tag:           var(--fs-m-14);          /* tags                          14 · 14 · 16 */
+  --fs-cs-metric:     var(--fs-body);          /* metric line                   16 · 18 · 20 */
+  --fs-cta:           var(--fs-body);          /* "Case Study" link             16 · 18 · 20 */
+  --fs-see-more:      var(--fs-body-medium);   /* "See More" / "See Less"       18 · 20 · 20 */
+  --fs-exp-company:   var(--fs-body);          /* experience: company           16 · 18 · 20 */
+  --fs-exp-line:      var(--fs-m-14);          /* experience: date/role/place   14 · 16 · 18 */
+  --fs-quote:         var(--fs-m-14);          /* testimonial text              14 · 16 · 16 */
+  --fs-quote-name:    var(--fs-body-medium);   /* testimonial name              18 · 20 · 20 */
+  --fs-quote-role:    var(--fs-body);          /* testimonial role              16 · 18 · 18 */
+  --fs-list-title:    var(--fs-body);          /* case studies list: title      16 · 18 · 18 */
+  --fs-list-sub:      var(--fs-m-14);          /* case studies list: sub lines  14 · 16 · 16 */
+  --fs-toolstack:     var(--fs-m-14);          /* tool stack paragraph          14 · 16 · 16 */
+  --fs-skill:         var(--fs-m-14);          /* skill cards                   14 · 16 · 16 */
+  --fs-bio:           var(--fs-body);          /* more about me                 16 · 16 · 16 */
+  --fs-toggle:        var(--fs-m-12);          /* Light / Dark                  12 · 12 · 20 */
+
+  /* Case study page roles (same small · medium · large pattern) */
+  --fs-cs-metric-value: var(--fs-m-28);        /* metric number "27+ → 4 fields" 28 · 28 · 32 */
+  --fs-cs-metric-sub:   var(--fs-body);        /* line under the metric          16 · 16 · 16 (same as body) */
+  --fs-cs-menu:         var(--fs-label);       /* side menu items                20 · 20 · 20 */
+  --fs-cs-body:         var(--fs-body);        /* case study paragraphs          16 · 16 · 16 */
+  --fs-cs-highlight-lg: var(--fs-m-28);        /* large highlight text           28 · 34 · 50 */
+
+  /* Motion */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    0.2s;
+  --dur-base:    0.4s;
+  --dur-slow:    0.8s;
+}
+
+
+/* ---------------------------------------------------------------------
+   2b. COLOURS: LIGHT MODE
+   --------------------------------------------------------------------- */
+:root[data-theme="light"] {
+  /* Oct 2026: section bands darkened so they read against the page
+     (were #FFFFFF / #EEEEEE). The greys below were darkened with them so
+     text keeps its contrast on the new section colour (WCAG ratios on
+     Section #EEEEEE in brackets). */
+  --surface-page:      #FBFBFB;
+  --surface-section:   #EEEEEE;  /* was #FFFFFF */
+  --surface-tag:       #DCDCDC;  /* was #EEEEEE */
+
+  --text-primary:      #5F5F5F;  /* (5.5:1) */
+  --text-strong:       #000000;
+  --text-secondary:    #707070;  /* was #868686 (4.3:1) */
+  --text-label:        #737373;  /* was #898989 (4.1:1) */
+  --text-display:      #7A7A7A;  /* was #959595 (3.7:1) */
+
+  --graphic-primary:   #808080;  /* was #D3D3D3: arrows/icons were near-invisible (3.4:1), and it
+                                    must stay darker than Graphic/Secondary so active dots differ */
+  --graphic-secondary: #D3D3D3;  /* was #ECECEC, which vanished on the new section colour */
+
+  --status-available:  #8AF32B;
+
+  color-scheme: light;
+}
+
+
+/* ---------------------------------------------------------------------
+   7. BREAKPOINTS
+   Medium 48rem (768px) · Large 64rem (1024px) · XL 80rem (1280px)
+   --------------------------------------------------------------------- */
+@media (min-width: 48rem) {
+  :root {
+    --container:   37.5rem;   /* 600px */
+    --gutter:      1.5rem;
+    --section-pad: var(--space-8);
+    --section-head-gap: var(--space-8);
+    --logo-height: 3rem;
+
+    /* Medium type: the iPhone frame sizes */
+    --fs-intro:         var(--fs-m-22);
+    --fs-hero-list:     var(--fs-label);
+    --fs-eyebrow:       var(--fs-label);
+    --fs-section-title: var(--fs-m-26);
+    --fs-cs-label:      var(--fs-body-medium);
+    --fs-cs-title:      var(--fs-m-28);
+    --fs-cs-metric:     var(--fs-body-medium);
+    --fs-cta:           var(--fs-body-medium);
+    --fs-see-more:      var(--fs-label);
+    --fs-exp-company:   var(--fs-body-medium);
+    --fs-exp-line:      var(--fs-body);
+    --fs-quote:         var(--fs-body);
+    --fs-quote-name:    var(--fs-label);
+    --fs-quote-role:    var(--fs-body-medium);
+    --fs-list-title:    var(--fs-body-medium);
+    --fs-list-sub:      var(--fs-body);
+    --fs-toolstack:     var(--fs-body);
+    --fs-skill:         var(--fs-body);
+    --fs-cs-highlight-lg: var(--fs-hero);
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --container:   59.375rem; /* 950px */
+    --gutter:      1.875rem;  /* 30px, from the Figma grid */
+    --section-pad: 8rem;
+    --section-head-gap: var(--space-9);
+    --radius-image: 1.875rem;
+    --radius-card:  1.25rem;
+    --logo-height:  4.3125rem; /* 69px */
+    --nav-pad-top:  var(--space-6);
+
+    /* Desktop type sizes */
+    --fs-intro:         var(--fs-body-large);
+    --fs-hero-support:  var(--fs-body-medium);
+    --fs-section-title: var(--fs-heading);
+    --fs-cs-title:      var(--fs-heading);
+    --fs-cs-role:       var(--fs-body-medium);
+    --fs-cs-text:       var(--fs-body);
+    --fs-tag:           var(--fs-body);
+    --fs-cs-metric:     var(--fs-label);
+    --fs-cta:           var(--fs-label);
+    --fs-toggle:        var(--fs-label);
+    --fs-exp-company:   var(--fs-label);         /* Label/Default/Bold */
+    --fs-exp-line:      var(--fs-body-medium);   /* Body/Medium */
+    --fs-cs-metric-value: var(--fs-metric);      /* Body/Metric */
+    --fs-cs-highlight-lg: var(--fs-display);     /* Body/Display */
+  }
+}
+
+@media (min-width: 80rem) {
+  :root {
+    --container:   75rem;     /* 1200px */
+    --section-pad: var(--space-10);
+  }
+}
+
+
+/* ---------------------------------------------------------------------
+   8. FIXED (theme-independent) values
+   The carousel dots sit on top of photos, so they keep the same look in
+   both themes: Graphic/Primary dots on a translucent Surface/Page (dark) pill.
+   --------------------------------------------------------------------- */
+:root {
+  --overlay-on-image: rgb(25 25 25 / 0.45);  /* Surface/Page (dark) at 45% */
+  --dot-on-image:     #D3D3D3;               /* Graphic/Primary */
+}

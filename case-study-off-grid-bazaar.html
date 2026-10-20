@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Off Grid Bazaar · Case Study · Apurba Neupane</title>
+  <meta name="description" content="How a request to monitor solar pumps for a government agency became a lightweight platform connecting project records to live pump data, with 300+ systems registered after deployment.">
+  <meta name="theme-color" content="#191919">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!--
+    THEME BOOTSTRAP (same as index.html)
+    Runs before anything is painted so a visitor who picked light mode never sees a dark flash.
+    This is the only inline script; it has to be inline to run this early.
+  -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js', 'is-loading');
+      // Failsafe: never keep the page locked behind the preloader for more than 6 seconds
+      setTimeout(function () { root.classList.remove('is-loading'); }, 6000);
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) { /* storage blocked: keep the default dark theme */ }
+    })();
+  </script>
+
+  <!-- Fonts: self-hosted Montserrat -->
+  <link rel="preload" href="assets/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- First hero image: fetched early because it is the biggest thing on the first screen -->
+  <link rel="preload" as="image" href="assets/img/CaseStudies/OffGridBazaar/hero.webp">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/case-study.css">
+  <!-- main.js = shared behaviour (theme, navbar, preloader, entrance animations).
+       case-study.js = this page's carousels, side menu, videos and lightbox. -->
+  <script src="js/main.js" defer></script>
+  <script src="js/case-study.js" defer></script>
+</head>
+
+<body>
+  <!-- =========================================================
+       ICON SPRITE (same idea as index.html)
+       ========================================================= -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="logo" viewBox="0 0 133 69"><g fill="currentColor"><path d="M18.2001 23.2C18.0001 23.2 17.3001 23.8 17.1001 23.5C16.9001 23.1 16.2001 19.7 14.4001 19.7C12.6001 19.7 5.30006 27.9 4.30006 35.4C3.30006 42.9 12.4001 30 14.2001 27.1C16.0001 24.2 19.3001 19.7 20.7001 19.8C22.1001 19.9 21.2001 24.1 20.7001 27C20.2001 29.8 19.7001 35.1 20.5001 35.1C21.3001 35.1 25.8001 30.8 29.0001 22.9C32.2001 15 35.5001 5.4 36.0001 5C36.5001 4.6 37.6001 3.3 38.7001 3.4C39.8001 3.6 40.3001 4.8 39.5001 7C38.5001 9.1 32.3001 25 32.3001 25L30.8001 25.6C30.8001 25.6 39.5001 15.3 43.1001 15.4C46.7001 15.5 43.6001 20 40.7001 22.8C37.8001 25.6 31.8001 31 31.8001 31L26.8001 36.8L27.6001 31.6L31.2001 28.5C31.2001 28.5 36.6001 28.6 41.3001 33C46.0001 37.4 51.4001 42.6 53.6001 44.1C55.8001 45.6 57.6001 47 56.5001 48.4C55.4001 49.8 52.4001 50.2 50.4001 48.7C48.4001 47.2 43.8001 43.9 41.2001 41.2C38.6001 38.5 34.2001 34.3 31.2001 33.8C28.2001 33.3 28.3001 32.4 28.3001 32.4L31.5001 32.6C31.5001 32.6 31.6001 34.2 29.2001 37.2C26.8001 40.2 24.4001 40.9 23.9001 39.8C23.4001 38.7 24.3001 33.4 24.3001 33.4L25.3001 34.8C25.3001 34.8 22.5001 39.6 18.2001 39.3C13.9001 39 14.9001 33.8 15.5001 28.6C16.7001 28.4 16.7001 29.1 16.7001 29.1C16.7001 29.1 9.40006 41.8 2.50006 41.7C-4.39994 41.5 4.10006 16 15.8001 16C19.6001 16 20.4001 18 19.7001 20.6C19.0001 23.2 18.2001 23.2 18.2001 23.2Z"/><path d="M57.0999 15C55.8999 15.3 48.4999 19.5 48.0999 28.6C47.5999 37.5 55.1999 30 58.4999 25.2C57.6999 22.8 56.8999 24.6 56.8999 24.6C56.8999 24.6 55.5999 34.6 61.8999 35C68.2999 35.3 72.4999 25 72.4999 25L69.6999 26.1C69.6999 26.1 68.4999 34 75.3999 34C82.2999 34 88.8999 25.9 89.5999 21C90.1999 16.2 84.1999 17 80.8999 29.1C77.5999 41.2 70.9999 63 70.9999 66.2C70.9999 69.4 72.4999 69.5 73.9999 68.4C75.4999 67.2 76.2999 66.6 76.5999 61.6C76.8999 56.6 81.5999 41.2 82.7999 37.2C83.9999 33.1 86.8999 22.7 86.8999 22.7C86.8999 22.7 80.8999 30.2 78.0999 29.6C75.2999 29 74.8999 26.9 74.8999 23.7C74.8999 20.5 74.7999 18.6 72.8999 19.9C71.0999 21.1 69.9999 22.3 69.6999 25.7C70.8999 25.5 71.2999 23 71.2999 23C71.2999 23 69.6999 24.9 67.8999 27.3C66.0999 29.7 63.5999 31.8 62.8999 29.1C62.1999 26.4 63.2999 18.9 62.6999 18C62.0999 17.1 59.5999 16.1 58.3999 18.6C55.4999 25.3 51.5999 28.7 51.5999 28.7L53.3999 28.8C53.3999 28.8 51.4999 27.6 52.4999 24.4C53.0999 22.5 54.4999 18.9 55.5999 19.1C56.6999 19.3 57.4999 20.4 58.2999 19.7C59.0999 19 60.1999 14.1 57.0999 15Z"/><path d="M96.8 4.5C96.8 4.5 96 4.7 95.2 5.4C94 6.3 92.5 7.9 92.6 10.5C92.7 14.8 98.1 13.2 100.1 9.7C102.3 6.3 102.3 0.700001 94.8 0.100001C87.4 -0.399999 87.2 5.1 88.8 4.8C90.4 4.6 93.1 3.2 95.9 6C97.7 5.7 96.8 4.5 96.8 4.5Z"/><path d="M96.6 16.2C94.9 16.4 93.8 17.2 92.9 22.8C92 28.4 91.2 33.8 92.4 33.9C93.5 34 96.2 33.7 96.6 28.8C97 24 97.7 18.9 97.6 17.9C97.4 16.9 97.2 16.2 96.6 16.2Z"/><path d="M109.5 7.8C108 7.8 106.6 9.6 105.9 13.6C105.4 17.6 102.1 27.5 101.8 28.4C101.5 29.3 101.5 30 102.8 29.9C104.1 29.8 105 29.5 106.6 27.2C109.4 24.5 112.4 22.8 113.5 21.4C114.6 20 116.1 18.4 115.7 17.6C115.3 16.8 114.3 16.4 113.4 16.8C112.5 17.2 108.8 19.5 108 20C107.4 20.5 108.4 22.4 108.4 22.4L109.5 20.2C109.5 20.2 110.4 14.2 110.6 11.7C110.8 9.3 110.8 7.8 109.5 7.8Z"/><path d="M104.8 27.1C104.8 27.1 108.1 27.2 116.5 32.4C124.9 37.6 129.6 40.8 131.4 39.1C133.1 37.5 133.6 34.7 132.6 34.5C131.7 34.3 131 34.7 129.9 35.4C128.8 36.1 131.3 36.3 131.3 36.3L131.7 35.2C131.7 35.2 115.9 24.9 109.1 24.4C105.1 25.9 104.8 27.1 104.8 27.1Z"/><path d="M63.4999 47.4C63.9999 46.5 69.3999 39.2 97.6999 41.5C110 42.7 123.2 49.1 122.8 51.4C122.4 53.7 119.9 53.2 117.6 52C115.3 50.8 106.1 46 91.7999 44.8C77.4999 43.6 68.4999 46.4 65.9999 47.7C63.3999 48.9 62.8999 48.2 63.4999 47.4Z"/></g></symbol>
+
+    <!-- Thin line arrow (points right; flipped in CSS for "Go Back") -->
+    <symbol id="arrow" viewBox="0 0 40 14"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M1 7h38M32.5 1 39 7l-6.5 6"/></symbol>
+
+    <!-- Chevron (points left; flipped in CSS for "Next") -->
+    <symbol id="chevron" viewBox="0 0 14 26"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 1 1 13l12 12"/></symbol>
+
+    <!-- Close (lightbox) -->
+    <symbol id="close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M5 5l14 14M19 5 5 19"/></symbol>
+  </svg>
+
+  <!-- =========================================================
+       PRELOADER (same as index.html)
+       ========================================================= -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__panel preloader__panel--back"></div>
+    <div class="preloader__panel preloader__panel--front">
+      <svg class="preloader__logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+      <div class="preloader__bar"><span class="preloader__bar-fill"></span></div>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Gradual blur at the top of the screen (sits behind the navbar) -->
+  <div class="top-blur" aria-hidden="true">
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+  </div>
+
+  <!-- =========================================================
+       NAVBAR: Go Back · logo · Light / Dark
+       Small & medium screens show only the arrow (the label is still read by screen readers).
+       ========================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a class="back-link" href="index.html">
+        <svg class="back-link__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg>
+        <span class="back-link__label">Go Back</span>
+      </a>
+
+      <a class="navbar__logo" href="index.html" aria-label="Akayik, home">
+        <svg class="logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+
+      <div class="theme-toggle" id="theme-toggle" role="group" aria-label="Colour theme">
+        <button class="theme-toggle__option" type="button" data-theme-option="light" data-label="Light">Light</button>
+        <span class="theme-toggle__divider" aria-hidden="true">/</span>
+        <button class="theme-toggle__option" type="button" data-theme-option="dark" data-label="Dark">Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="page cs-page">
+
+    <!-- =========================================================
+         LANDING
+         Large: details (cols 1-6) · image carousel (cols 7-12)
+         Small/medium: title, carousel, details stacked.
+         ========================================================= -->
+    <section class="cs-hero" aria-labelledby="cs-title">
+      <div class="container grid cs-hero__grid">
+
+        <div class="cs-hero__intro" data-reveal>
+          <p class="eyebrow">Off Grid Bazaar</p>
+          <h1 class="cs-hero__title" id="cs-title">From pump monitoring to a lightweight project management and monitoring platform</h1>
+        </div>
+
+        <!-- Carousel: copy a <figure> to add a slide. data-caption = text shown in the lightbox. -->
+        <div class="cs-hero__media" data-reveal data-lightbox-group>
+          <div class="cs-carousel" data-carousel aria-roledescription="carousel" aria-label="Project images">
+            <div class="cs-carousel__track">
+              <figure class="cs-carousel__slide" data-lightbox-item data-caption="A web-based remote project management platform that digitized the entire operations and allowed for real-time equipment monitoring">
+                <img src="assets/img/CaseStudies/OffGridBazaar/hero.webp"
+                     width="1440" height="1080" alt="The platform’s dashboard on a laptop" fetchpriority="high" decoding="async">
+              </figure>
+              <figure class="cs-carousel__slide" data-lightbox-item data-caption="A set of components that were created to materialize the platform">
+                <img src="assets/img/CaseStudies/OffGridBazaar/ui-elements.webp"
+                     width="1440" height="1080" alt="Cards, filters and form elements from the platform" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details: label (1 col) · text (5 cols, half a column in) on large screens -->
+        <dl class="cs-facts" data-reveal>
+          <dt>My Role</dt>
+          <dd>Lead Product Designer</dd>
+          <dt>Duration</dt>
+          <dd>3 months, from initial requirement gathering to deployment</dd>
+          <dt>Focus</dt>
+          <dd>Product Definition · Requirements · Information Architecture · Data Visualization · Stakeholder Alignment · QA</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         METRICS: 3 × 4 columns, hairlines above and below
+         ========================================================= -->
+    <section class="cs-metrics" aria-label="Key results">
+      <div class="container">
+        <ul class="cs-metrics__list grid" data-reveal>
+          <li class="cs-metric">
+            <p class="cs-metric__value">300+</p>
+            <p class="cs-metric__sub">systems accommodated after deployment</p>
+          </li>
+          <li class="cs-metric">
+            <p class="cs-metric__value">Searchable</p>
+            <p class="cs-metric__sub">project records that replaced paper-based lookup</p>
+          </li>
+          <li class="cs-metric">
+            <p class="cs-metric__value">Real-time</p>
+            <p class="cs-metric__sub">pump visibility, replacing phone calls for monitoring</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CASE STUDY BODY
+
+         HOW IT IS ORGANISED
+         - Each <section class="cs-group"> is ONE item in the side menu.
+           data-menu = the menu label, id = the link target.
+           The menu is built from these automatically, in this order.
+         - A group can hold several <article class="cs-section"> blocks
+           (e.g. "Design Decisions" holds four). They share the group's background.
+
+         BACKGROUNDS (set by hand, so you stay in control)
+           cs-group--page     Surface/Page
+           cs-group--section  Surface/Section (full screen width)
+
+         MEDIA
+         - One image or video:  <figure class="cs-media" data-lightbox-item data-caption="…">
+         - Portrait images (taller than wide): add cs-media--portrait to the figure; they show
+           at 4:3, cropped from the centre (data-focus="center top" picks another point).
+           Square and wide images are never cropped.
+         - Several:             <div class="cs-carousel" data-carousel> with one figure per slide
+                                (the frame takes the shape of the slide that is showing)
+         - Images: one WebP each (sharp on retina). Make them with tools/optimize-case-studies.py
+         - Videos (MP4):        <video muted loop playsinline preload="metadata" src="….mp4"></video>
+                                (play without controls while on screen)
+         - Everything in one article opens in the same lightbox group.
+         ========================================================= -->
+    <div class="cs-body" id="cs-body">
+      <!-- ===================== BRIEF ===================== -->
+      <section class="cs-group cs-group--page" id="brief" data-menu="Brief" aria-labelledby="t-monitor-the-agency-s-pumps">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal>
+            <h2 class="cs-section__title" id="t-monitor-the-agency-s-pumps">Monitor the agency’s pumps</h2>
+            <div class="cs-text">
+              <p class="cs-text__lead">The starting point was simple: use Gham Power’s IoT technology to monitor pumps.</p>
+              <p>Gham Power already had an IoT system for monitoring solar-powered water pumps, and it could collect a large amount of sensor data per installation. A government agency wanted to use it for pumps installed through its own projects.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== RESEARCH ===================== -->
+      <section class="cs-group cs-group--section" id="research" data-menu="Research" aria-labelledby="t-monitoring-needs-context">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-monitoring-needs-context">Monitoring needs context</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="What a solar-powered water pump looks like">
+              <img src="assets/img/CaseStudies/OffGridBazaar/pumps.webp"
+                   width="1080" height="717" alt="A farmer beside a solar-powered water pump in a field" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">To monitor a pump, you need to know what it is, where it is and how the project was documented.</p>
+              <p>The agency had thousands of project records and extensive technical documentation, but no single place to connect them to live data. Specifications weren’t always consistently documented, which raised a chain of questions. How do we document them digitally, what else could we do with that information, and how much of it belongs in this product?</p>
+            </div>
+            <div class="cs-highlight">
+              <p>A few weeks were spent talking to the representatives in the agency.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== BALANCING STAKEHOLDERS ===================== -->
+      <section class="cs-group cs-group--page" id="balancing-stakeholders" data-menu="Balancing Stakeholders" aria-labelledby="t-two-needs-one-boundary">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-two-needs-one-boundary">Two needs, one boundary</h2>
+            <div class="cs-carousel" data-carousel aria-roledescription="carousel" aria-label="Two needs, one boundary: images">
+              <div class="cs-carousel__track">
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="Empathy map created for the government stakeholder">
+                  <img src="assets/img/CaseStudies/OffGridBazaar/empathy.webp"
+                       width="3840" height="3404" alt="An empathy map: says, thinks, does and feels" loading="lazy" decoding="async">
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="An early flowchart of the government’s operations">
+                  <img src="assets/img/CaseStudies/OffGridBazaar/process2.webp"
+                       width="1440" height="1080" alt="A flowchart of the agency’s project process" loading="lazy" decoding="async">
+                </figure>
+              </div>
+            </div>
+            <div class="cs-text">
+              <p class="cs-text__lead">Both sides had legitimate needs. My job was to find the boundary between them.</p>
+              <p>Gham Power needed a focused product that built on its IoT capability and could be delivered efficiently. The agency wanted to improve how projects were documented, monitored and managed. As requests for analytics, knowledge generation and reporting grew, I separated must-haves from good-to-haves and looked for the smallest extra scope that would make the first version genuinely useful. Having an empathy map on hand helped me negotiate on behalf of the users during in-house decision making.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== NEGOTIATIONS ===================== -->
+      <section class="cs-group cs-group--section" id="negotiations" data-menu="Negotiations" aria-labelledby="t-lightweight-not-feature-capped">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-lightweight-not-feature-capped">Lightweight, not feature capped</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="The IoT device customization was fine-tuned for the requirements and specifications of the organization, as well as the parameters of the project">
+              <img src="assets/img/CaseStudies/OffGridBazaar/parametersag.webp"
+                   width="2880" height="2160" alt="Screens for customizing the device parameters" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">The answer was a platform, not a standalone dashboard.</p>
+              <p>The first release covered project documentation, live monitoring connected to each project record, and search and reference in place of fragmented paper records. Advanced analytics, project-specific notifications, knowledge generation and report generation were good-to-haves, not need-to-haves, so they were deliberately left for later.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== DESIGN DECISIONS ===================== -->
+      <section class="cs-group cs-group--page" id="design-decisions" data-menu="Design Decisions" aria-label="Design Decisions">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-their-forms-made-digital">Their forms, made digital</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="The project creation process mirrored the existing stages in real life">
+              <img src="assets/img/CaseStudies/OffGridBazaar/formsag.webp"
+                   width="2880" height="2160" alt="The multi-step project creation forms" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">I kept the agency’s own structure and made it usable on screen.</p>
+              <p>Rather than force a new mental model, I preserved it. A spreadsheet can hold a lot in one view, but a screen can’t, so the forms were:</p>
+              <ul>
+                <li><strong>Chunked</strong> into meaningful sections</li>
+                <li><strong>Resumable</strong>, since digitizing historical projects couldn’t happen in one sitting</li>
+                <li><strong>Keyboard-friendly</strong>, for people used to spreadsheets</li>
+                <li><strong>Familiar</strong>, using existing terminology wherever possible</li>
+              </ul>
+            </div>
+            <div class="cs-highlight">
+              <p>I spent days going through their forms and spreadsheets to learn their terminology, groupings and the information they needed to record.</p>
+            </div>
+          </article>
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-a-regular-dashboard-wouldn-t-suffice">A regular dashboard wouldn’t suffice</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="Visualization of each data point was tailored to meet the unique requirements of the organization">
+              <img src="assets/img/CaseStudies/OffGridBazaar/visualizationag.webp"
+                   width="2880" height="2160" alt="Sensor charts with controls for the time period and parameters" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">Users decide what data matters for the task at hand.</p>
+              <p>The IoT system produced far more data than anyone needed to see at once, and a fixed dashboard would have guessed which measurements mattered to whom. Prototype validation confirmed it. Users wanted control over which sensors to show, the time period, and how measurements could be viewed together. So the data stayed comprehensive and the interface became flexible.</p>
+            </div>
+          </article>
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-built-lean">Built lean</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="A collection of the customized UI elements that were used in the platform">
+              <img src="assets/img/CaseStudies/OffGridBazaar/ui-elements.webp"
+                   width="1440" height="1080" alt="Cards, filters and form elements from the platform" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">Design effort went where it mattered, not into rebuilding a component library.</p>
+              <p>The product had to stay light to develop for cost reasons, so I repurposed an existing design system, keeping its layouts and components and adapting the visual tokens. That freed time for information architecture, workflows, interaction and data visualization.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== OUTCOMES ===================== -->
+      <section class="cs-group cs-group--section" id="outcomes" data-menu="Outcomes" aria-labelledby="t-documentation-meets-live-data">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-documentation-meets-live-data">Documentation meets live data</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="Real-time visualization of one of the parameters required for monitoring a water pump project">
+              <img src="assets/img/CaseStudies/OffGridBazaar/realtimeonsite.webp"
+                   width="1440" height="1080" alt="Live pump data on a laptop during a meeting" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">One product now holds both what a pump is and how it’s doing.</p>
+              <p>Before, checking whether a pump worked could mean calling the farmer and relying on their account, or travelling to each pump, which cost man-hours and money. Both made it hard to know if an installation was running as expected. Now each project record sits beside a direct signal from the pump itself.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== IMPACT ===================== -->
+      <section class="cs-group cs-group--page" id="impact" data-menu="Impact" aria-labelledby="t-300-systems-live">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-300-systems-live">300+ systems, live</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="Dashboard view of the entire ongoing operations">
+              <img src="assets/img/CaseStudies/OffGridBazaar/overview.webp"
+                   width="1440" height="1080" alt="The operations dashboard on a monitor in a meeting room" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">The agency got a searchable record, direct pump visibility and room to grow.</p>
+              <p>More than 300 systems were registered after deployment. Project information became searchable instead of depending on physical documents, and the platform now gives analytics and reporting a foundation to grow from. The agency’s feedback suggested that searchable digital records will save significant manual effort, though this wasn’t formally measured.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== LEARNINGS ===================== -->
+      <section class="cs-group cs-group--section" id="learnings" data-menu="Learnings" aria-labelledby="t-involve-them-earlier">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal>
+            <h2 class="cs-section__title" id="t-involve-them-earlier">Involve them earlier</h2>
+            <div class="cs-text">
+              <p class="cs-text__lead">I would bring the agency into the product direction before the first prototype.</p>
+              <p>Requirements emerged through unstructured interviews, existing documents and prototype validation, which worked. But some scope and information-architecture discussions came late. Reviewing the direction earlier would have let both sides agree sooner on what the product is, what it isn’t, and what belongs in the first release.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Side menu. It sits on its own layer over the groups so it can stay
+           sticky across all of them. The items are built by js/case-study.js
+           from the data-menu labels above. -->
+      <div class="cs-menu-layer">
+        <div class="container cs-menu-layer__inner">
+          <nav class="cs-menu" id="cs-menu" aria-label="Case study sections">
+            <!-- Small & medium: the pill (line = current section, dots = the rest). Tap to open. -->
+            <button class="cs-menu__toggle" type="button" aria-expanded="false" aria-controls="cs-menu-panel">
+              <span class="cs-menu__marks" aria-hidden="true"></span>
+              <span class="visually-hidden">Sections</span>
+            </button>
+            <!-- Large: always visible. Small & medium: the frosted panel. -->
+            <div class="cs-menu__panel" id="cs-menu-panel">
+              <span class="cs-menu__line" aria-hidden="true"></span>
+              <ul class="cs-menu__list"></ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       Background: footer--section or footer--page (match it by hand to
+       contrast with the last group above).
+       Previous / Next: update href and title per case study. Delete one
+       <a> to leave that side empty.
+       ========================================================= -->
+  <footer class="footer cs-footer footer--page">
+    <div class="container">
+      <nav class="cs-pager" aria-label="More case studies">
+        <a class="cs-pager__link cs-pager__link--prev" href="case-study-angelswing.html">
+          <svg class="cs-pager__chevron" viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+          <span class="cs-pager__text">
+            <span class="cs-pager__label">Previous</span>
+            <span class="cs-pager__title">SaaS product for the Construction Industry</span>
+          </span>
+        </a>
+        <a class="cs-pager__link cs-pager__link--next" href="case-study-super-krishak.html">
+          <span class="cs-pager__text">
+            <span class="cs-pager__label">Next</span>
+            <span class="cs-pager__title">Gamified learning for rural farmers in Nepal</span>
+          </span>
+          <svg class="cs-pager__chevron" viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+        </a>
+      </nav>
+
+      <div class="footer__inner cs-footer__brand">
+        <a class="footer__home" href="index.html" aria-label="Akayik, home">
+          <svg class="footer__logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+        </a>
+        <p class="footer__copy">© 2026 Apurba Neupane</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================
+       LIGHTBOX (filled by js/case-study.js)
+       ========================================================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <div class="lightbox__backdrop" data-lightbox-close></div>
+    <button class="lightbox__btn lightbox__close" type="button" data-lightbox-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#close"></use></svg>
+    </button>
+    <button class="lightbox__btn lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image">
+      <svg viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+    </button>
+    <button class="lightbox__btn lightbox__nav lightbox__nav--next" type="button" aria-label="Next image">
+      <svg viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+    </button>
+    <figure class="lightbox__figure">
+      <div class="lightbox__stage"></div>
+      <figcaption class="lightbox__caption">
+        <p class="lightbox__text"></p>
+        <p class="lightbox__count" aria-live="polite"></p>
+      </figcaption>
+    </figure>
+  </div>
+</body>
+</html>

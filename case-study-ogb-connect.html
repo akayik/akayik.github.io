@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OGB Connect · Case Study · Apurba Neupane</title>
+  <meta name="description" content="How field research in Nepal turned a sales problem into a simpler lead-generation workflow: 27+ fields became 4, and lead entry dropped from 6+ minutes to about 20 seconds.">
+  <meta name="theme-color" content="#191919">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!--
+    THEME BOOTSTRAP (same as index.html)
+    Runs before anything is painted so a visitor who picked light mode never sees a dark flash.
+    This is the only inline script; it has to be inline to run this early.
+  -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js', 'is-loading');
+      // Failsafe: never keep the page locked behind the preloader for more than 6 seconds
+      setTimeout(function () { root.classList.remove('is-loading'); }, 6000);
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) { /* storage blocked: keep the default dark theme */ }
+    })();
+  </script>
+
+  <!-- Fonts: self-hosted Montserrat -->
+  <link rel="preload" href="assets/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- First hero image: fetched early because it is the biggest thing on the first screen -->
+  <link rel="preload" as="image" href="assets/img/CaseStudies/OGBConnect/hero.webp">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/case-study.css">
+  <!-- main.js = shared behaviour (theme, navbar, preloader, entrance animations).
+       case-study.js = this page's carousels, side menu, videos and lightbox. -->
+  <script src="js/main.js" defer></script>
+  <script src="js/case-study.js" defer></script>
+</head>
+
+<body>
+  <!-- =========================================================
+       ICON SPRITE (same idea as index.html)
+       ========================================================= -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="logo" viewBox="0 0 133 69"><g fill="currentColor"><path d="M18.2001 23.2C18.0001 23.2 17.3001 23.8 17.1001 23.5C16.9001 23.1 16.2001 19.7 14.4001 19.7C12.6001 19.7 5.30006 27.9 4.30006 35.4C3.30006 42.9 12.4001 30 14.2001 27.1C16.0001 24.2 19.3001 19.7 20.7001 19.8C22.1001 19.9 21.2001 24.1 20.7001 27C20.2001 29.8 19.7001 35.1 20.5001 35.1C21.3001 35.1 25.8001 30.8 29.0001 22.9C32.2001 15 35.5001 5.4 36.0001 5C36.5001 4.6 37.6001 3.3 38.7001 3.4C39.8001 3.6 40.3001 4.8 39.5001 7C38.5001 9.1 32.3001 25 32.3001 25L30.8001 25.6C30.8001 25.6 39.5001 15.3 43.1001 15.4C46.7001 15.5 43.6001 20 40.7001 22.8C37.8001 25.6 31.8001 31 31.8001 31L26.8001 36.8L27.6001 31.6L31.2001 28.5C31.2001 28.5 36.6001 28.6 41.3001 33C46.0001 37.4 51.4001 42.6 53.6001 44.1C55.8001 45.6 57.6001 47 56.5001 48.4C55.4001 49.8 52.4001 50.2 50.4001 48.7C48.4001 47.2 43.8001 43.9 41.2001 41.2C38.6001 38.5 34.2001 34.3 31.2001 33.8C28.2001 33.3 28.3001 32.4 28.3001 32.4L31.5001 32.6C31.5001 32.6 31.6001 34.2 29.2001 37.2C26.8001 40.2 24.4001 40.9 23.9001 39.8C23.4001 38.7 24.3001 33.4 24.3001 33.4L25.3001 34.8C25.3001 34.8 22.5001 39.6 18.2001 39.3C13.9001 39 14.9001 33.8 15.5001 28.6C16.7001 28.4 16.7001 29.1 16.7001 29.1C16.7001 29.1 9.40006 41.8 2.50006 41.7C-4.39994 41.5 4.10006 16 15.8001 16C19.6001 16 20.4001 18 19.7001 20.6C19.0001 23.2 18.2001 23.2 18.2001 23.2Z"/><path d="M57.0999 15C55.8999 15.3 48.4999 19.5 48.0999 28.6C47.5999 37.5 55.1999 30 58.4999 25.2C57.6999 22.8 56.8999 24.6 56.8999 24.6C56.8999 24.6 55.5999 34.6 61.8999 35C68.2999 35.3 72.4999 25 72.4999 25L69.6999 26.1C69.6999 26.1 68.4999 34 75.3999 34C82.2999 34 88.8999 25.9 89.5999 21C90.1999 16.2 84.1999 17 80.8999 29.1C77.5999 41.2 70.9999 63 70.9999 66.2C70.9999 69.4 72.4999 69.5 73.9999 68.4C75.4999 67.2 76.2999 66.6 76.5999 61.6C76.8999 56.6 81.5999 41.2 82.7999 37.2C83.9999 33.1 86.8999 22.7 86.8999 22.7C86.8999 22.7 80.8999 30.2 78.0999 29.6C75.2999 29 74.8999 26.9 74.8999 23.7C74.8999 20.5 74.7999 18.6 72.8999 19.9C71.0999 21.1 69.9999 22.3 69.6999 25.7C70.8999 25.5 71.2999 23 71.2999 23C71.2999 23 69.6999 24.9 67.8999 27.3C66.0999 29.7 63.5999 31.8 62.8999 29.1C62.1999 26.4 63.2999 18.9 62.6999 18C62.0999 17.1 59.5999 16.1 58.3999 18.6C55.4999 25.3 51.5999 28.7 51.5999 28.7L53.3999 28.8C53.3999 28.8 51.4999 27.6 52.4999 24.4C53.0999 22.5 54.4999 18.9 55.5999 19.1C56.6999 19.3 57.4999 20.4 58.2999 19.7C59.0999 19 60.1999 14.1 57.0999 15Z"/><path d="M96.8 4.5C96.8 4.5 96 4.7 95.2 5.4C94 6.3 92.5 7.9 92.6 10.5C92.7 14.8 98.1 13.2 100.1 9.7C102.3 6.3 102.3 0.700001 94.8 0.100001C87.4 -0.399999 87.2 5.1 88.8 4.8C90.4 4.6 93.1 3.2 95.9 6C97.7 5.7 96.8 4.5 96.8 4.5Z"/><path d="M96.6 16.2C94.9 16.4 93.8 17.2 92.9 22.8C92 28.4 91.2 33.8 92.4 33.9C93.5 34 96.2 33.7 96.6 28.8C97 24 97.7 18.9 97.6 17.9C97.4 16.9 97.2 16.2 96.6 16.2Z"/><path d="M109.5 7.8C108 7.8 106.6 9.6 105.9 13.6C105.4 17.6 102.1 27.5 101.8 28.4C101.5 29.3 101.5 30 102.8 29.9C104.1 29.8 105 29.5 106.6 27.2C109.4 24.5 112.4 22.8 113.5 21.4C114.6 20 116.1 18.4 115.7 17.6C115.3 16.8 114.3 16.4 113.4 16.8C112.5 17.2 108.8 19.5 108 20C107.4 20.5 108.4 22.4 108.4 22.4L109.5 20.2C109.5 20.2 110.4 14.2 110.6 11.7C110.8 9.3 110.8 7.8 109.5 7.8Z"/><path d="M104.8 27.1C104.8 27.1 108.1 27.2 116.5 32.4C124.9 37.6 129.6 40.8 131.4 39.1C133.1 37.5 133.6 34.7 132.6 34.5C131.7 34.3 131 34.7 129.9 35.4C128.8 36.1 131.3 36.3 131.3 36.3L131.7 35.2C131.7 35.2 115.9 24.9 109.1 24.4C105.1 25.9 104.8 27.1 104.8 27.1Z"/><path d="M63.4999 47.4C63.9999 46.5 69.3999 39.2 97.6999 41.5C110 42.7 123.2 49.1 122.8 51.4C122.4 53.7 119.9 53.2 117.6 52C115.3 50.8 106.1 46 91.7999 44.8C77.4999 43.6 68.4999 46.4 65.9999 47.7C63.3999 48.9 62.8999 48.2 63.4999 47.4Z"/></g></symbol>
+
+    <!-- Thin line arrow (points right; flipped in CSS for "Go Back") -->
+    <symbol id="arrow" viewBox="0 0 40 14"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M1 7h38M32.5 1 39 7l-6.5 6"/></symbol>
+
+    <!-- Chevron (points left; flipped in CSS for "Next") -->
+    <symbol id="chevron" viewBox="0 0 14 26"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 1 1 13l12 12"/></symbol>
+
+    <!-- Close (lightbox) -->
+    <symbol id="close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M5 5l14 14M19 5 5 19"/></symbol>
+  </svg>
+
+  <!-- =========================================================
+       PRELOADER (same as index.html)
+       ========================================================= -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__panel preloader__panel--back"></div>
+    <div class="preloader__panel preloader__panel--front">
+      <svg class="preloader__logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+      <div class="preloader__bar"><span class="preloader__bar-fill"></span></div>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Gradual blur at the top of the screen (sits behind the navbar) -->
+  <div class="top-blur" aria-hidden="true">
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+  </div>
+
+  <!-- =========================================================
+       NAVBAR: Go Back · logo · Light / Dark
+       Small & medium screens show only the arrow (the label is still read by screen readers).
+       ========================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a class="back-link" href="index.html">
+        <svg class="back-link__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg>
+        <span class="back-link__label">Go Back</span>
+      </a>
+
+      <a class="navbar__logo" href="index.html" aria-label="Akayik, home">
+        <svg class="logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+
+      <div class="theme-toggle" id="theme-toggle" role="group" aria-label="Colour theme">
+        <button class="theme-toggle__option" type="button" data-theme-option="light" data-label="Light">Light</button>
+        <span class="theme-toggle__divider" aria-hidden="true">/</span>
+        <button class="theme-toggle__option" type="button" data-theme-option="dark" data-label="Dark">Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="page cs-page">
+
+    <!-- =========================================================
+         LANDING
+         Large: details (cols 1-6) · image carousel (cols 7-12)
+         Small/medium: title, carousel, details stacked.
+         ========================================================= -->
+    <section class="cs-hero" aria-labelledby="cs-title">
+      <div class="container grid cs-hero__grid">
+
+        <div class="cs-hero__intro" data-reveal>
+          <p class="eyebrow">OGB Connect</p>
+          <h1 class="cs-hero__title" id="cs-title">Turning a sales problem into a simpler lead-generation workflow</h1>
+        </div>
+
+        <!-- Carousel: copy a <figure> to add a slide. data-caption = text shown in the lightbox. -->
+        <div class="cs-hero__media" data-reveal data-lightbox-group>
+          <div class="cs-carousel" data-carousel aria-roledescription="carousel" aria-label="Project images">
+            <div class="cs-carousel__track">
+              <figure class="cs-carousel__slide" data-lightbox-item data-caption="A minimal lead recording app which had a bell icon, but no unnecessary bells and whistles">
+                <img src="assets/img/CaseStudies/OGBConnect/hero.webp"
+                     width="1440" height="1080" alt="The lead collection app on a phone" fetchpriority="high" decoding="async">
+              </figure>
+              <figure class="cs-carousel__slide" data-lightbox-item data-caption="The pipeline got a brand of its own by the end of the process">
+                <img src="assets/img/CaseStudies/OGBConnect/rebrand.webp"
+                     width="1440" height="1080" alt="The OGB Connect brand on a phone" loading="lazy" decoding="async">
+              </figure>
+              <figure class="cs-carousel__slide" data-lightbox-item data-caption="A lead management pipeline designed for the team at HQ, while supporting the field staff">
+                <img src="assets/img/CaseStudies/OGBConnect/screens.webp"
+                     width="1440" height="1080" alt="The lead management tool on a laptop" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details: label (1 col) · text (5 cols, half a column in) on large screens -->
+        <dl class="cs-facts" data-reveal>
+          <dt>My Role</dt>
+          <dd>UX Designer, sole designer</dd>
+          <dt>Duration</dt>
+          <dd>Several months, from initial research to MVP and field rollout</dd>
+          <dt>Focus</dt>
+          <dd>Field Research · Problem Definition · UX/UI · Prototyping and Testing · Dev Coordination · QA and Outcome Measurement</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         METRICS: 3 × 4 columns, hairlines above and below
+         ========================================================= -->
+    <section class="cs-metrics" aria-label="Key results">
+      <div class="container">
+        <ul class="cs-metrics__list grid" data-reveal>
+          <li class="cs-metric">
+            <p class="cs-metric__value">27+ → 4 fields</p>
+            <p class="cs-metric__sub">to create a lead</p>
+          </li>
+          <li class="cs-metric">
+            <p class="cs-metric__value">6+ mins → ~20 sec</p>
+            <p class="cs-metric__sub">to enter a lead</p>
+          </li>
+          <li class="cs-metric">
+            <p class="cs-metric__value">285% ↑ reported leads</p>
+            <p class="cs-metric__sub">13→50 leads per branch within 3 months</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CASE STUDY BODY
+
+         HOW IT IS ORGANISED
+         - Each <section class="cs-group"> is ONE item in the side menu.
+           data-menu = the menu label, id = the link target.
+           The menu is built from these automatically, in this order.
+         - A group can hold several <article class="cs-section"> blocks
+           (e.g. "Design Decisions" holds four). They share the group's background.
+
+         BACKGROUNDS (set by hand, so you stay in control)
+           cs-group--page     Surface/Page
+           cs-group--section  Surface/Section (full screen width)
+
+         MEDIA
+         - One image or video:  <figure class="cs-media" data-lightbox-item data-caption="…">
+         - Portrait images (taller than wide): add cs-media--portrait to the figure; they show
+           at 4:3, cropped from the centre (data-focus="center top" picks another point).
+           Square and wide images are never cropped.
+         - Several:             <div class="cs-carousel" data-carousel> with one figure per slide
+                                (the frame takes the shape of the slide that is showing)
+         - Images: one WebP each (sharp on retina). Make them with tools/optimize-case-studies.py
+         - Videos (MP4):        <video muted loop playsinline preload="metadata" src="….mp4"></video>
+                                (play without controls while on screen)
+         - Everything in one article opens in the same lightbox group.
+         ========================================================= -->
+    <div class="cs-body" id="cs-body">
+      <!-- ===================== BRIEF ===================== -->
+      <section class="cs-group cs-group--page" id="brief" data-menu="Brief" aria-labelledby="t-the-brief-was-to-grow-sales-the-assumpti">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal>
+            <h2 class="cs-section__title" id="t-the-brief-was-to-grow-sales-the-assumpti">The brief was to grow sales. The assumption was that the app needed a redesign</h2>
+            <div class="cs-text">
+              <p>OGB worked with microfinance organizations to help rural farmers get solar-powered water pumps through non-collateral loans. Microfinance staff already knew their communities and visited farmers regularly, but they were also expected to explain and sell an unfamiliar technology. The existing system required extensive farmer information before a lead could move forward, which the internal team needed in order to qualify it. I joined as the sole UX designer to find out why sales weren’t happening.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== RESEARCH ===================== -->
+      <section class="cs-group cs-group--section" id="research" data-menu="Research" aria-labelledby="t-into-the-field">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-into-the-field">Into the field</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="It was a cold, foggy winter morning. We missed the village because of the fog and had to circle back a few kilometers">
+              <img src="assets/img/CaseStudies/OGBConnect/process1.webp"
+                   width="1440" height="1080" alt="Microfinance staff talking with farmers during field research" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">Before touching a pixel, I went to see the work.</p>
+              <p>I spent a month learning the users and the business, then ran field research across 5 branches in 3 districts of Nepal. I followed one staff member from each branch through half a working day, interviewed three staff members per branch, and combined that with surveys, community meetings and conversations with the sales team. The branches were chosen partly for logistics and partly because they had already shown some success.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== FINDINGS ===================== -->
+      <section class="cs-group cs-group--page" id="findings" data-menu="Findings" aria-labelledby="t-they-wanted-to-sell-they-couldn-t">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-they-wanted-to-sell-they-couldn-t">They wanted to sell. They couldn’t</h2>
+            <div class="cs-carousel" data-carousel aria-roledescription="carousel" aria-label="They wanted to sell. They couldn’t: images">
+              <div class="cs-carousel__track">
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="It is always fun when research proves to you that your assumptions were indeed very wrong">
+                  <img src="assets/img/CaseStudies/OGBConnect/takeaways.webp"
+                       width="2880" height="2880" alt="Research details and key takeaways" loading="lazy" decoding="async">
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="Some user personas were created as stand-ins during in-house stakeholder meetings">
+                  <img src="assets/img/CaseStudies/OGBConnect/personas.webp"
+                       width="3746" height="2880" alt="User persona cards" loading="lazy" decoding="async">
+                </figure>
+              </div>
+            </div>
+            <div class="cs-text">
+              <p class="cs-text__lead">Staff weren’t reluctant. They were doing two jobs, without the time or knowledge for the second.</p>
+              <p>Internally, the implicit assumption was that staff lacked interest. In the field I saw the opposite. They were explaining the technology with confidence, and sometimes getting it wrong. Finding the lead was one job. Priming it for a sale was another, and it needed product knowledge they didn’t always have.</p>
+            </div>
+            <div class="cs-highlight">
+              <p>The question changed from “How do we get more leads?” to “How do we make a viable lead easy to capture, while giving the internal team enough to take it forward?”</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== DESIGN DECISIONS ===================== -->
+      <section class="cs-group cs-group--section" id="design-decisions" data-menu="Design Decisions" aria-label="Design Decisions">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-capture-isn-t-qualification">Capture isn’t qualification</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="The interfaces are only as good as the reality they model. It was important to change the whole flow of how a lead was processed">
+              <img src="assets/img/CaseStudies/OGBConnect/new-flow.webp"
+                   width="2907" height="1082" alt="Diagram: before, field staff did everything; after, they capture the lead and the in-house team qualifies it" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">Capturing a lead and profiling a farmer happen at different moments, for different people.</p>
+              <p>The old flow had the field staff build a full farmer profile at first contact. Splitting it gave them a lighter first step and moved the burden of qualification and information gathering to the team that needed the detail.</p>
+            </div>
+          </article>
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-4-fields-not-27">4 fields, not 27</h2>
+            <div class="cs-carousel" data-carousel aria-roledescription="carousel" aria-label="4 fields, not 27: images">
+              <div class="cs-carousel__track">
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="There was nothing outstanding about the design of the app, and it was the simplicity that made it special">
+                  <img src="assets/img/CaseStudies/OGBConnect/mobile1.webp"
+                       width="1697" height="1273" alt="Three key screens of the lead collection app" loading="lazy" decoding="async">
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="No frills. No fuss. Just a simple flow to record leads and know when they have been recorded">
+                  <video src="assets/img/CaseStudies/OGBConnect/mobile2.mp4" width="1440" height="1080" muted loop playsinline preload="metadata" aria-label="Screen recording of registering a lead in the app"></video>
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="The design did go through some minor revisions. This is the design of the MVP that was tested on site">
+                  <img src="assets/img/CaseStudies/OGBConnect/mvpmobile.webp"
+                       width="1440" height="1080" alt="Screens of the MVP app" loading="lazy" decoding="async">
+                </figure>
+              </div>
+            </div>
+            <div class="cs-text">
+              <p class="cs-text__lead">The first conversation only needs to answer: who, and how do we reach them?</p>
+              <p>Successful sales showed a pattern. The person approached first was often a woman, but the decision-maker was frequently her husband or father-in-law. So the contact details of the right people mattered more than a farmer profile. A lead now needs the microfinance member, their phone number, the decision-maker and their phone number. Everything else was deliberately deferred, not dismissed.</p>
+            </div>
+          </article>
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-the-information-moved-it-didn-t-disappea">The information moved, it didn’t disappear</h2>
+            <div class="cs-carousel" data-carousel aria-roledescription="carousel" aria-label="The information moved, it didn’t disappear: images">
+              <div class="cs-carousel__track">
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="An entire lead management pipeline that was the result of internal prototype testing">
+                  <img src="assets/img/CaseStudies/OGBConnect/screens.webp"
+                       width="1440" height="1080" alt="The lead management tool on a laptop" loading="lazy" decoding="async">
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="This was the first exploration. But a kanban didn’t accurately reflect how the HQ team processed leads. It wasn’t always a linear process, and was much more nuanced">
+                  <img src="assets/img/CaseStudies/OGBConnect/mvpdesktop2.webp"
+                       width="1440" height="1080" alt="A kanban board version of lead management" loading="lazy" decoding="async">
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="The information that would be available, and how it would be stored when processing a lead, also took some revisions">
+                  <img src="assets/img/CaseStudies/OGBConnect/mvpdesktop1.webp"
+                       width="1440" height="1080" alt="Lead detail screens of the MVP" loading="lazy" decoding="async">
+                </figure>
+              </div>
+            </div>
+            <div class="cs-text">
+              <p class="cs-text__lead">The detail went to the people best placed to collect it.</p>
+              <p>The extra farmer information moved into a cloud-based lead-management tool for the internal team, where they qualify and enrich leads. Field users see four simple states (Unfiltered, Potential, Closed, Rejected), while the internal team works with a deeper sales model built with them, such as Hot, Normal and Dropped. It also became a shared record of what the team knew about each customer.</p>
+            </div>
+          </article>
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-a-pitch-without-more-training">A pitch without more training</h2>
+            <div class="cs-carousel" data-carousel aria-roledescription="carousel" aria-label="A pitch without more training: images">
+              <div class="cs-carousel__track">
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="A physical flip pitch deck was designed to be used in the field, where projectors are not feasible">
+                  <img src="assets/img/CaseStudies/OGBConnect/flip1.webp"
+                       width="1440" height="1080" alt="The printed flipbook pitch deck" loading="lazy" decoding="async">
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="The pitch in the flip deck was designed to address all the pain points and questions of the farmers in the region">
+                  <img src="assets/img/CaseStudies/OGBConnect/flip2.webp"
+                       width="1440" height="1080" alt="Farmer-facing pages of the flipbook" loading="lazy" decoding="async">
+                </figure>
+                <figure class="cs-carousel__slide" data-lightbox-item data-caption="The flip deck had a farmer side and a staff side. The staff side also had the pitch and the information, so that the staff didn’t have to memorize it all">
+                  <img src="assets/img/CaseStudies/OGBConnect/flip3.webp"
+                       width="1440" height="1080" alt="The client-facing and staff-facing sides of the flipbook" loading="lazy" decoding="async">
+                </figure>
+              </div>
+            </div>
+            <div class="cs-text">
+              <p class="cs-text__lead">Staff needed accurate answers, not another training course.</p>
+              <p>Index cards held too much information to be usable, and training would have added to already tight schedules. The solution was a compact flipbook that works like a mini slide deck: farmer-facing pages on the front, speaker notes, specifications and FAQs on the back. The aim wasn’t to make staff product experts, only to support a useful, accurate conversation.</p>
+            </div>
+          </article>
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-built-for-patchy-signals">Built for patchy signals</h2>
+            <figure class="cs-media" data-lightbox-item data-caption="Leads wait for the phone to find a good signal, and their states are clearly communicated so that there is no guessing">
+              <video src="assets/img/CaseStudies/OGBConnect/patchy-signals.mp4" width="1920" height="700" muted loop playsinline preload="metadata" aria-label="Animation of a lead waiting to sync"></video>
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">The tool had to work where the network didn’t.</p>
+              <p>Many visited areas had limited coverage, so leads are saved offline and synced when a connection returns. Budget meant Android first, as the most common platform among staff. And because staff had busy schedules, research and testing were planned around their regular work.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== TESTING ===================== -->
+      <section class="cs-group cs-group--page" id="testing" data-menu="Testing" aria-labelledby="t-tested-in-the-real-world">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal data-lightbox-group>
+            <h2 class="cs-section__title" id="t-tested-in-the-real-world">Tested in the real world</h2>
+            <figure class="cs-media cs-media--portrait" data-lightbox-item data-caption="Before the operation was scaled, it had to be tested">
+              <img src="assets/img/CaseStudies/OGBConnect/process2.webp"
+                   width="665" height="887" alt="A staff member using the app during testing" loading="lazy" decoding="async">
+            </figure>
+            <div class="cs-text">
+              <p class="cs-text__lead">The app returned to the people I had studied.</p>
+              <p>Once the MVP of the app and the pitch deck was ready, it was shipped to the real world. The MFI staff used them in their daily work, and their feedback was instrumental. The loading spinner was the result of one such piece of feedback. While there were kinks that needed ironing out, the feedback was one of immense gratitude. They felt that we had made their work easier. And the results spoke for themselves.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== IMPACT ===================== -->
+      <section class="cs-group cs-group--section" id="impact" data-menu="Impact" aria-labelledby="t-results-that-exceeded-expectations">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal>
+            <h2 class="cs-section__title" id="t-results-that-exceeded-expectations">Results that exceeded expectations</h2>
+            <div class="cs-highlight cs-highlight--large">
+              <p>20 seconds, 50 leads</p>
+            </div>
+            <div class="cs-text">
+              <p class="cs-text__lead">The workflow itself got smaller, and reported leads rose.</p>
+              <p>Lead entry dropped from 6+ minutes to about 20 seconds. (The old timing used dummy data; the new one was measured in the field.) In the three MVP branches, reported leads rose from about 13 to 50 per branch within three months, with no extra incentive or sales training. The process was then launched across the network as the standard, and staff described it as making their work easier.</p>
+              <p class="cs-text__note">On attribution: the sales guide and the wider rollout launched alongside the redesign, so I credit the design directly for the reduced effort and the changed workflow, not the whole increase in leads.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===================== LEARNINGS ===================== -->
+      <section class="cs-group cs-group--page" id="learnings" data-menu="Learnings" aria-labelledby="t-fewer-features-better-fit">
+        <div class="container grid cs-group__inner">
+
+          <article class="cs-section" data-reveal>
+            <h2 class="cs-section__title" id="t-fewer-features-better-fit">Fewer features, better fit</h2>
+            <div class="cs-text">
+              <p class="cs-text__lead">The best improvement was sometimes deciding an interaction didn’t need to exist.</p>
+              <p>The original app had been carefully planned and even included voice input. Field research taught me that more features don’t make a product more usable, and that problem definition isn’t settled before design begins. It’s part of the work.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Side menu. It sits on its own layer over the groups so it can stay
+           sticky across all of them. The items are built by js/case-study.js
+           from the data-menu labels above. -->
+      <div class="cs-menu-layer">
+        <div class="container cs-menu-layer__inner">
+          <nav class="cs-menu" id="cs-menu" aria-label="Case study sections">
+            <!-- Small & medium: the pill (line = current section, dots = the rest). Tap to open. -->
+            <button class="cs-menu__toggle" type="button" aria-expanded="false" aria-controls="cs-menu-panel">
+              <span class="cs-menu__marks" aria-hidden="true"></span>
+              <span class="visually-hidden">Sections</span>
+            </button>
+            <!-- Large: always visible. Small & medium: the frosted panel. -->
+            <div class="cs-menu__panel" id="cs-menu-panel">
+              <span class="cs-menu__line" aria-hidden="true"></span>
+              <ul class="cs-menu__list"></ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       Background: footer--section or footer--page (match it by hand to
+       contrast with the last group above).
+       Previous / Next: update href and title per case study. Delete one
+       <a> to leave that side empty.
+       ========================================================= -->
+  <footer class="footer cs-footer footer--section">
+    <div class="container">
+      <nav class="cs-pager" aria-label="More case studies">
+        <a class="cs-pager__link cs-pager__link--prev" href="case-study-channel-simplify.html">
+          <svg class="cs-pager__chevron" viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+          <span class="cs-pager__text">
+            <span class="cs-pager__label">Previous</span>
+            <span class="cs-pager__title">SaaS product for the Hospitality Industry</span>
+          </span>
+        </a>
+        <a class="cs-pager__link cs-pager__link--next" href="case-study-angelswing.html">
+          <span class="cs-pager__text">
+            <span class="cs-pager__label">Next</span>
+            <span class="cs-pager__title">SaaS product for the Construction Industry</span>
+          </span>
+          <svg class="cs-pager__chevron" viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+        </a>
+      </nav>
+
+      <div class="footer__inner cs-footer__brand">
+        <a class="footer__home" href="index.html" aria-label="Akayik, home">
+          <svg class="footer__logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+        </a>
+        <p class="footer__copy">© 2026 Apurba Neupane</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================
+       LIGHTBOX (filled by js/case-study.js)
+       ========================================================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <div class="lightbox__backdrop" data-lightbox-close></div>
+    <button class="lightbox__btn lightbox__close" type="button" data-lightbox-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#close"></use></svg>
+    </button>
+    <button class="lightbox__btn lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image">
+      <svg viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+    </button>
+    <button class="lightbox__btn lightbox__nav lightbox__nav--next" type="button" aria-label="Next image">
+      <svg viewBox="0 0 14 26" aria-hidden="true"><use href="#chevron"></use></svg>
+    </button>
+    <figure class="lightbox__figure">
+      <div class="lightbox__stage"></div>
+      <figcaption class="lightbox__caption">
+        <p class="lightbox__text"></p>
+        <p class="lightbox__count" aria-live="polite"></p>
+      </figcaption>
+    </figure>
+  </div>
+</body>
+</html>

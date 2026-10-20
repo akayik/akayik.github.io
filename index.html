@@ -1,496 +1,572 @@
 <!doctype html>
-<html>
+<html lang="en" data-theme="dark">
 <head>
-    <title>Akayik - Design Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apurba Neupane · UX Designer</title>
+  <meta name="description" content="Apurba Neupane is a UX designer who has been designing for humans since 2017: products, experiences, solutions and brands.">
+  <meta name="theme-color" content="#191919">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 
-    <!--og preview-->
-    <meta property="og:title" content="Hi, I'm Apurba 👋" />
-    <meta property="og:description" content="Welcome to my UX design protfolio" />
-    <meta property="og:image" content="https://akayik.com/Images/ogpreview.jpg" />
-    <meta property="og:url" content="https://akayik.com/" />
-    <meta property="og:type" content="website" />
-    <!--og twitter preview-->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hi, I'm Apurba 👋" />
-    <meta name="twitter:description" content="Welcome to my UX design protfolio" />
-    <meta name="twitter:image" content="https://akayik.com/Images/ogpreview.jpg" />
-  
-    <meta charset="UTF-8"> 
+  <!--
+    THEME BOOTSTRAP
+    Runs before anything is painted so a visitor who picked light mode never sees a dark flash.
+    It also adds the "js" class, which lets the CSS hide things that JavaScript will animate in
+    (if JavaScript is off, everything simply stays visible).
+    This is the only inline script; it has to be inline to run this early.
+  -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js', 'is-loading');
+      // Failsafe: never keep the page locked behind the preloader for more than 6 seconds
+      setTimeout(function () { root.classList.remove('is-loading'); }, 6000);
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) { /* storage blocked: keep the default dark theme */ }
+    })();
+  </script>
 
-    <!--favicon-->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 256 256%22><text y=%22203%22 font-size=%22224%22>👋</text></svg>"/>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts: self-hosted Montserrat, only the four weights the design uses -->
+  <link rel="preload" href="assets/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link href="./dist/output.css" rel="stylesheet">
+  <!-- First hero image: fetched early because it is the biggest thing on first screen -->
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="assets/img/hero-products-640.webp 640w, assets/img/hero-products-1200.webp 1200w"
+        imagesizes="(min-width: 80rem) 588px, (min-width: 64rem) 460px, (min-width: 48rem) 600px, 350px">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-  <!--slick-->
-  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-  <!--custom css-->
-  <link rel="stylesheet" href="src/testimonialSlider.css" >
-  <!--glightbox-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-  <link rel="stylesheet" href="src/slider.css">
-  <!--scripts-->
-  <script src="src/js/prelaoder.js"></script>
-
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
 </head>
-<body class="bg-slate-0 font-montserrat block mx-auto static overflow-x-hidden">
 
-    <!--preloader-->
-    <div id="intro-bg" class="fixed inset-0 z-40 bg-slate-1"></div>
+<body>
+  <!-- =========================================================
+       ICON SPRITE: every icon is defined once here and reused with <use href="#id">.
+       Icons use "currentColor", so they take their colour from CSS (and follow the theme).
+       ========================================================= -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="logo" viewBox="0 0 133 69"><g fill="currentColor"><path d="M18.2001 23.2C18.0001 23.2 17.3001 23.8 17.1001 23.5C16.9001 23.1 16.2001 19.7 14.4001 19.7C12.6001 19.7 5.30006 27.9 4.30006 35.4C3.30006 42.9 12.4001 30 14.2001 27.1C16.0001 24.2 19.3001 19.7 20.7001 19.8C22.1001 19.9 21.2001 24.1 20.7001 27C20.2001 29.8 19.7001 35.1 20.5001 35.1C21.3001 35.1 25.8001 30.8 29.0001 22.9C32.2001 15 35.5001 5.4 36.0001 5C36.5001 4.6 37.6001 3.3 38.7001 3.4C39.8001 3.6 40.3001 4.8 39.5001 7C38.5001 9.1 32.3001 25 32.3001 25L30.8001 25.6C30.8001 25.6 39.5001 15.3 43.1001 15.4C46.7001 15.5 43.6001 20 40.7001 22.8C37.8001 25.6 31.8001 31 31.8001 31L26.8001 36.8L27.6001 31.6L31.2001 28.5C31.2001 28.5 36.6001 28.6 41.3001 33C46.0001 37.4 51.4001 42.6 53.6001 44.1C55.8001 45.6 57.6001 47 56.5001 48.4C55.4001 49.8 52.4001 50.2 50.4001 48.7C48.4001 47.2 43.8001 43.9 41.2001 41.2C38.6001 38.5 34.2001 34.3 31.2001 33.8C28.2001 33.3 28.3001 32.4 28.3001 32.4L31.5001 32.6C31.5001 32.6 31.6001 34.2 29.2001 37.2C26.8001 40.2 24.4001 40.9 23.9001 39.8C23.4001 38.7 24.3001 33.4 24.3001 33.4L25.3001 34.8C25.3001 34.8 22.5001 39.6 18.2001 39.3C13.9001 39 14.9001 33.8 15.5001 28.6C16.7001 28.4 16.7001 29.1 16.7001 29.1C16.7001 29.1 9.40006 41.8 2.50006 41.7C-4.39994 41.5 4.10006 16 15.8001 16C19.6001 16 20.4001 18 19.7001 20.6C19.0001 23.2 18.2001 23.2 18.2001 23.2Z"/><path d="M57.0999 15C55.8999 15.3 48.4999 19.5 48.0999 28.6C47.5999 37.5 55.1999 30 58.4999 25.2C57.6999 22.8 56.8999 24.6 56.8999 24.6C56.8999 24.6 55.5999 34.6 61.8999 35C68.2999 35.3 72.4999 25 72.4999 25L69.6999 26.1C69.6999 26.1 68.4999 34 75.3999 34C82.2999 34 88.8999 25.9 89.5999 21C90.1999 16.2 84.1999 17 80.8999 29.1C77.5999 41.2 70.9999 63 70.9999 66.2C70.9999 69.4 72.4999 69.5 73.9999 68.4C75.4999 67.2 76.2999 66.6 76.5999 61.6C76.8999 56.6 81.5999 41.2 82.7999 37.2C83.9999 33.1 86.8999 22.7 86.8999 22.7C86.8999 22.7 80.8999 30.2 78.0999 29.6C75.2999 29 74.8999 26.9 74.8999 23.7C74.8999 20.5 74.7999 18.6 72.8999 19.9C71.0999 21.1 69.9999 22.3 69.6999 25.7C70.8999 25.5 71.2999 23 71.2999 23C71.2999 23 69.6999 24.9 67.8999 27.3C66.0999 29.7 63.5999 31.8 62.8999 29.1C62.1999 26.4 63.2999 18.9 62.6999 18C62.0999 17.1 59.5999 16.1 58.3999 18.6C55.4999 25.3 51.5999 28.7 51.5999 28.7L53.3999 28.8C53.3999 28.8 51.4999 27.6 52.4999 24.4C53.0999 22.5 54.4999 18.9 55.5999 19.1C56.6999 19.3 57.4999 20.4 58.2999 19.7C59.0999 19 60.1999 14.1 57.0999 15Z"/><path d="M96.8 4.5C96.8 4.5 96 4.7 95.2 5.4C94 6.3 92.5 7.9 92.6 10.5C92.7 14.8 98.1 13.2 100.1 9.7C102.3 6.3 102.3 0.700001 94.8 0.100001C87.4 -0.399999 87.2 5.1 88.8 4.8C90.4 4.6 93.1 3.2 95.9 6C97.7 5.7 96.8 4.5 96.8 4.5Z"/><path d="M96.6 16.2C94.9 16.4 93.8 17.2 92.9 22.8C92 28.4 91.2 33.8 92.4 33.9C93.5 34 96.2 33.7 96.6 28.8C97 24 97.7 18.9 97.6 17.9C97.4 16.9 97.2 16.2 96.6 16.2Z"/><path d="M109.5 7.8C108 7.8 106.6 9.6 105.9 13.6C105.4 17.6 102.1 27.5 101.8 28.4C101.5 29.3 101.5 30 102.8 29.9C104.1 29.8 105 29.5 106.6 27.2C109.4 24.5 112.4 22.8 113.5 21.4C114.6 20 116.1 18.4 115.7 17.6C115.3 16.8 114.3 16.4 113.4 16.8C112.5 17.2 108.8 19.5 108 20C107.4 20.5 108.4 22.4 108.4 22.4L109.5 20.2C109.5 20.2 110.4 14.2 110.6 11.7C110.8 9.3 110.8 7.8 109.5 7.8Z"/><path d="M104.8 27.1C104.8 27.1 108.1 27.2 116.5 32.4C124.9 37.6 129.6 40.8 131.4 39.1C133.1 37.5 133.6 34.7 132.6 34.5C131.7 34.3 131 34.7 129.9 35.4C128.8 36.1 131.3 36.3 131.3 36.3L131.7 35.2C131.7 35.2 115.9 24.9 109.1 24.4C105.1 25.9 104.8 27.1 104.8 27.1Z"/><path d="M63.4999 47.4C63.9999 46.5 69.3999 39.2 97.6999 41.5C110 42.7 123.2 49.1 122.8 51.4C122.4 53.7 119.9 53.2 117.6 52C115.3 50.8 106.1 46 91.7999 44.8C77.4999 43.6 68.4999 46.4 65.9999 47.7C63.3999 48.9 62.8999 48.2 63.4999 47.4Z"/></g></symbol>
 
-    <div id="preloader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-1">
-        <!-- Logo -->
-        <img src="Images/logo.svg" 
-            class="w-22 md:w-28 lg:w-32 md:w-22 mb-6" 
-            alt="Logo">
-    
-        <div class="relative w-32 h-1 bg-gray-200 overflow-hidden rounded">
-            <div class="absolute w-16 h-1 bg-cloud-1 animate-slide"></div>
-        </div>
-            
-        <style>
-            #intro-bg {
-                position: fixed;
-                inset: 0;
-                background-color: rgb(248 250 252); /* same as bg-slate-1 */
-                z-index: 40;
-                transform: translateX(100%); /* start off-screen to the right */
-                transition: transform 0.8s ease; /* enable slide animation */
-            }
+    <!-- Thin line arrow used by "Case Study" links (same as the case study "Go Back" arrow) -->
+    <symbol id="arrow" viewBox="0 0 40 14"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M1 7h38M32.5 1 39 7l-6.5 6"/></symbol>
 
-            #preloader {
-                transition: opacity 0.6s ease, transform 0.8s ease;
-                transform: translateX(0);
-            }
+    <!-- Down arrow in a circle ("Scroll for case studies") -->
+    <symbol id="arrow-down-circle" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M16 12l-4 4-4-4M12 16V8M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></symbol>
 
-            @keyframes slide {
-            0% { left: -25%; }
-            50% { left: 50%; }
-            100% { left: 100%; }
-            }
-            .animate-slide {
-            animation: slide 1.5s infinite linear;
-            }
-        </style>
+    <!-- Skill icons: 40x40 grid, 2px rounded strokes -->
+    <!-- Design: pen nib -->
+    <symbol id="skill-design" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l4 15h14l4-15L20 6Z"/><path d="M20 6v13"/><circle cx="20" cy="21.5" r="2.5"/><path d="M13 32v3h14v-3"/></g></symbol>
+    <!-- Classic workflows: stacked layers -->
+    <symbol id="skill-classic" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 6 14l14 7 14-7-14-7Z"/><path d="m6 20 14 7 14-7"/><path d="m6 26 14 7 14-7"/></g></symbol>
+    <!-- Emerging workflows: spark -->
+    <symbol id="skill-emerging" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/><path d="M30 6v6M27 9h6"/><path d="M31 27v4M29 29h4"/></g></symbol>
+    <!-- Research: magnifier over a page -->
+    <symbol id="skill-research" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M27 15V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h8"/><path d="M12 13h10M12 18h6"/><circle cx="25" cy="24" r="6"/><path d="m29.5 28.5 4.5 4.5"/></g></symbol>
+    <!-- Interpersonal: two people -->
+    <symbol id="skill-interpersonal" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="14" r="5"/><path d="M5 32c0-5.5 4.5-9 10-9s10 3.5 10 9"/><path d="M24 9.5a5 5 0 1 1 2.5 9.3"/><path d="M29 23.5c3.5 1 6 4 6 8.5"/></g></symbol>
+  </svg>
+
+  <!-- =========================================================
+       PRELOADER (inspired by akayik.com): logo + a small sliding bar.
+       Slides out to the right once the page has loaded.
+       ========================================================= -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__panel preloader__panel--back"></div>
+    <div class="preloader__panel preloader__panel--front">
+      <svg class="preloader__logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+      <div class="preloader__bar"><span class="preloader__bar-fill"></span></div>
     </div>
-    
-    <!--navbar-->
+  </div>
 
-    <div id="navbar" class=" block mx-auto w-screen z-40 absolute top-0 sticky h-18 md:h-22 lg:h-24 bg-slate-0/40 backdrop-blur transform transition-transform duration-300">
-        <img src="Images/logo.svg" alt="akayik" class="block mx-auto w-22 md:w-28 lg:w-32 md:w-22 pt-4 lg:pt-4">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Gradual blur at the top of the screen (sits behind the navbar) -->
+  <div class="top-blur" aria-hidden="true">
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+    <span class="top-blur__layer"></span>
+  </div>
+
+  <!-- =========================================================
+       NAVBAR: centered logo + Light / Dark toggle
+       ========================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a class="navbar__logo" href="#top" aria-label="Akayik, back to top">
+        <svg class="logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+
+      <!-- On small/medium screens a tap anywhere on this toggle switches the theme.
+           On large screens only the inactive word is clickable. -->
+      <div class="theme-toggle" id="theme-toggle" role="group" aria-label="Colour theme">
+        <button class="theme-toggle__option" type="button" data-theme-option="light" data-label="Light">Light</button>
+        <span class="theme-toggle__divider" aria-hidden="true">/</span>
+        <button class="theme-toggle__option" type="button" data-theme-option="dark" data-label="Dark">Dark</button>
+      </div>
     </div>
+  </header>
 
-    <!--hero section-->
+  <main id="main" class="page">
+    <!-- =========================================================
+         HERO
+         Left: intro + list of project types. Right: carousel + text.
+         The list and carousel slides are built by js/main.js from the
+         HERO_PROJECTS list (edit them there).
+         ========================================================= -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="container grid hero__grid">
+        <div class="hero__intro" data-reveal>
+          <p class="hero__greeting">Hi there <span aria-hidden="true">👋</span></p>
+          <h1 class="hero__title">I am <strong>Apurba,</strong> a UX Designer and I have designed</h1>
 
-    <section id="hero" class="bg-slate-0 static pt-2 ">
-        <div class="relative w-screen bg-slate-0">
-            <div class="text-cloud-2 block w-screen relative pt-24">
-                <div class="w-[300px] md:w-[600px] xl:w-[1200px] mx-auto text-center bg-slate-0/41">
-                    <p class="text-cloud-1 text-xl pt-4">Hi there, I am Apurba 👋</p>
-                    <h1 class="text-cloud-1 text-xl xl:text-2xl pt-2">I design <b>Digital Products, Experiences, and Solutions</b></h1>
-                    <p class="pt-2 pb-6 md:w-120 xl:w-200 mx-auto">I have been designing minimal, goal-driven products and interfaces since 2016. I enjoy balancing user needs and business needs to create human-centered designs that attempt to tackle the problem at the very crux of it.</p>
-                </div>
-            </div>
+          <!-- Filled by JS: one button per project type -->
+          <ul class="hero-list" id="hero-list" aria-label="Project types"></ul>
         </div>
-    </section>  
 
-    <!--case studies-->
+        <div class="hero__media" data-reveal>
+          <!-- Carousel window. The track inside slides vertically (large screens) or horizontally (small screens). -->
+          <div class="hero-carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="Project images">
+            <div class="hero-carousel__track" id="hero-track"></div>
+            <div class="hero-carousel__dots" id="hero-dots" role="group" aria-label="Choose project image"></div>
+          </div>
 
-    <section id="case studies" class="bg-linear-to-b from-30% via-slate-1 via-30% to-slate-1 to-100% pb-16 pt-14">
-        <div>
-            <div class="max-w-[350px] md:max-w-[600px] mx-auto mt-8 lg:max-w-[950px] xl:max-w-[1200px]">
-                <div class="grid grid-cols-12 gap-4">
-                    <div id="hover-area1" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#12386F] hover:to-slate-2 hover:text-cloud-1 text-cloud-1 hover:text-cloud-1 rounded-2xl pl-10 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
-                        <div id="custom-cursor1" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
-                            <img src="Images/RightArrow.svg" class="w-6">
-                            <p class="pl-2 text-cloud-1">See full details</p>
-                        </div>
-                        <a href="./angelswing.html" class="cursor-none">
-                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
-                                <p class="text-xl font-semibold">Angelswing</p>
-                                <div class="text-sm pt-2">
-                                    <p class="inline">UX Research •</p>
-                                    <p class="inline">Management Tools •</p>
-                                    <p class="inline">Construction Industry</p>
-                                </div>
-                            </div>
-                            <img id="tile1" src="Images/Tiles/AS.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
-                        </a>
-                    </div>
-                    <div id="hover-area3" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#B94813] hover:to-slate-2 hover:text-cloud-1 text-cloud-1 hover:text-cloud-1 rounded-2xl pl-10 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
-                        <div id="custom-cursor3" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
-                            <img src="Images/RightArrow.svg" class="w-6">
-                            <p class="pl-2 text-cloud-1">See full details</p>
-                        </div>
-                        <a href="./ogbc.html" class="cursor-none">
-                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
-                                <p class="text-xl font-semibold">OGB Connect</p>
-                                <div class="text-sm pt-2">
-                                    <p class="inline">Ethnographic Research •</p>
-                                    <p class="inline">Product Design •</p>
-                                    <p class="inline">Iterative Design </p>
-                                </div>
-                            </div>
-                            <img id="tile3" src="Images/Tiles/OGBC.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
-                        </a>
-                    </div>
-                    <div id="hover-area2" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#126093] hover:to-slate-2 text-cloud-1 hover:text-cloud-1 rounded-2xl pl-10 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
-                        <div id="custom-cursor2" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
-                            <img src="Images/RightArrow.svg" class="w-6">
-                            <p class="pl-2 text-cloud-1">See full details</p>
-                        </div>
-                        <a href="./superkrishak.html" class="cursor-none">
-                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
-                                <p class="text-xl font-semibold">Super Krishak</p>
-                                <div class="text-sm pt-2">
-                                    <p class="inline">Mobile App Design •</p>
-                                    <p class="inline">System Design •</p>
-                                    <p class="inline">Gamified Learning</p>
-                                </div>
-                            </div>
-                            <img id="tile2" src="Images/Tiles/SU.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
-                        </a>
-                    </div>
-                    <div id="hover-area4" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#1C4889] hover:to-slate-2 hover:text-cloud-1 text-cloud-1 hover:text-cloud-1 rounded-2xl pl-10 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
-                        <div id="custom-cursor4" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
-                            <img src="Images/RightArrow.svg" class="w-6">
-                            <p class="pl-2 text-cloud-1">See full details</p>
-                        </div>
-                        <a href="./OGB.html" class="cursor-none">
-                            <div>
-
-                            </div>
-                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
-                                <p class="text-xl font-semibold">Off Grid Bazaar</p>
-                                <div class="text-sm pt-2">
-                                    <p class="inline">ERP Design •</p>
-                                    <p class="inline">B2B SaaS Design •</p>
-                                    <p class="inline">Pipeline Monitoring</p>
-                                </div>
-                            </div>
-                            <img id="tile4" src="Images/Tiles/OGB.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
-                        </a>
-                    </div>
-                    <div id="hover-area5" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#6B197A] hover:to-slate-2 hover:text-cloud-1 text-cloud-1 hover:text-cloud-1 rounded-2xl pl-10 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
-                        <div id="custom-cursor5" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
-                            <img src="Images/RightArrow.svg" class="w-6">
-                            <p class="pl-2 text-cloud-1">See full details</p>
-                        </div>
-                        <a href="./ChannelSimplify.html" class="cursor-none">
-                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
-                                <p class="text-xl font-semibold">Channel Simplify</p>
-                                <div class="text-sm pt-2">
-                                    <p class="inline">SaaS Product Design •</p>
-                                    <p class="inline">UX Design •</p>
-                                    <p class="inline">Competitive Research</p>
-                                </div>
-                            </div>
-                            <img id="tile5" src="Images/Tiles/CS.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
-                        </a>
-                    </div>
-                    <div id="hover-area6" class="hover-area relative col-span-12 md:col-span-6 lg:col-span-4 bg-slate-2 hover:bg-linear-to-b hover:from-[#D16C07] hover:to-slate-2 hover:text-cloud-1 text-cloud-1 hover:text-cloud-1 rounded-2xl pl-10 transition duration-400 border-2 border-cloud-2/0 hover:border-cloud-2/60">
-                        <div id="custom-cursor6" class="hidden z-5 flex w-49 lg:w-44 align-center mx-auto p-3 lg:p-2 rounded-full bg-slate-1/60 backdrop-blur border-2 border-cloud-1/70 absolute pointer-events-none">
-                            <img src="Images/RightArrow.svg" class="w-6">
-                            <p class="pl-2 text-cloud-1">See full details</p>
-                        </div>
-                        <a href="./mem.html" class="cursor-none">
-                            <div class="pt-10 pb-10 lg:pb-6 pr-10">
-                                <p class="text-xl font-semibold">My Emotions Matter</p>
-                                <div class="text-sm pt-2">
-                                    <p class="inline">Website Redesign •</p>
-                                    <p class="inline">Creative Direction •</p>
-                                    <p class="inline">Visual Design •</p>
-                                    <p class="inline">UX Writing</p>
-                                </div>
-                            </div>
-                            <img id="tile6" src="Images/Tiles/MEM.png" class="pb-0 lg:pb-6 transition-opacity duration-300">
-                        </a>
-                    </div>
-                </div>
-            </div>
+          <div class="hero__about">
+            <p>I have been designing for humans <strong>since 2017</strong>. Your app, your website, your pitch deck or your merch. All of it is to achieve a goal. And my designs solve the problems that stop you from reaching it.</p>
+            <hr class="divider">
+            <ul class="hero__facts">
+              <li>Bachelor’s in <strong>Computer Science and Information Technology</strong></li>
+              <li>Master’s in <strong>Human Computer Interaction</strong></li>
+              <li><strong>~20,000+ professional hours</strong> spent designing</li>
+            </ul>
+            <hr class="divider">
+            <p>Point me to your problem and I’ll help you find your solution</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!--experience section-->
-    <section id="experience" class="bg-slate-1 w-full pt-14 pb-14 md:pt-16">
-        <div class="max-w-[350px] lg:max-w-[950px] md:max-w-[600px] xl:max-w-[1200px] py-12 md:py-4 md:pb-12 md:pt-12 px-8 rounded-xl mx-auto grid grid-cols-12 bg-linear-to-t lg:bg-linear-to-r from-slate-1 from-25% via-slate-2 via-55% to-slate-2 to-100%">
-            <div class="lg:col-start-1 lg:col-end-6 col-span-12 md:block lg:text-left text-center">
-                <p class="text-xl text-cloud-2 pb-2 hidden lg:inline">How I've worked</p>
-                <p class="text-xl text-cloud-1 pb-8 lg:hidden">Recent Experiences</p>
-                <h2 class="text-cloud-1 text-2xl font-semibold">Focusing on the needs and solving through design</h1>
+    <!-- =========================================================
+         FEATURED CASE STUDIES
+         Label (1 col) · text (5 cols) · image (6 cols)
+         ========================================================= -->
+    <section class="section featured" id="featured" aria-labelledby="featured-title">
+      <div class="container">
+        <header class="section-head section-head--center featured__head" data-reveal>
+          <p class="eyebrow">Featured Case Studies</p>
+          <h2 class="section-title" id="featured-title">Some solutions that I’ve Designed</h2>
+        </header>
+
+        <div class="featured__list">
+          <!-- CASE STUDY 01 -->
+          <article class="cs-card grid" data-reveal>
+            <a class="cs-card__media" href="case-study-ogb-connect.html" tabindex="-1" aria-hidden="true" data-tilt>
+              <img src="assets/img/CaseStudies/OGBConnect/hero.webp"
+                   width="1440" height="1080" loading="lazy" decoding="async" alt="">
+            </a>
+            <p class="cs-card__label">CS / 01</p>
+            <div class="cs-card__body">
+              <p class="cs-card__role">Sole UX designer · Rural lead generation</p>
+              <h3 class="cs-card__title">“Sell more pumps” became “capture a lead in 20 seconds.”</h3>
+              <p class="cs-card__text">Field research in Nepal showed that the users were being asked to do too much at once. I designed a redefined work process, an interface that reflected the change, and built online and offline tools that empowered them.</p>
+              <p class="cs-card__metric">27+ → 4 fields · 6+ min → ~20 sec</p>
+              <ul class="tags">
+                <li class="tag">Field Research</li>
+                <li class="tag">Workflow Design</li>
+                <li class="tag">Mobile</li>
+              </ul>
+              <a class="cta" href="case-study-ogb-connect.html">
+                <span class="cta__label">Case Study</span>
+                <svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg>
+              </a>
             </div>
+          </article>
 
-            <!--the block below is only visible on large screens. multiple column layout for larger screens-->
+          <hr class="divider featured__divider">
 
-            <div class="hidden lg:block text-cloud-1 md:w-[600px] mx-auto mt-10 lg:mt-0 lg:w-full lg:col-start-6 lg:col-end-12">
-                <p class="text-xl text-cloud-1 pb-2 lg:pl-4 xl:pl-20">Recent Experiences</p>
-                <div class="grid grid-cols-6 lg:grid-cols-8 lg:pl-4 xl:pl-20">
-                    <div class="col-span-5">
-                        <p><b>SAP</b></p>
-                        <p>Werkstudent</p>
-                    </div>
-                    <div class="col-span-3">
-                        <p>2024-present</p>
-                        <p>Germany, Remote</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 lg:grid-cols-8 mt-4 lg:pl-4 xl:pl-20">
-                    <div class="col-span-5">
-                        <p><b>Angelswing Inc.</b></p>
-                        <p>UX Designer</p>
-                    </div>
-                    <div class="col-span-3">
-                        <p>2022-2024</p>
-                        <p>South Korea, Remote</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 lg:grid-cols-8 mt-4 lg:pl-4 xl:pl-20">
-                    <div class="col-span-5">
-                        <p><b>Herald International College</b></p>
-                        <p>Asst. Lecturer - HCI</p>
-                    </div>
-                    <div class="col-span-3">
-                        <p>2022-2023</p>
-                        <p>Kathmandu, Nepal</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 lg:grid-cols-8 mt-4 lg:pl-4 xl:pl-20">
-                    <div class="col-span-5">
-                        <p><b>Gham Power Nepal</b></p>
-                        <p>UX Designer</p>
-                    </div>
-                    <div class="col-span-3">
-                        <p>2020-2022</p>
-                        <p>Kathmandu, Nepal</p>
-                    </div>
-                </div>
+          <!-- CASE STUDY 02 -->
+          <article class="cs-card grid" data-reveal>
+            <a class="cs-card__media" href="case-study-angelswing.html" tabindex="-1" aria-hidden="true" data-tilt>
+              <img src="assets/img/CaseStudies/Angelswing/hero.webp"
+                   width="1440" height="1080" loading="lazy" decoding="async" alt="">
+            </a>
+            <p class="cs-card__label">CS / 02</p>
+            <div class="cs-card__body">
+              <p class="cs-card__role">Solo UX designer · Construction platform</p>
+              <h3 class="cs-card__title">Design that keeps up with a product that never slows down.</h3>
+              <p class="cs-card__text">What happens when the product scales without the principal foundations? I built a design system, structured handover documentations, and changed the sprint structure so that the existing limitations wouldn’t hinder the company’s pace.</p>
+              <p class="cs-card__metric">~70% fewer handoff meetings</p>
+              <ul class="tags">
+                <li class="tag">Design Systems</li>
+                <li class="tag">Pipeline Improvement</li>
+              </ul>
+              <a class="cta" href="case-study-angelswing.html">
+                <span class="cta__label">Case Study</span>
+                <svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg>
+              </a>
             </div>
+          </article>
 
-            <!--different design for smaller screens. single column layout-->
+          <hr class="divider featured__divider">
 
-            <div class="text-cloud-1 col-span-12 pt-8 text-center lg:hidden">
-                <div>
-                    <p><b>SAP</b></p>
-                    <p>Werkstudent</p>
-                    <p class="text-sm">2024-present, Germany, Remote</p>
-                    <p>•</p>
-                </div>
-                <div>
-                    <p><b>Angelswing Inc.</b></p>
-                    <p>UX Designer</p>
-                    <p class="text-sm">2022-2024, South Korea, Remote</p>
-                    <p>•</p>
-                </div>
-                <div>
-                    <p><b>Herland International College</b></p>
-                    <p>Assistant Lecturere - HCI</p>
-                    <p class="text-sm">2022-2023, Kathmandu, Nepal</p>
-                    <p>•</p>
-                </div>
-                <div>
-                    <p><b>Gham Power Nepal</b></p>
-                    <p>UX Designer</p>
-                    <p class="text-sm">2020-2022, Kathmandu, Nepal</p>
-                    <p>•</p>
-                </div>
+          <!-- CASE STUDY 03 -->
+          <article class="cs-card grid" data-reveal>
+            <a class="cs-card__media" href="case-study-off-grid-bazaar.html" tabindex="-1" aria-hidden="true" data-tilt>
+              <img src="assets/img/CaseStudies/OffGridBazaar/hero.webp"
+                   width="1440" height="1080" loading="lazy" decoding="async" alt="">
+            </a>
+            <p class="cs-card__label">CS / 03</p>
+            <div class="cs-card__body">
+              <p class="cs-card__role">Lead product designer · Gov. IoT platform</p>
+              <h3 class="cs-card__title">From pump dashboard to project platform.</h3>
+              <p class="cs-card__text">A request to monitor solar pumps for a government agency became a lightweight platform connecting thousands of project records to live pump data, by negotiating what the first version should include and what could wait.</p>
+              <p class="cs-card__metric">300+ systems registered</p>
+              <ul class="tags">
+                <li class="tag">Product Design</li>
+                <li class="tag">Stakeholder Management</li>
+              </ul>
+              <a class="cta" href="case-study-off-grid-bazaar.html">
+                <span class="cta__label">Case Study</span>
+                <svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg>
+              </a>
             </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!--testimoial section-->
+    <!-- =========================================================
+         PROFESSIONAL EXPERIENCE
+         Date (3 cols) · company + role (6 cols) · location (3 cols)
+         Only the first 4 show until "See More".
+         ========================================================= -->
+    <section class="section section--alt experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Professional Experience</p>
+          <h2 class="section-title" id="experience-title">Some companies that I’ve professionally designed for</h2>
+        </header>
 
-    <section id="testimonial" class="py-14 bg-slate-2 w-full">
-        <div class="max-w-[350px] xl:max-w-[1200px] lg:max-w-[900px] md:max-w-[600px] mx-auto grid grid-cols-12">
-            <div class="col-span-12 md:col-start-1 md:col-end-5">
-                <p class="text-center md:text-left text-xl text-cloud-2 pb-2">Testimonials</p>
-                <h2 class="text-center md:text-left text-cloud-1 text-3xl font-semibold">What people say</h1>
-            </div>
-            <div class="pt-12 md:pt-0 text-cloud-1 col-span-12 md:col-start-6 md:col-end-13 pl-8 autoplay">
-                <div class="testimonialSlider">
+        <div class="experience__list" id="experience-list" data-reveal>
+          <ul class="experience__group">
+            <li class="exp-row">
+              <p class="exp-row__date"><span class="status-dot" aria-hidden="true"></span>2024 - Now<span class="visually-hidden"> (current)</span></p>
+              <div class="exp-row__main"><p class="exp-row__company">SAP</p><p class="exp-row__role">UX Designer - Werkstudent</p></div>
+              <p class="exp-row__place">Germany, Remote</p>
+            </li>
+            <li class="exp-row">
+              <p class="exp-row__date">2022 - 2024</p>
+              <div class="exp-row__main"><p class="exp-row__company">Angelswing</p><p class="exp-row__role">UX Designer (Design &amp; Research Lead)</p></div>
+              <p class="exp-row__place">South Korea, Remote</p>
+            </li>
+            <li class="exp-row">
+              <p class="exp-row__date">2020 - 2022</p>
+              <div class="exp-row__main"><p class="exp-row__company">Gham Power</p><p class="exp-row__role">UX Designer (Sole Designer)</p></div>
+              <p class="exp-row__place">Kathmandu, Nepal</p>
+            </li>
+            <li class="exp-row">
+              <p class="exp-row__date">2018 - 2020</p>
+              <div class="exp-row__main"><p class="exp-row__company">Eydean Inc.</p><p class="exp-row__role">Design Lead</p></div>
+              <p class="exp-row__place">Kathmandu, Nepal</p>
+            </li>
+            <li class="exp-row" data-extra>
+              <p class="exp-row__date">2018 - 2019</p>
+              <div class="exp-row__main"><p class="exp-row__company">Project A</p><p class="exp-row__role">Design Team Lead</p></div>
+              <p class="exp-row__place">Kathmandu, Nepal</p>
+            </li>
+            <li class="exp-row" data-extra>
+              <p class="exp-row__date">2017 - 2018</p>
+              <div class="exp-row__main"><p class="exp-row__company">Excom Group</p><p class="exp-row__role">Branding Associate</p></div>
+              <p class="exp-row__place">Kathmandu, Nepal</p>
+            </li>
+            <li class="exp-row" data-extra>
+              <p class="exp-row__date">2016 - 2017</p>
+              <div class="exp-row__main"><p class="exp-row__company">Lucky IT Solutions</p><p class="exp-row__role">Junior Graphic Designer</p></div>
+              <p class="exp-row__place">Kathmandu, Nepal</p>
+            </li>
+          </ul>
 
-                    <div class="item px-2">
-                        <p>Working with Apurba is genuinely a pleasure. Beyond his strong UX, research, and visual design skills, he is highly reliable, takes ownership of his work, and consistently delivers with professionalism. His calm, positive attitude and thoughtful communication make collaboration effortless, making him not only a talented designer but also a valued teammate.</p>
-                        <div class="pt-12">
-                            <p class="font-semibold text-lg">Annika Lüken</p>
-                            <p>User Experience Designer, SAP</p>
-                        </div>
-                    </div>
-
-                    <div class="item px-2">
-                        <p>Apurba takes his clients on a co-creative journey that all feels effortless in the end. I have collaborated in quite a number of Commissioned as well as Volunteering projects with him. The outputs and the support has kept me continuing to recommend him to everyone requiring a design solution for more than 5 years now.</p>
-                        <div class="pt-12">
-                            <p class="font-semibold text-lg">Pankaj Niroula</p>
-                            <p>Tech Lead, King's College</p>
-                        </div>
-                    </div>
-
-                    <div class="item px-2">
-                        <p>I find it easy to work with people who take the time to listen and understand first before offering their two cents. Apurba does just that. He's been easy to work with because he seeks feedback. Thanks to him, we have been better able to communicate our brand values than before.</p>
-                        <div class="pt-12">
-                            <p class="font-semibold text-lg">Sagar Satyal</p>
-                            <p>Co-founder, My Emotions Matter</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+          <!-- Part-time and freelance positions, separated by a line -->
+          <hr class="divider experience__divider" data-extra>
+          <ul class="experience__group" data-extra>
+            <li class="exp-row">
+              <p class="exp-row__date">2022 - 2023</p>
+              <div class="exp-row__main"><p class="exp-row__company">Herald International College</p><p class="exp-row__role">Assistant Lecturer - HCI • Part-time</p></div>
+              <p class="exp-row__place">Kathmandu, Nepal</p>
+            </li>
+            <li class="exp-row">
+              <p class="exp-row__date">2021 - 2023</p>
+              <div class="exp-row__main"><p class="exp-row__company">My Emotions Matter</p><p class="exp-row__role">Visual Consultant • Freelance</p></div>
+              <p class="exp-row__place">Kathmandu, Nepal</p>
+            </li>
+          </ul>
         </div>
+
+        <button class="see-more experience__toggle" type="button" data-expand="experience-list" aria-controls="experience-list" aria-expanded="false">See More</button>
+      </div>
     </section>
 
-    <!--closing section-->
-    <section id="closing" class="py-14 bg-slate-1 w-full">
-        <div class="max-w-[350px] lg:max-w-[900px] md:max-w-[600px] xl:max-w-[1200px] mx-auto grid grid-cols-12 gap-16">
-            <!--the blow below is only visible on larger screens and a multi-column layout-->
-            <div class="col-start-1 col-end-6 hidden lg:inline">
-                <p class="text-left text-cloud-2 pb-2">Before I donned the hat of a UX Designer full-time, I have had other hats: Graphic Designer, Logo Designer, Branding Specialist, and Brand Consultant. But while the labels have changed over the years, my view on design hasn’t. I still think of design as a means to solve problems with ingenuity and creativity. And my love for the creative field has only grown stronger. I still do branding work, make graphic designs and paintings when the brief or the muse is compelling enough. </p>
-            </div>
-            <div class="max-w-[350px] md:max-w-[600px] xl:max-w-[900px] col-span-12 lg:col-start-6 lg:col-end-13">
-                <div class="grid grid-cols-6 gap-4 h-84 md:h-120 lg:h-90">
-                    <!--the images occupy more columns in medium sized screens and occupy more in large screens-->
-                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden">
-                        <a href="Images/More/bench.jpg" class="glightbox block h-full w-full" data-gallery="gallery1" data-description="A bench that I love seeing from my balcony">
-                            <img src="Images/More/bench.jpg" class="object-cover h-45 w-full block object-center">
-                        </a>
-                    </div>
-                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden">
-                        <a href="Images/More/biralis.jpg" class="glightbox block h-full w-full" data-gallery="gallery1" data-description="Brand design for an up and coming food content creator">
-                            <img src="Images/More/biralis.jpg" class="object-cover h-45 w-full block object-center">
-                        </a>
-                    </div>
-                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden">
-                        <a href="Images/More/mug.jpg" class="glightbox block h-full w-full" data-gallery="gallery1" data-description="One of the proudest logo designs that I've made">
-                            <img src="Images/More/mug.jpg" class="object-cover h-45 w-full block object-center">
-                        </a>
-                    </div>
-                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden">
-                        <a href="Images/More/gahana.jpg" class="glightbox block h-full w-full" data-gallery="gallery1" data-description="My first ever e-commerce design back in 2019">
-                            <img src="Images/More/gahana.jpg" class="object-cover h-45 w-full block object-center">
-                        </a>
-                    </div>
-                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden">
-                        <a href="Images/More/sasheela.jpg" class="glightbox block h-full w-full" data-gallery="gallery1" data-description="A website I designed for a car dealership in 2020">
-                            <img src="Images/More/sasheela.jpg" class="object-cover h-45 w-full block object-center">
-                        </a>
-                    </div>
-                    <div class="col-span-3 lg:col-span-2 rounded-xl overflow-hidden">
-                        <a href="Images/More/lightning.jpg" class="glightbox block h-full w-full" data-gallery="gallery1" data-description="The view from my window was spectacular on a random day in 2024">
-                            <img src="Images/More/lightning.jpg" class="object-cover h-45 w-full block object-center">
-                        </a>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <!--the blow below is only visible till medium sized screens which have a single layout design-->
-            <div class="lg:hidden sm:block max-w-[350px] pt-12 md:max-w-[600px] mx-auto">
-                <p class="text-left text-cloud-2 pb-2">Before I donned the hat of a UX Designer full-time, I have had other hats: Graphic Designer, Logo Designer, Branding Specialist, and Brand Consultant. But while the labels have changed over the years, my view on design hasn’t. I still think of design as a means to solve problems with ingenuity and creativity. And my love for the creative field has only grown stronger. I still do branding work, make graphic designs and paintings when the brief or the muse is compelling enough. </p>
-            </div>
+    <!-- =========================================================
+         TESTIMONIALS
+         Heading (left) · rotating quotes (right, top-aligned with the title)
+         ========================================================= -->
+    <section class="section testimonials" aria-labelledby="testimonials-title">
+      <div class="container grid">
+        <header class="section-head testimonials__head" data-reveal>
+          <p class="eyebrow">Testimonials</p>
+          <h2 class="section-title" id="testimonials-title">What people say about my designs and my process</h2>
+        </header>
+
+        <div class="quote-slider align-to-title" id="quote-slider" aria-roledescription="carousel" aria-label="Testimonials" data-reveal>
+          <div class="quote-slider__track">
+            <figure class="quote is-active" aria-roledescription="slide" aria-label="1 of 3">
+              <blockquote class="quote__text">Working with Apurba is genuinely a pleasure. Beyond his strong UX, research, and visual design skills, he is highly reliable, takes ownership of his work, and consistently delivers with professionalism. His calm, positive attitude and thoughtful communication make collaboration effortless, making him not only a talented designer but also a valued teammate.</blockquote>
+              <figcaption class="quote__by"><span class="quote__name">Annika Lüken</span><span class="quote__role">User Experience Designer, SAP</span></figcaption>
+            </figure>
+            <figure class="quote" aria-roledescription="slide" aria-label="2 of 3">
+              <blockquote class="quote__text">Apurba takes his clients on a co-creative journey that all feels effortless in the end. I have collaborated in quite a number of Commissioned as well as Volunteering projects with him. The outputs and the support has kept me continuing to recommend him to everyone requiring a design solution for more than 5 years now.</blockquote>
+              <figcaption class="quote__by"><span class="quote__name">Pankaj Niroula</span><span class="quote__role">Tech Lead, King’s College</span></figcaption>
+            </figure>
+            <figure class="quote" aria-roledescription="slide" aria-label="3 of 3">
+              <blockquote class="quote__text">I find it easy to work with people who take the time to listen and understand first before offering their two cents. Apurba does just that. He’s been easy to work with because he seeks feedback. Thanks to him, we have been better able to communicate our brand values than before.</blockquote>
+              <figcaption class="quote__by"><span class="quote__name">Sagar Satyal</span><span class="quote__role">Co-founder, My Emotions Matter</span></figcaption>
+            </figure>
+          </div>
+          <div class="dots quote-slider__dots" role="group" aria-label="Choose testimonial">
+            <button class="dots__dot is-active" type="button" aria-label="Testimonial 1" aria-current="true"></button>
+            <button class="dots__dot" type="button" aria-label="Testimonial 2"></button>
+            <button class="dots__dot" type="button" aria-label="Testimonial 3"></button>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!--footer-->
-    <section id="footer" class="bg-slate-1 pt-24 pb-4 md:pb-12 lg:pt-18 lg:pb-8" >
-        <img src="Images/logo.svg" class="w-24 pb-6 block mx-auto opacity-50">
-        <p class="text-cloud-2 text-sm text-center block mx-auto pb-18">© 2026 Apurba Neupane</p>
+    <!-- =========================================================
+         CASE STUDIES (all projects)
+         Heading (4 cols) · gap · list (7 cols). Placeholder copy for now.
+         ========================================================= -->
+    <section class="section section--alt projects" aria-labelledby="projects-title">
+      <div class="container grid">
+        <header class="section-head projects__head" data-reveal>
+          <p class="eyebrow">Case Studies</p>
+          <h2 class="section-title" id="projects-title">Here are all of my recent projects</h2>
+        </header>
+
+        <div class="projects__body align-to-title" data-reveal>
+          <ul class="projects__list" id="projects-list">
+            <!-- To add a project: copy one <li> block. Items with data-extra stay hidden until "See More";
+                 data-extra-small hides an item only on small screens (they show 3). -->
+            <li class="project-item">
+              <a class="project-item__link" href="case-study-super-krishak.html">
+                <span class="project-item__text">
+                  <span class="project-item__title">From advice that farmers might ignore to learning that they come back to weekly</span>
+                  <span class="project-item__skills">Gamification + Field Research + Mobile App + Content System</span>
+                </span>
+                <span class="cta cta--inline"><span class="cta__label">Case Study</span><svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg></span>
+              </a>
+            </li>
+            <li class="project-item">
+              <a class="project-item__link" href="case-study-my-emotions-matter.html">
+                <span class="project-item__text">
+                  <span class="project-item__title">From valuable but hard-to-explain services to a website and brand that speak to businesses, schools and individuals</span>
+                  <span class="project-item__skills">Website Redesign + Creative Direction + Brand Guidelines</span>
+                </span>
+                <span class="cta cta--inline"><span class="cta__label">Case Study</span><svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg></span>
+              </a>
+            </li>
+            <li class="project-item">
+              <a class="project-item__link" href="case-study-channel-simplify.html">
+                <span class="project-item__text">
+                  <span class="project-item__title">A local channel manager where every option feels obvious to the user</span>
+                  <span class="project-item__skills">Information Architecture + Navigation Design + Design System</span>
+                </span>
+                <span class="cta cta--inline"><span class="cta__label">Case Study</span><svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg></span>
+              </a>
+            </li>
+            <li class="project-item" data-extra-small>
+              <a class="project-item__link" href="case-study-off-grid-bazaar.html">
+                <span class="project-item__text">
+                  <span class="project-item__title">From pump monitoring to a lightweight project management and monitoring platform</span>
+                  <span class="project-item__skills">Product Definition + Data Visualization + Stakeholder Alignment</span>
+                </span>
+                <span class="cta cta--inline"><span class="cta__label">Case Study</span><svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg></span>
+              </a>
+            </li>
+            <li class="project-item" data-extra>
+              <a class="project-item__link" href="case-study-angelswing.html">
+                <span class="project-item__text">
+                  <span class="project-item__title">Building a scalable UX foundation for a rapidly evolving construction platform</span>
+                  <span class="project-item__skills">Design Systems + Handoff Process + Research</span>
+                </span>
+                <span class="cta cta--inline"><span class="cta__label">Case Study</span><svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg></span>
+              </a>
+            </li>
+            <li class="project-item" data-extra>
+              <a class="project-item__link" href="case-study-ogb-connect.html">
+                <span class="project-item__text">
+                  <span class="project-item__title">Turning a sales problem into a simpler lead-generation workflow</span>
+                  <span class="project-item__skills">Field Research + Workflow Design + Mobile App + Sales Enablement</span>
+                </span>
+                <span class="cta cta--inline"><span class="cta__label">Case Study</span><svg class="cta__arrow" viewBox="0 0 40 14" aria-hidden="true"><use href="#arrow"></use></svg></span>
+              </a>
+            </li>
+          </ul>
+          <button class="see-more projects__toggle" type="button" data-expand="projects-list" aria-controls="projects-list" aria-expanded="false">See More</button>
+        </div>
+      </div>
     </section>
 
-    <!--slick.js-->
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- =========================================================
+         TOOL STACK
+         Text (5 cols) · gap · image (5 cols) · empty column
+         ========================================================= -->
+    <section class="section toolstack" aria-labelledby="toolstack-title">
+      <div class="container grid toolstack__grid">
+        <header class="section-head toolstack__head" data-reveal>
+          <p class="eyebrow">Tool Stack</p>
+          <h2 class="section-title" id="toolstack-title">Tools have evolved, human needs haven’t</h2>
+        </header>
+        <div class="toolstack__text" data-reveal>
+          <p>Our technology has gotten more and more sophisticated. But we still have simple needs. And uncovering a user need with research, and striving to reach it through design using the current tool. That’s what I’ve always enjoyed.</p>
+          <p>These are the tools that I’m comfortable using.</p>
+        </div>
+        <div class="toolstack__media" data-reveal>
+          <img class="toolstack__image" data-tilt
+             src="assets/img/tool-stack-1000.webp"
+             srcset="assets/img/tool-stack-500.webp 500w, assets/img/tool-stack-1000.webp 980w"
+             sizes="(min-width: 64rem) 490px, 350px"
+             width="490" height="405" loading="lazy" decoding="async"
+             alt="Tools: Photoshop, Illustrator, InDesign, Premiere Pro, Affinity, Tailwind CSS, Claude, OpenAI, Figma, VS Code, JavaScript, Blender and more">
+        </div>
+      </div>
+    </section>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.testimonialSlider').slick({
-            infinite: true,
-            dots: true,
-            slidesToShow: 1,
-            slidesToScroll:1,
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 8000,
-            pauseOnFocus: true,
-            });
-        });
-    </script>
-        
-    <!--glightbox.js-->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script>
-        const lightbox = GLightbox({
-        selector: '.glightbox',
-        loop: true,
-        touchNavigation: true,
-        zoomable: true,
-        });
-    </script>
+    <!-- =========================================================
+         SKILLSET
+         Heading (10 cols, centered) · 5 cards, 4 cols each
+         ========================================================= -->
+    <section class="section section--alt skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head section-head--center skills__head" data-reveal>
+          <p class="eyebrow">Skillset</p>
+          <h2 class="section-title" id="skills-title">There’s never a clear way to the solution but these skills have helped nonetheless</h2>
+        </header>
 
-    <!--crusor activities-->
-    <script>
-        for (let i = 1; i <= 6; i++) {
-        const hoverArea = document.getElementById(`hover-area${i}`);
-        const cursor = document.getElementById(`custom-cursor${i}`);
+        <ul class="skills__grid grid">
+          <li class="skill-card skill-card--row1" data-reveal>
+            <span class="skill-card__icon"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#skill-design"></use></svg></span>
+            <div class="skill-card__text"><h3 class="skill-card__title">Design</h3><p>Interface • Experience • Product • Mobile Apps • Brand • Visual</p></div>
+          </li>
+          <li class="skill-card skill-card--row1" data-reveal>
+            <span class="skill-card__icon"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#skill-classic"></use></svg></span>
+            <div class="skill-card__text"><h3 class="skill-card__title">Classic Workflows</h3><p>Figma • FigJam • Mero • Notion • Jira • Adobe CC</p></div>
+          </li>
+          <li class="skill-card skill-card--row1" data-reveal>
+            <span class="skill-card__icon"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#skill-emerging"></use></svg></span>
+            <div class="skill-card__text"><h3 class="skill-card__title">Emerging Workflows</h3><p>Vibe Design • Figma Make • Claude Design • Vibe Code • Copilot • Claude Code</p></div>
+          </li>
+          <li class="skill-card skill-card--row2" data-reveal>
+            <span class="skill-card__icon"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#skill-research"></use></svg></span>
+            <div class="skill-card__text"><h3 class="skill-card__title">Research</h3><p>Interviews • Ethnographic Studies • Surveys • User Testing • Competitive Analysis • Heuristic Evaluation • Design Workshops</p></div>
+          </li>
+          <li class="skill-card skill-card--row2" data-reveal>
+            <span class="skill-card__icon"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#skill-interpersonal"></use></svg></span>
+            <div class="skill-card__text"><h3 class="skill-card__title">Interpersonal</h3><p>Cross-functional collaboration • Feedback literacy • Conflict Resolution • Stakeholder alignment • Design advocacy • Emotional Intelligence</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        if (!hoverArea || !cursor) continue; // skip if missing
+    <!-- =========================================================
+         MORE ABOUT ME
+         Text (6 cols) · gap · image (5 cols, top-aligned with the body text)
+         Text: short intro, then the journey as dated chapters, then one closing line.
+         Image: short collage on small screens, tall collage from 64rem
+         (the <picture> only downloads the one that is shown).
+         ========================================================= -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container grid about__grid">
+        <header class="section-head about__head" data-reveal>
+          <p class="eyebrow">More about me</p>
+          <h2 class="section-title" id="about-title">A constant work in progress</h2>
+        </header>
 
-        hoverArea.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
-        hoverArea.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
+        <div class="about__media" data-reveal>
+          <picture>
+            <source media="(min-width: 64rem)" srcset="assets/img/more-more-2-1000.webp" width="1000" height="1485">
+            <img class="about__img"
+                 src="assets/img/more-less-1000.webp" width="486" height="537" loading="lazy" decoding="async"
+                 alt="A collage of Apurba's branding, packaging, illustration and merch work">
+          </picture>
+        </div>
 
-        hoverArea.addEventListener('mousemove', (e) => {
-            const rect = hoverArea.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-        });
-        }
-    </script>
+        <div class="about__text" data-reveal>
+          <p class="about__intro">My journey in design has been anything but linear, but one belief never changed: design is a way to solve problems with ingenuity and creativity.</p>
 
-    <!--dimming activities-->
-    <script>
-        const hoverAreas = document.querySelectorAll('.hover-area');
-        const tiles = document.querySelectorAll('[id^="tile"]'); // selects tile1, tile2, ...
+          <ol class="journey">
+            <li class="journey__item">
+              <p class="journey__date">Late 2000s</p>
+              <div class="journey__main">
+                <p class="journey__title">The mustache era</p>
+                <p>Discovered I could add mustaches to people in Photoshop. Phlearn tutorials did the rest.</p>
+              </div>
+            </li>
+            <li class="journey__item">
+              <p class="journey__date">Around then</p>
+              <div class="journey__main">
+                <p class="journey__title">Book covers</p>
+                <p>My watercolors led to book cover gigs. Preparing them for print led me to graphic design, then logos.</p>
+              </div>
+            </li>
+            <li class="journey__item">
+              <p class="journey__date">2016</p>
+              <div class="journey__main">
+                <p class="journey__title">Going full-time</p>
+                <p>Learned the craft on the job, then worked across industries as a graphic designer, logo designer, branding specialist and brand consultant.</p>
+              </div>
+            </li>
+            <li class="journey__item">
+              <p class="journey__date">2018</p>
+              <div class="journey__main">
+                <p class="journey__title">Falling for UX</p>
+                <p>Curiosity led me to Human-Computer Interaction and a new way to design, bringing together problem-solving, research and an understanding of people. I went from brand consultant to UX designer.</p>
+              </div>
+            </li>
+            <li class="journey__item">
+              <p class="journey__date">2024</p>
+              <div class="journey__main">
+                <p class="journey__title">HCI in Germany</p>
+                <p>A master’s to deepen my research skills. A new country meant unlearning and relearning.</p>
+              </div>
+            </li>
+            <li class="journey__item">
+              <p class="journey__date"><span class="status-dot" aria-hidden="true"></span>Now<span class="visually-hidden"> (current)</span></p>
+              <div class="journey__main">
+                <p class="journey__title">UX Designer</p>
+                <p>Also a hobbyist digital artist and occasional visual consultant.</p>
+                <p class="journey__tags">Painting • Illustration • Photography • 3D • Front-end • Branding</p>
+              </div>
+            </li>
+          </ol>
 
-        hoverAreas.forEach((area, index) => {
-        area.addEventListener('mouseenter', () => {
-            tiles.forEach((tile, tileIndex) => {
-            if (tileIndex !== index) { // dim all tiles except the hovered one
-                tile.style.opacity = '0.4';
-            }
-            });
-        });
+          <p class="about__outro">Next: new challenges, and real-world problems to solve through thoughtful, human-centered design.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        area.addEventListener('mouseleave', () => {
-            tiles.forEach(tile => {
-            tile.style.opacity = '1'; // reset all tiles
-            });
-        });
-        });
-    </script>
-
-    <!--navbar behavior-->
-    <script>
-        let lastScrollY = window.scrollY;
-        const navbar = document.getElementById('navbar');
-
-        window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > lastScrollY && currentScrollY > 50) {
-            // Scrolling down → hide navbar
-            navbar.classList.add('-translate-y-full'); // move it up
-        } else {
-            // Scrolling up → show navbar
-            navbar.classList.remove('-translate-y-full');
-        }
-
-        lastScrollY = currentScrollY;
-        });
-    </script>
+  <!-- =========================================================
+       FOOTER: minimal on purpose
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <svg class="footer__logo" viewBox="0 0 133 69" aria-hidden="true"><use href="#logo"></use></svg>
+      <p class="footer__copy">© 2026 Apurba Neupane</p>
+    </div>
+  </footer>
 </body>
 </html>
