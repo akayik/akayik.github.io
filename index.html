@@ -54,7 +54,6 @@
     <symbol id="arrow" viewBox="0 0 40 14"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M1 7h38M32.5 1 39 7l-6.5 6"/></symbol>
 
     <!-- Down arrow in a circle ("Scroll for case studies") -->
-    <symbol id="arrow-down-circle" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M16 12l-4 4-4-4M12 16V8M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></symbol>
 
     <!-- Skill icons: 40x40 grid, 2px rounded strokes -->
     <!-- Design: pen nib -->
@@ -92,6 +91,10 @@
     <span class="top-blur__layer"></span>
   </div>
 
+  <!-- Fade at the bottom of the screen (large screens): shows there is more
+       below the hero. Only at the top of the page; fades out on scroll. -->
+  <div class="bottom-fade" aria-hidden="true"></div>
+
   <!-- =========================================================
        NAVBAR: centered logo + Light / Dark toggle
        ========================================================= -->
@@ -123,8 +126,11 @@
         <div class="hero__intro" data-reveal>
           <p class="hero__greeting">Hi there <span aria-hidden="true">👋</span></p>
           <h1 class="hero__title">I am <strong>Apurba,</strong> a UX Designer and I have designed</h1>
+        </div>
 
-          <!-- Filled by JS: one button per project type -->
+        <!-- Separate grid item so the image can line up with the list (large screens).
+             Filled by JS: one button per project type -->
+        <div class="hero__projects" data-reveal>
           <ul class="hero-list" id="hero-list" aria-label="Project types"></ul>
         </div>
 

@@ -446,6 +446,33 @@ html[data-nav="visible"] .top-blur { --blur-height: calc(var(--blur-base) * 1.2)
 .top-blur__layer:nth-child(4) { backdrop-filter: blur(0.5rem);    -webkit-backdrop-filter: blur(0.5rem);    mask-image: linear-gradient(to bottom, #000 0%, #000 15%, transparent 40%);  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 15%, transparent 40%); }
 .top-blur__layer:nth-child(5) { backdrop-filter: blur(1rem);      -webkit-backdrop-filter: blur(1rem);      mask-image: linear-gradient(to bottom, #000 0%, transparent 20%);            -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 20%); }
 
+/* ---- Bottom fade (large screens) ----
+   A page-colour fade at the bottom of the screen, so the hero content running
+   off the screen hints that there is more below. Shown only at the top of the
+   page (data-nav="top"); fades out as soon as scrolling starts. Eased stops so
+   there is no visible edge. */
+.bottom-fade { display: none; }
+@media (min-width: 64rem) {
+  .bottom-fade {
+    display: block;
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 20;
+    height: var(--space-9);
+    pointer-events: none;
+    background: linear-gradient(to top,
+                var(--surface-page) 0%,
+                color-mix(in srgb, var(--surface-page) 88%, transparent) 20%,
+                color-mix(in srgb, var(--surface-page) 62%, transparent) 45%,
+                color-mix(in srgb, var(--surface-page) 30%, transparent) 70%,
+                color-mix(in srgb, var(--surface-page) 9%, transparent) 88%,
+                transparent 100%);
+    opacity: 0;
+    transition: opacity var(--dur-base) ease;
+  }
+  html[data-nav="top"] .bottom-fade { opacity: 1; }
+}
+
 /* ---- Navbar ----
    Hides while scrolling down, comes back when scrolling up. */
 .navbar {
@@ -533,6 +560,7 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
 .hero__grid { row-gap: var(--space-5); }
 
 .hero__intro,
+.hero__projects,
 .hero__media { grid-column: 1 / -1; }
 
 .hero__greeting,
@@ -552,7 +580,7 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
 .hero-list {
   display: flex;
   gap: var(--space-5);
-  margin-top: var(--space-5);
+  /* no top margin: the grid's row gap spaces it from the title */
   overflow-x: auto;
   scrollbar-width: none;
   scroll-snap-type: x proximity;
@@ -744,14 +772,13 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
 @media (min-width: 64rem) {
   .hero { padding-top: calc(var(--nav-height) + var(--space-7)); }
 
-  .hero__intro {
-    grid-column: 1 / span 5;
-    display: flex;
-    flex-direction: column;
-  }
-  /* Image top lines up with the "I am Apurba…" line, not the greeting */
-  .hero__media { grid-column: 7 / span 6; margin-top: calc(var(--fs-intro) * var(--lh-heading) + var(--space-1)); }
-
+  /* Row 1: greeting + title (left). Row 2: project list (left) + image (right),
+     so the image top lines up with the list whatever the title wraps to.
+     The space above the list is the grid's row gap. */
+  .hero__grid { row-gap: var(--space-6); }
+  .hero__intro    { grid-column: 1 / span 5; grid-row: 1; }
+  .hero__projects { grid-column: 1 / span 5; grid-row: 2; }
+  .hero__media    { grid-column: 7 / span 6; grid-row: 2; align-self: start; }
 
   /* Same look as the case study side menu: a line marks the selected item.
      Line: half a column (64-80rem) or one column (80rem+), then a gutter,
@@ -762,7 +789,6 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
     position: relative;
     flex-direction: column;
     gap: var(--space-1);
-    margin-top: var(--space-6);
     margin-inline: 0;
     padding-inline: calc(var(--line-w) + var(--gutter)) 0;
     overflow: visible;
