@@ -152,13 +152,33 @@
   --nav-pad-bottom: var(--space-5);
   --nav-height: calc(var(--nav-pad-top) + var(--logo-height) + var(--nav-pad-bottom));
 
+  /* Hero card (landing page). Flush with the top of the screen, margins on
+     the sides and bottom. Width: the screen minus the side margins, capped at
+     1440px (the 1200px content width + 120px each side). Starting height: the
+     screen minus the bottom margin (svh = the height with the mobile browser
+     bars showing, so it doesn't jump while scrolling). JS raises it on short
+     screens so the text always fits below the blur zone. */
+  --hero-card-margin:  var(--space-5);
+  --hero-card-max-w:   90rem;   /* 1440px */
+  --hero-card-w:       min(100vw - 2 * var(--hero-card-margin), var(--hero-card-max-w));
+  --hero-card-start-h: calc(100svh - var(--hero-card-margin));
+  /* The blur zone at the top of the screen (same formula as .top-blur's
+     --blur-base in main.css). The compact hero card keeps its text below it. */
+  --hero-clear: calc(var(--nav-height) + var(--space-5));
+  /* Space under the hero text: card at full size → compact card   64 · 64 · 96 → 20 · 32 · 32 */
+  --hero-pad-start: var(--space-7);
+  --hero-pad-end:   var(--space-5);
+
   /* Section-role font sizes.
      Each role has three values: small (< 48rem) · medium (48–64rem) · large (64rem+).
      Small is ~10% below the iPhone frame; medium keeps the iPhone frame sizes;
      large uses the desktop text styles. Values switch in section 7 below. */
-  --fs-intro:         1.25rem;                 /* "Hi there" / "I am Apurba…"   20 · 22 · 26 */
-  --fs-hero-list:     var(--fs-body-medium);   /* hero project list             18 · 20 · 20 */
-  --fs-hero-support:  var(--fs-m-14);          /* hero paragraph + facts        14 · 14 · 18 */
+  --fs-intro:          1.25rem;                /* "Hi there. I'm Apurba"         20 · 22 · 26 */
+  /* New text style Hero/Large (Montserrat ExtraBold, tight line height), Nov 2026.
+     The hero title starts at Hero/Large and shrinks to Hero while scrolling. */
+  --fs-hero-large:     2.25rem;                /* hero title, start   36 · 48 · 64 · 80 (XL) */
+  --fs-hero-large-end: var(--fs-m-28);         /* hero title, end     28 · 34 · 34 */
+  --fs-hero-text:      var(--fs-body);         /* hero paragraph      16 (long text stays 16) */
   --fs-eyebrow:       var(--fs-body-medium);   /* small label above titles      18 · 20 · 20 */
   --fs-section-title: var(--fs-label-large);   /* section titles                24 · 26 · 30 */
   --fs-cs-label:      var(--fs-body);          /* "CS / 01"                     16 · 18 · 18 */
@@ -239,7 +259,9 @@
 
     /* Medium type: the iPhone frame sizes */
     --fs-intro:         var(--fs-m-22);
-    --fs-hero-list:     var(--fs-label);
+    --fs-hero-large:     3rem;
+    --fs-hero-large-end: var(--fs-hero);
+    --hero-pad-end:      var(--space-6);
     --fs-eyebrow:       var(--fs-label);
     --fs-section-title: var(--fs-m-26);
     --fs-cs-label:      var(--fs-body-medium);
@@ -273,7 +295,8 @@
 
     /* Desktop type sizes */
     --fs-intro:         var(--fs-body-large);
-    --fs-hero-support:  var(--fs-body-medium);
+    --fs-hero-large:    4rem;
+    --hero-pad-start:   var(--space-8);
     --fs-section-title: var(--fs-heading);
     --fs-cs-title:      var(--fs-heading);
     --fs-cs-role:       var(--fs-body-medium);
@@ -293,6 +316,10 @@
   :root {
     --container:   75rem;     /* 1200px */
     --section-pad: var(--space-10);
+    --fs-hero-large: 5rem;
+    /* Wide screens: the hero card is no taller than 0.6 × its width
+       (about 5:3, close to 16:9); at the 1440px cap that is 864px */
+    --hero-card-start-h: min(100svh - var(--hero-card-margin), var(--hero-card-w) * 0.6);
   }
 }
 
