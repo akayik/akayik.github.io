@@ -1379,6 +1379,17 @@ html[data-nav="hidden"] .navbar { transform: translateY(-100%); }
   line-height: var(--lh-body);
   color: var(--text-label);   /* same as the footer logo */
 }
+.footer__link {
+  font-size: var(--fs-body);  /* Body/Default */
+  line-height: var(--lh-body);
+  color: var(--text-label);
+}
+
+/* Hover underline for the LinkedIn link: the label uses .cta__label's 1px line */
+@media (hover: hover) {
+  .footer__link:hover .cta__label { background-size: 100% 1px; }
+  .footer__link:hover { color: var(--text-strong); }
+}
 
 
 /* =====================================================================
