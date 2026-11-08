@@ -33,13 +33,15 @@
   <!-- First hero image: fetched early because it is the biggest thing on the first screen -->
   <link rel="preload" as="image" href="assets/img/CaseStudies/OGBConnect/hero.webp">
 
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/case-study.css">
+  <!-- Cache-busting: bump ?v= on every CSS/JS link (all 7 pages) whenever
+       those files change, so browsers fetch the new versions. -->
+  <link rel="stylesheet" href="css/tokens.css?v=20261108">
+  <link rel="stylesheet" href="css/main.css?v=20261108">
+  <link rel="stylesheet" href="css/case-study.css?v=20261108">
   <!-- main.js = shared behaviour (theme, navbar, preloader, entrance animations).
        case-study.js = this page's carousels, side menu, videos and lightbox. -->
-  <script src="js/main.js" defer></script>
-  <script src="js/case-study.js" defer></script>
+  <script src="js/main.js?v=20261108" defer></script>
+  <script src="js/case-study.js?v=20261108" defer></script>
 </head>
 
 <body>
